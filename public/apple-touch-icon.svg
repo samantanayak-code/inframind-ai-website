@@ -1,10 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
-  <rect width="180" height="180" rx="20" fill="#0F1419"/>
-  <rect x="30" y="30" width="120" height="8" fill="#A0AEC0"/>
-  <rect x="30" y="50" width="120" height="8" fill="#A0AEC0"/>
-  <rect x="30" y="70" width="120" height="8" fill="#A0AEC0"/>
-  <rect x="30" y="90" width="120" height="8" fill="#A0AEC0"/>
-  <rect x="50" y="40" width="24" height="24" fill="#3A7AB8"/>
-  <circle cx="90" cy="130" r="18" fill="#00B3B3"/>
-  <text x="90" y="165" text-anchor="middle" fill="#F7FAFC" font-family="Inter, sans-serif" font-size="16" font-weight="700">InfraMind AI</text>
+  <!-- Infrastructure Nexus Mark (centered) -->
+  <g transform="translate(50, 30)">
+    <!-- Left vertical (hidden "I") -->
+    <line x1="8" y1="8" x2="8" y2="88" stroke="#C45A27" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Right triangle (hidden "A") -->
+    <line x1="72" y1="8" x2="40" y2="88" stroke="#C45A27" stroke-width="4" stroke-linecap="round"/>
+    <line x1="40" y1="88" x2="72" y2="88" stroke="#C45A27" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Crossbar (connects "I" and "A") -->
+    <line x1="8" y1="48" x2="72" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Intelligence nodes -->
+    <circle cx="8" cy="8" r="6" fill="#C45A27"/>
+    <circle cx="8" cy="88" r="6" fill="#C45A27"/>
+    <circle cx="72" cy="8" r="6" fill="#C45A27"/>
+    <circle cx="40" cy="88" r="6" fill="#C45A27"/>
+    <circle cx="8" cy="48" r="4" fill="#C45A27"/>
+    <circle cx="72" cy="48" r="4" fill="#C45A27"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="90" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="#D0D3D8">InfraMind AI</text>
 </svg>
