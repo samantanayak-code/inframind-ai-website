@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700');
+      text { font-family: 'Inter', sans-serif; }
+    </style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E2128"/>
+      <stop offset="100%" style="stop-color:#14171C"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="550" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-weight="700" font-size="22" fill="#D0D3D8">Six-Module NCR Architecture</text>
+  <text x="400" y="60" text-anchor="middle" font-weight="400" font-size="12" fill="#8A8D95">NCR Tracker — End-to-End Non-Conformance Lifecycle</text>
+  
+  <!-- Infrastructure Nexus Mark -->
+  <g transform="translate(720, 15) scale(0.4)">
+    <line x1="8" y1="8" x2="8" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
+    <line x1="40" y1="8" x2="24" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
+    <line x1="24" y1="48" x2="40" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
+    <line x1="8" y1="28" x2="40" y2="28" stroke="#C45A27" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="8" cy="8" r="4" fill="#C45A27"/>
+    <circle cx="8" cy="48" r="4" fill="#C45A27"/>
+    <circle cx="40" cy="8" r="4" fill="#C45A27"/>
+    <circle cx="24" cy="48" r="4" fill="#C45A27"/>
+    <circle cx="8" cy="28" r="3" fill="#C45A27"/>
+    <circle cx="40" cy="28" r="3" fill="#C45A27"/>
+  </g>
+  
+  <!-- Module 1: NCR Dashboard -->
+  <rect x="40" y="90" width="220" height="100" rx="8" fill="#C45A27" fill-opacity="0.12" stroke="#C45A27" stroke-width="1.5"/>
+  <circle cx="60" cy="110" r="8" fill="#C45A27"/>
+  <text x="60" y="114" text-anchor="middle" font-weight="700" font-size="10" fill="#FFF">1</text>
+  <text x="75" y="115" font-weight="600" font-size="12" fill="#C45A27">NCR Dashboard</text>
+  <text x="60" y="138" font-weight="400" font-size="10" fill="#D0D3D8">Real-time visibility into</text>
+  <text x="60" y="152" font-weight="400" font-size="10" fill="#D0D3D8">count, status, criticality</text>
+  <text x="60" y="172" font-weight="400" font-size="9" fill="#8A8D95">KPI: Live NCR metrics</text>
+  
+  <!-- Module 2: Ops Dashboard -->
+  <rect x="290" y="90" width="220" height="100" rx="8" fill="#06B6D4" fill-opacity="0.12" stroke="#06B6D4" stroke-width="1.5"/>
+  <circle cx="310" cy="110" r="8" fill="#06B6D4"/>
+  <text x="310" y="114" text-anchor="middle" font-weight="700" font-size="10" fill="#FFF">2</text>
+  <text x="325" y="115" font-weight="600" font-size="12" fill="#06B6D4">Ops Dashboard</text>
+  <text x="310" y="138" font-weight="400" font-size="10" fill="#D0D3D8">Site supervision</text>
+  <text x="310" y="152" font-weight="400" font-size="10" fill="#D0D3D8">operational view</text>
+  <text x="310" y="172" font-weight="400" font-size="9" fill="#8A8D95">KPI: Site-level tracking</text>
+  
+  <!-- Module 3: NCR Register -->
+  <rect x="540" y="90" width="220" height="100" rx="8" fill="#10B981" fill-opacity="0.12" stroke="#10B981" stroke-width="1.5"/>
+  <circle cx="560" cy="110" r="8" fill="#10B981"/>
+  <text x="560" y="114" text-anchor="middle" font-weight="700" font-size="10" fill="#FFF">3</text>
+  <text x="575" y="115" font-weight="600" font-size="12" fill="#10B981">NCR Register</text>
+  <text x="560" y="138" font-weight="400" font-size="10" fill="#D0D3D8">Master searchable</text>
+  <text x="560" y="152" font-weight="400" font-size="10" fill="#D0D3D8">database with filters</text>
+  <text x="560" y="172" font-weight="400" font-size="9" fill="#8A8D95">KPI: 40%+ faster closure</text>
+  
+  <!-- Arrows between modules -->
+  <line x1="260" y1="140" x2="290" y2="140" stroke="#8A8D95" stroke-width="1.5"/>
+  <polygon points="285,135 295,140 285,145" fill="#8A8D95"/>
+  <line x1="510" y1="140" x2="540" y2="140" stroke="#8A8D95" stroke-width="1.5"/>
+  <polygon points="535,135 545,140 535,145" fill="#8A8D95"/>
+  
+  <!-- Module 4: Site Observations -->
+  <rect x="40" y="220" width="220" height="100" rx="8" fill="#8B5CF6" fill-opacity="0.12" stroke="#8B5CF6" stroke-width="1.5"/>
+  <circle cx="60" cy="240" r="8" fill="#8B5CF6"/>
+  <text x="60" y="244" text-anchor="middle" font-weight="700" font-size="10" fill="#FFF">4</text>
+  <text x="75" y="245" font-weight="600" font-size="12" fill="#8B5CF6">Site Observations</text>
+  <text x="60" y="268" font-weight="400" font-size="10" fill="#D0D3D8">Pre-NCR quality</text>
+  <text x="60" y="282" font-weight="400" font-size="10" fill="#D0D3D8">concern logging</text>
+  <text x="60" y="302" font-weight="400" font-size="9" fill="#8A8D95">KPI: Early detection</text>
+  
+  <!-- Module 5: Notifications -->
+  <rect x="290" y="220" width="220" height="100" rx="8" fill="#F59E0B" fill-opacity="0.12" stroke="#F59E0B" stroke-width="1.5"/>
+  <circle cx="310" cy="240" r="8" fill="#F59E0B"/>
+  <text x="310" y="244" text-anchor="middle" font-weight="700" font-size="10" fill="#FFF">5</text>
+  <text x="325" y="245" font-weight="600" font-size="12" fill="#F59E0B">Notifications</text>
+  <text x="310" y="268" font-weight="400" font-size="10" fill="#D0D3D8">Tiered escalation</text>
+  <text x="310" y="282" font-weight="400" font-size="10" fill="#D0D3D8">engine (7/3/1 day)</text>
+  <text x="310" y="302" font-weight="400" font-size="9" fill="#8A8D95">KPI: Auto-escalation</text>
+  
+  <!-- Module 6: User Management -->
+  <rect x="540" y="220" width="220" height="100" rx="8" fill="#EC4899" fill-opacity="0.12" stroke="#EC4899" stroke-width="1.5"/>
+  <circle cx="560" cy="240" r="8" fill="#EC4899"/>
+  <text x="560" y="244" text-anchor="middle" font-weight="700" font-size="10" fill="#FFF">6</text>
+  <text x="575" y="245" font-weight="600" font-size="12" fill="#EC4899">User Management</text>
+  <text x="560" y="268" font-weight="400" font-size="10" fill="#D0D3D8">RBAC and</text>
+  <text x="560" y="282" font-weight="400" font-size="10" fill="#D0D3D8">performance tracking</text>
+  <text x="560" y="302" font-weight="400" font-size="9" fill="#8A8D95">KPI: Role-based access</text>
+  
+  <!-- Arrows between modules -->
+  <line x1="260" y1="270" x2="290" y2="270" stroke="#8A8D95" stroke-width="1.5"/>
+  <polygon points="285,265 295,270 285,275" fill="#8A8D95"/>
+  <line x1="510" y1="270" x2="540" y2="270" stroke="#8A8D95" stroke-width="1.5"/>
+  <polygon points="535,265 545,270 535,275" fill="#8A8D95"/>
+  
+  <!-- Vertical arrows connecting rows -->
+  <line x1="150" y1="190" x2="150" y2="220" stroke="#8A8D95" stroke-width="1.5"/>
+  <polygon points="145,215 155,215 150,225" fill="#8A8D95"/>
+  <line x1="400" y1="190" x2="400" y2="220" stroke="#8A8D95" stroke-width="1.5"/>
+  <polygon points="395,215 405,215 400,225" fill="#8A8D95"/>
+  <line x1="650" y1="190" x2="650" y2="220" stroke="#8A8D95" stroke-width="1.5"/>
+  <polygon points="645,215 655,215 650,225" fill="#8A8D95"/>
+  
+  <!-- AI Engine Box -->
+  <rect x="40" y="350" width="720" height="80" rx="8" fill="#C45A27" fill-opacity="0.08" stroke="#C45A27" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="60" y="375" font-weight="600" font-size="13" fill="#C45A27">AI Engine</text>
+  <text x="60" y="395" font-weight="400" font-size="10" fill="#D0D3D8">LLM Categorization · Pattern Detection Analytics · Automated Escalation · Prompt Engineering for FIDIC Workflows</text>
+  <text x="60" y="415" font-weight="400" font-size="9" fill="#8A8D95">Powered by OpenAI GPT-4 · Domain-Calibrated for EPC Non-Conformance Management</text>
+  
+  <!-- Data Flow Arrows -->
+  <line x1="150" y1="320" x2="150" y2="350" stroke="#C45A27" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="400" y1="320" x2="400" y2="350" stroke="#C45A27" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="650" y1="320" x2="650" y2="350" stroke="#C45A27" stroke-width="1.5" stroke-dasharray="4,4"/>
+  
+  <!-- Metrics Bar -->
+  <rect x="40" y="455" width="230" height="70" rx="6" fill="#10B981" fill-opacity="0.1" stroke="#10B981" stroke-width="1"/>
+  <text x="155" y="480" text-anchor="middle" font-weight="600" font-size="20" fill="#10B981">40%+</text>
+  <text x="155" y="500" text-anchor="middle" font-weight="400" font-size="10" fill="#D0D3D8">Faster NCR Closure</text>
+  
+  <rect x="285" y="455" width="230" height="70" rx="6" fill="#06B6D4" fill-opacity="0.1" stroke="#06B6D4" stroke-width="1"/>
+  <text x="400" y="480" text-anchor="middle" font-weight="600" font-size="20" fill="#06B6D4">6</text>
+  <text x="400" y="500" text-anchor="middle" font-weight="400" font-size="10" fill="#D0D3D8">Integrated Modules</text>
+  
+  <rect x="530" y="455" width="230" height="70" rx="6" fill="#8B5CF6" fill-opacity="0.1" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="645" y="480" text-anchor="middle" font-weight="600" font-size="20" fill="#8B5CF6">LLM</text>
+  <text x="645" y="500" text-anchor="middle" font-weight="400" font-size="10" fill="#D0D3D8">Automated Categorization</text>
+  
+  <!-- Bottom Brand -->
+  <text x="400" y="540" text-anchor="middle" font-weight="400" font-size="9" fill="#C45A27">InfraMind AI — AI-Enabled EPC Operational Intelligence</text>
+</svg>
