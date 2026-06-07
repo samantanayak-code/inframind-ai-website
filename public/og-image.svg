@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0F1419"/>
+  <rect x="60" y="60" width="400" height="16" rx="2" fill="#A0AEC0"/>
+  <rect x="60" y="100" width="300" height="16" rx="2" fill="#A0AEC0"/>
+  <rect x="60" y="140" width="350" height="16" rx="2" fill="#A0AEC0"/>
+  <rect x="60" y="200" width="200" height="8" rx="2" fill="#252D38"/>
+  <rect x="60" y="220" width="160" height="8" rx="2" fill="#252D38"/>
+  <rect x="60" y="240" width="180" height="8" rx="2" fill="#252D38"/>
+  <rect x="800" y="100" width="340" height="430" rx="16" fill="#1A2028"/>
+  <rect x="820" y="120" width="300" height="180" rx="8" fill="#252D38"/>
+  <rect x="820" y="320" width="300" height="40" rx="8" fill="#252D38"/>
+  <rect x="820" y="380" width="200" height="40" rx="8" fill="#252D38"/>
+  <circle cx="970" cy="500" r="40" fill="#3A7AB8"/>
+  <text x="970" y="508" text-anchor="middle" fill="#F7FAFC" font-family="Inter, sans-serif" font-size="28" font-weight="700">IM</text>
+  <text x="60" y="580" fill="#718096" font-family="Inter, sans-serif" font-size="24">Operational Intelligence for Infrastructure EPC Megaprojects</text>
+</svg>

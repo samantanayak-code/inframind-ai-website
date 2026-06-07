@@ -43,10 +43,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <Badge variant={product.status === "production" ? "production" : "demonstrable"}>
                   {product.status === "production" ? "L3 — Production" : "Demonstrable Prototype"}
                 </Badge>
-                <span className="text-xs text-gray-500">{product.category}</span>
+                <span className="text-xs text-graphite-500">{product.category}</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{product.name}</h1>
-              <p className="text-lg text-gray-400 mb-8">{product.description}</p>
+              <p className="text-lg text-graphite-300 mb-8">{product.description}</p>
               <div className="flex gap-3">
                 <Button href="/contact" size="lg">
                   Request Consultation <ArrowRight className="w-4 h-4" />
@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-800">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-graphite-700">
               <Image
                 src={product.screenshot}
                 alt={product.name}
@@ -114,16 +114,16 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="overflow-x-auto">
             <table className="w-full text-sm max-w-2xl">
               <thead>
-                <tr className="border-b border-gray-800">
-                  <th className="text-left py-3 px-4 text-gray-400 font-medium">Layer</th>
-                  <th className="text-left py-3 px-4 text-gray-400 font-medium">Technology</th>
+                <tr className="border-b border-graphite-700">
+                  <th className="text-left py-3 px-4 text-graphite-400 font-medium">Layer</th>
+                  <th className="text-left py-3 px-4 text-graphite-400 font-medium">Technology</th>
                 </tr>
               </thead>
               <tbody>
                 {product.techStack.map((t) => (
-                  <tr key={t.layer} className="border-b border-gray-800/50">
+                  <tr key={t.layer} className="border-b border-graphite-700/50">
                     <td className="py-3 px-4 text-white font-medium">{t.layer}</td>
-                    <td className="py-3 px-4 text-gray-400">{t.technology}</td>
+                    <td className="py-3 px-4 text-graphite-400">{t.technology}</td>
                   </tr>
                 ))}
               </tbody>

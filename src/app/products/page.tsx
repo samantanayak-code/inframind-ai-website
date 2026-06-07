@@ -56,7 +56,7 @@ export default function ProductsPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Operational Intelligence Products
           </h1>
-          <p className="text-lg text-gray-400 max-w-2xl">
+          <p className="text-lg text-graphite-300 max-w-2xl">
             Five interconnected products creating compound intelligence for EPC megaprojects.
           </p>
         </Container>
@@ -83,22 +83,22 @@ export default function ProductsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-800">
-                  <th className="text-left py-3 px-4 text-gray-400 font-medium">Technology</th>
-                  <th className="text-left py-3 px-4 text-gray-400 font-medium">Application</th>
-                  <th className="text-left py-3 px-4 text-gray-400 font-medium">Status</th>
+                <tr className="border-b border-graphite-700">
+                  <th className="text-left py-3 px-4 text-graphite-400 font-medium">Technology</th>
+                  <th className="text-left py-3 px-4 text-graphite-400 font-medium">Application</th>
+                  <th className="text-left py-3 px-4 text-graphite-400 font-medium">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {aiCapabilities.map((cap) => (
-                  <tr key={cap.technology} className="border-b border-gray-800/50">
+                  <tr key={cap.technology} className="border-b border-graphite-700/50">
                     <td className="py-3 px-4 text-white font-medium">{cap.technology}</td>
-                    <td className="py-3 px-4 text-gray-400">{cap.application}</td>
+                    <td className="py-3 px-4 text-graphite-400">{cap.application}</td>
                     <td className="py-3 px-4">
                       <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
                         cap.status === "Production"
-                          ? "bg-emerald-500/10 text-emerald-400"
-                          : "bg-amber-500/10 text-amber-400"
+                          ? "bg-success/10 text-success-light"
+                          : "bg-warning/10 text-warning-light"
                       }`}>
                         {cap.status}
                       </span>
@@ -115,27 +115,27 @@ export default function ProductsPage() {
       <Section>
         <Container>
           <h2 className="text-2xl font-bold text-white mb-6">Product Ecosystem</h2>
-          <div className="max-w-3xl p-6 rounded-xl bg-gray-900 border border-gray-800">
+          <div className="max-w-3xl p-6 rounded-xl bg-graphite-800 border border-graphite-700">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-              <div className="p-4 rounded-lg bg-gray-800">
-                <div className="text-xs text-gray-500 mb-1">Layer 1</div>
+              <div className="p-4 rounded-lg bg-graphite-700">
+                <div className="text-xs text-graphite-500 mb-1">Layer 1</div>
                 <div className="text-sm font-medium text-white">Data Capture</div>
-                <div className="text-xs text-gray-400 mt-1">OCR Intelligence</div>
+                <div className="text-xs text-graphite-400 mt-1">OCR Intelligence</div>
               </div>
-              <div className="p-4 rounded-lg bg-gray-800">
-                <div className="text-xs text-gray-500 mb-1">Layer 2</div>
+              <div className="p-4 rounded-lg bg-graphite-700">
+                <div className="text-xs text-graphite-500 mb-1">Layer 2</div>
                 <div className="text-sm font-medium text-white">Intelligence</div>
-                <div className="text-xs text-gray-400 mt-1">Digital Twin, NCR Tracker</div>
+                <div className="text-xs text-graphite-400 mt-1">Digital Twin, NCR Tracker</div>
               </div>
-              <div className="p-4 rounded-lg bg-gray-800">
-                <div className="text-xs text-gray-500 mb-1">Layer 3</div>
+              <div className="p-4 rounded-lg bg-graphite-700">
+                <div className="text-xs text-graphite-500 mb-1">Layer 3</div>
                 <div className="text-sm font-medium text-white">Decision</div>
-                <div className="text-xs text-gray-400 mt-1">Contract Forensics</div>
+                <div className="text-xs text-graphite-400 mt-1">Contract Forensics</div>
               </div>
-              <div className="p-4 rounded-lg bg-gray-800">
-                <div className="text-xs text-gray-500 mb-1">Layer 4</div>
+              <div className="p-4 rounded-lg bg-graphite-700">
+                <div className="text-xs text-graphite-500 mb-1">Layer 4</div>
                 <div className="text-sm font-medium text-white">Evidence</div>
-                <div className="text-xs text-gray-400 mt-1">All Products</div>
+                <div className="text-xs text-graphite-400 mt-1">All Products</div>
               </div>
             </div>
           </div>

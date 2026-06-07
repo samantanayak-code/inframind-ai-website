@@ -17,7 +17,7 @@ export default function CaseStudiesPage() {
       <Section className="pt-20 pb-16 md:pt-32 md:pb-24">
         <Container>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Case Studies</h1>
-          <p className="text-lg text-gray-400 max-w-2xl">
+          <p className="text-lg text-graphite-300 max-w-2xl">
             Real-world evidence of operational intelligence deployed on EPC megaprojects.
           </p>
         </Container>

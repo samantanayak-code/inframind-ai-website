@@ -25,12 +25,12 @@ export function Button({
   disabled,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 disabled:pointer-events-none disabled:opacity-50";
+    "inline-flex items-center justify-center font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-900 disabled:pointer-events-none disabled:opacity-50";
 
   const variants = {
-    primary: "bg-indigo-600 text-white hover:bg-indigo-500",
-    secondary: "bg-gray-800 text-white border border-gray-700 hover:bg-gray-700",
-    ghost: "text-gray-400 hover:text-white hover:bg-gray-800",
+    primary: "bg-infrastructure-600 text-white hover:bg-infrastructure-500",
+    secondary: "bg-graphite-800 text-white border border-graphite-700 hover:bg-graphite-700",
+    ghost: "text-graphite-400 hover:text-white hover:bg-graphite-800",
   };
 
   const sizes = {

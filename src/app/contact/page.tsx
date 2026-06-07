@@ -65,9 +65,9 @@ export default function ContactPage() {
     }
   };
 
-  const inputClass = "w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent";
-  const labelClass = "block text-sm font-medium text-gray-300 mb-1";
-  const errorClass = "text-xs text-red-400 mt-1";
+  const inputClass = "w-full px-3 py-2 bg-graphite-800 border border-graphite-700 rounded-lg text-white text-sm placeholder-graphite-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent";
+  const labelClass = "block text-sm font-medium text-graphite-300 mb-1";
+  const errorClass = "text-xs text-error-light mt-1";
 
   return (
     <>
@@ -77,7 +77,7 @@ export default function ContactPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Contact
           </h1>
-          <p className="text-lg text-gray-400 max-w-2xl">
+          <p className="text-lg text-graphite-300 max-w-2xl">
             Schedule a consultation to discuss how practitioner-built operational intelligence can reduce contractual exposure on your EPC project.
           </p>
         </Container>
@@ -89,12 +89,12 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:col-span-2">
               {submitted ? (
-                <div className="p-8 rounded-xl bg-gray-900 border border-gray-800 text-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
-                    <Send className="w-8 h-8 text-emerald-400" />
+                <div className="p-8 rounded-xl bg-graphite-800 border border-graphite-700 text-center">
+                  <div className="w-16 h-16 rounded-full bg-success/10 flex items-center justify-center mx-auto mb-4">
+                    <Send className="w-8 h-8 text-success-light" />
                   </div>
                   <h2 className="text-xl font-bold text-white mb-2">Thank You</h2>
-                  <p className="text-gray-400 mb-6">Your consultation request has been submitted. We will respond within 2 business days.</p>
+                  <p className="text-graphite-400 mb-6">Your consultation request has been submitted. We will respond within 2 business days.</p>
                   <Button onClick={() => setSubmitted(false)} variant="secondary">Submit Another Request</Button>
                 </div>
               ) : (
@@ -231,44 +231,44 @@ export default function ContactPage() {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              <div className="p-6 rounded-xl bg-gray-900 border border-gray-800">
+              <div className="p-6 rounded-xl bg-graphite-800 border border-graphite-700">
                 <h3 className="text-lg font-semibold text-white mb-4">Consultation Types</h3>
                 <div className="space-y-3">
                   {consultationTypes.map((t) => (
-                    <div key={t} className="text-sm text-gray-400">{t}</div>
+                    <div key={t} className="text-sm text-graphite-400">{t}</div>
                   ))}
                 </div>
               </div>
 
-              <div className="p-6 rounded-xl bg-gray-900 border border-gray-800">
+              <div className="p-6 rounded-xl bg-graphite-800 border border-graphite-700">
                 <h3 className="text-lg font-semibold text-white mb-4">Inquiry Workflow</h3>
                 <div className="space-y-3">
                   {inquiryWorkflow.map((step) => (
                     <div key={step.step} className="flex gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-xs text-indigo-400 font-medium">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-xs text-cyan-400 font-medium">
                         {step.step}
                       </div>
                       <div>
                         <div className="text-sm font-medium text-white">{step.title}</div>
-                        <div className="text-xs text-gray-500">{step.description}</div>
+                        <div className="text-xs text-graphite-500">{step.description}</div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="p-6 rounded-xl bg-gray-900 border border-gray-800">
+              <div className="p-6 rounded-xl bg-graphite-800 border border-graphite-700">
                 <h3 className="text-lg font-semibold text-white mb-4">Direct Contact</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <div className="flex items-center gap-2 text-sm text-graphite-400">
                     <Mail className="w-4 h-4" />
                     samanta.nayak@gmail.com
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <div className="flex items-center gap-2 text-sm text-graphite-400">
                     <MapPin className="w-4 h-4" />
                     India (global delivery available)
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <div className="flex items-center gap-2 text-sm text-graphite-400">
                     <Clock className="w-4 h-4" />
                     Response within 2 business days
                   </div>

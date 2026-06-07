@@ -1,19 +1,58 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #030712;
-  --color-foreground: #ffffff;
-  --color-primary: #312e81;
-  --color-primary-light: #4338ca;
-  --color-primary-hover: #3730a3;
-  --color-card: #111827;
-  --color-elevated: #1f2937;
-  --color-border: #1f2937;
-  --color-text-secondary: #9ca3af;
-  --color-text-muted: #6b7280;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-background: #0F1419;
+  --color-foreground: #F7FAFC;
+  --color-primary: #3A7AB8;
+  --color-primary-light: #5A9AD8;
+  --color-primary-hover: #2A6094;
+  --color-card: #1A2028;
+  --color-elevated: #252D38;
+  --color-border: #252D38;
+  --color-text-secondary: #A0AEC0;
+  --color-text-muted: #718096;
+  --color-success: #2E7D32;
+  --color-success-light: #4CAF50;
+  --color-warning: #F57C00;
+  --color-warning-light: #FFB74D;
+  --color-error: #C62828;
+  --color-error-light: #EF5350;
+  --color-info: #1565C0;
+  --color-info-light: #42A5F5;
+
+  --color-graphite-900: #0F1419;
+  --color-graphite-800: #1A2028;
+  --color-graphite-700: #252D38;
+  --color-graphite-600: #364049;
+  --color-graphite-500: #4A5568;
+  --color-graphite-400: #718096;
+  --color-graphite-300: #A0AEC0;
+  --color-graphite-200: #CBD5E0;
+  --color-graphite-100: #E2E8F0;
+  --color-graphite-50: #F7FAFC;
+
+  --color-infrastructure-900: #0C2340;
+  --color-infrastructure-800: #14365C;
+  --color-infrastructure-700: #1C4A78;
+  --color-infrastructure-600: #2A6094;
+  --color-infrastructure-500: #3A7AB8;
+  --color-infrastructure-400: #5A9AD8;
+  --color-infrastructure-300: #7AB8E8;
+  --color-infrastructure-200: #A8D4F2;
+  --color-infrastructure-100: #D4EAF9;
+  --color-infrastructure-50: #EDF5FC;
+
+  --color-cyan-900: #004D4D;
+  --color-cyan-800: #006666;
+  --color-cyan-700: #008080;
+  --color-cyan-600: #009999;
+  --color-cyan-500: #00B3B3;
+  --color-cyan-400: #00CCCC;
+  --color-cyan-300: #33D6D6;
+  --color-cyan-200: #66E0E0;
+  --color-cyan-100: #99EBEB;
+  --color-cyan-50: #CCF5F5;
+
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
@@ -34,7 +73,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-primary-light);
+  outline: 2px solid var(--color-cyan-500);
   outline-offset: 2px;
 }
 

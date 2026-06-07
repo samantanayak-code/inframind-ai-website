@@ -32,7 +32,7 @@ export function ScreenshotGallery({ screenshots, layout = "grid" }: ScreenshotGa
           <button
             key={i}
             onClick={() => openLightbox(i)}
-            className="group relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-800 cursor-pointer"
+            className="group relative aspect-[4/3] rounded-lg overflow-hidden bg-graphite-700 cursor-pointer"
           >
             <Image
               src={s.src}

@@ -32,14 +32,14 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <Section className="relative overflow-hidden pt-20 pb-24 md:pt-32 md:pb-36">
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-infrastructure-900/30 to-transparent" />
         <Container className="relative">
           <div className="max-w-3xl">
             <Badge variant="production" className="mb-4">Deployed on MAHSR T-3</Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-balance">
               Operational Intelligence for Infrastructure
             </h1>
-            <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl">
+            <p className="text-lg md:text-xl text-graphite-300 mb-8 max-w-2xl">
               Practitioner-built AI systems for EPC megaprojects — deployed on India&apos;s major infrastructure contracts, engineered by 19 years of lived FIDIC contract administration experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -51,7 +51,7 @@ export default function HomePage() {
                 Request a Consultation
               </Button>
             </div>
-            <p className="mt-6 text-sm text-gray-500">
+            <p className="mt-6 text-sm text-graphite-500">
               Deployed on MAHSR T-3 Track Package — INR 3,142 Crore FIDIC Yellow Book contract. JICA (Funder) → NHSRCL (Employer) → JICC (Engineer) → L&T Limited (Contractor)
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function HomePage() {
       <Section className="py-12">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-graphite-300">
               For EPC project leaders who manage megaprojects under FIDIC contract regimes — where information lag transforms manageable risks into costly disputes, and where defensible contemporaneous records determine claim outcomes.
             </p>
           </div>
@@ -131,12 +131,12 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto space-y-6">
             {whyReasons.map((reason) => (
               <div key={reason.title} className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
-                  <reason.icon className="w-5 h-5 text-indigo-400" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                  <reason.icon className="w-5 h-5 text-cyan-500" />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white mb-1">{reason.title}</h3>
-                  <p className="text-sm text-gray-400">{reason.description}</p>
+                  <p className="text-sm text-graphite-400">{reason.description}</p>
                 </div>
               </div>
             ))}

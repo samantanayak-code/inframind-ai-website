@@ -32,12 +32,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <>
       <Section className="pt-20 pb-16 md:pt-32 md:pb-24">
         <Container>
-          <Link href="/services" className="inline-flex items-center text-sm text-gray-400 hover:text-white mb-6 transition-colors">
+          <Link href="/services" className="inline-flex items-center text-sm text-graphite-400 hover:text-white mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-1" /> Back to Services
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{service.name}</h1>
-          <p className="text-lg text-gray-400 max-w-2xl mb-8">{service.description}</p>
-          <div className="flex items-center gap-6 text-sm text-gray-400">
+          <p className="text-lg text-graphite-300 max-w-2xl mb-8">{service.description}</p>
+          <div className="flex items-center gap-6 text-sm text-graphite-400">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" /> {service.timeline}
             </div>
@@ -69,12 +69,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               const [title, desc] = step.split(" — ");
               return (
                 <div key={i} className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-sm text-indigo-400 font-medium">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-sm text-cyan-400 font-medium">
                     {i + 1}
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-white">{title}</h3>
-                    <p className="text-sm text-gray-400">{desc}</p>
+                    <p className="text-sm text-graphite-400">{desc}</p>
                   </div>
                 </div>
               );

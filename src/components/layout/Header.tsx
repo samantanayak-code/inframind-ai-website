@@ -20,11 +20,11 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gray-800 bg-gray-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-graphite-800 bg-graphite-900/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg">
-            <Brain className="w-6 h-6 text-indigo-400" />
+            <Brain className="w-6 h-6 text-infrastructure-400" />
             <span>InfraMind AI</span>
           </Link>
 
@@ -35,8 +35,8 @@ export function Header() {
                 href={item.href}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   pathname === item.href
-                    ? "text-white bg-gray-800"
-                    : "text-gray-400 hover:text-white hover:bg-gray-800/50"
+                    ? "text-white bg-graphite-800"
+                    : "text-graphite-400 hover:text-white hover:bg-graphite-800/50"
                 }`}
               >
                 {item.label}
@@ -51,7 +51,7 @@ export function Header() {
           </div>
 
           <button
-            className="md:hidden p-2 text-gray-400 hover:text-white"
+            className="md:hidden p-2 text-graphite-400 hover:text-white"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
@@ -61,7 +61,7 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-800 bg-gray-950">
+        <div className="md:hidden border-t border-graphite-800 bg-graphite-900">
           <nav className="px-4 py-4 space-y-1">
             {navItems.map((item) => (
               <Link
@@ -70,8 +70,8 @@ export function Header() {
                 onClick={() => setMobileOpen(false)}
                 className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   pathname === item.href
-                    ? "text-white bg-gray-800"
-                    : "text-gray-400 hover:text-white hover:bg-gray-800/50"
+                    ? "text-white bg-graphite-800"
+                    : "text-graphite-400 hover:text-white hover:bg-graphite-800/50"
                 }`}
               >
                 {item.label}

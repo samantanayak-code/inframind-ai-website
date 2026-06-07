@@ -46,7 +46,7 @@ export default function AboutPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             The Practitioner Behind the Platform
           </h1>
-          <p className="text-lg text-gray-400 max-w-2xl">
+          <p className="text-lg text-graphite-300 max-w-2xl">
             20+ years of EPC infrastructure experience, encoded into AI-augmented operational intelligence systems.
           </p>
         </Container>
@@ -56,16 +56,16 @@ export default function AboutPage() {
       <Section className="py-12">
         <Container>
           <div className="max-w-3xl">
-            <div className="p-6 rounded-xl bg-gray-900 border border-gray-800">
+            <div className="p-6 rounded-xl bg-graphite-800 border border-graphite-700">
               <h2 className="text-xl font-bold text-white mb-2">Samanta Nayak</h2>
-              <p className="text-gray-400 mb-4">Manager — Contracts & Claims, Larsen & Toubro Limited</p>
+              <p className="text-graphite-400 mb-4">Manager — Contracts & Claims, Larsen & Toubro Limited</p>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <div className="text-xs text-gray-500">Experience</div>
+                  <div className="text-xs text-graphite-500">Experience</div>
                   <div className="text-sm font-medium text-white">20+ Years EPC Infrastructure</div>
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500">Roles</div>
+                  <div className="text-xs text-graphite-500">Roles</div>
                   <div className="text-sm font-medium text-white">Contracts & Claims Management</div>
                   <div className="text-sm font-medium text-white">Infrastructure AI Architect</div>
                 </div>
@@ -84,7 +84,7 @@ export default function AboutPage() {
             <MetricCard value="FIDIC Yellow Book" label="Contract Form" />
             <MetricCard value="115.877 km" label="Scope — Vadodara to Sabarmati" />
           </div>
-          <div className="max-w-3xl space-y-4 text-gray-400 text-sm">
+          <div className="max-w-3xl space-y-4 text-graphite-300 text-sm">
             <p>
               The Mumbai-Ahmedabad High-Speed Rail (MAHSR) T-3 Track Package represents one of India&apos;s most significant infrastructure megaprojects. Under JICA/JICC oversight, this FIDIC Yellow Book contract encompasses 115.877 km of track construction from Vadodara to Sabarmati.
             </p>
@@ -102,7 +102,7 @@ export default function AboutPage() {
       <Section>
         <Container>
           <h2 className="text-2xl font-bold text-white mb-6">The AI Journey</h2>
-          <div className="max-w-3xl space-y-4 text-gray-400 text-sm">
+          <div className="max-w-3xl space-y-4 text-graphite-300 text-sm">
             <p>
               From EPC practitioner to Infrastructure AI Architect — the journey began with a simple observation: the information lag between site execution and management visibility was the root cause of preventable disputes.
             </p>
@@ -125,13 +125,13 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold text-white mb-6">Credentials</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {credentials.map((cred) => (
-              <div key={cred.title} className="flex gap-4 p-4 rounded-xl bg-gray-900 border border-gray-800">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
-                  <cred.icon className="w-5 h-5 text-indigo-400" />
+              <div key={cred.title} className="flex gap-4 p-4 rounded-xl bg-graphite-800 border border-graphite-700">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                  <cred.icon className="w-5 h-5 text-cyan-500" />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white">{cred.title}</h3>
-                  <p className="text-xs text-gray-400 mt-0.5">{cred.description}</p>
+                  <p className="text-xs text-graphite-400 mt-0.5">{cred.description}</p>
                 </div>
               </div>
             ))}
@@ -147,11 +147,11 @@ export default function AboutPage() {
             {timeline.map((item, index) => (
               <div key={`${item.year}-${index}`} className="flex gap-4">
                 <div className="flex-shrink-0 w-16 text-right">
-                  <span className="text-sm font-mono text-indigo-400">{item.year}</span>
+                  <span className="text-sm font-mono text-infrastructure-400">{item.year}</span>
                 </div>
-                <div className="flex-shrink-0 w-px bg-gray-800" />
+                <div className="flex-shrink-0 w-px bg-graphite-700" />
                 <div>
-                  <p className="text-sm text-gray-300">{item.event}</p>
+                  <p className="text-sm text-graphite-300">{item.event}</p>
                 </div>
               </div>
             ))}
@@ -163,8 +163,8 @@ export default function AboutPage() {
       <Section>
         <Container>
           <h2 className="text-2xl font-bold text-white mb-6">Vision</h2>
-          <div className="max-w-3xl space-y-4 text-gray-400 text-sm">
-            <p className="text-lg text-gray-300 italic">
+          <div className="max-w-3xl space-y-4 text-graphite-300 text-sm">
+            <p className="text-lg text-graphite-200 italic">
               &ldquo;To make operational intelligence the default state of EPC megaproject administration — eliminating the information lag that transforms manageable risks into costly disputes.&rdquo;
             </p>
             <p>

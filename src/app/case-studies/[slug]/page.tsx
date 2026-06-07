@@ -34,15 +34,15 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       {/* Hero */}
       <Section className="pt-20 pb-16 md:pt-32 md:pb-24">
         <Container>
-          <Link href="/case-studies" className="inline-flex items-center text-sm text-gray-400 hover:text-white mb-6 transition-colors">
+          <Link href="/case-studies" className="inline-flex items-center text-sm text-graphite-400 hover:text-white mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-1" /> Back to Case Studies
           </Link>
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-medium text-indigo-400">{cs.product}</span>
+            <span className="text-xs font-medium text-infrastructure-400">{cs.product}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{cs.title}</h1>
-          <p className="text-lg text-gray-400 mb-2">{cs.subtitle}</p>
-          <p className="text-sm font-mono text-emerald-400">{cs.heroMetric}</p>
+          <p className="text-lg text-graphite-300 mb-2">{cs.subtitle}</p>
+          <p className="text-sm font-mono text-success-light">{cs.heroMetric}</p>
         </Container>
       </Section>
 
@@ -61,7 +61,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <Section>
         <Container>
           <h2 className="text-2xl font-bold text-white mb-4">Problem</h2>
-          <p className="text-gray-400 max-w-3xl leading-relaxed">{cs.problem}</p>
+          <p className="text-graphite-300 max-w-3xl leading-relaxed">{cs.problem}</p>
         </Container>
       </Section>
 
@@ -69,7 +69,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <Section>
         <Container>
           <h2 className="text-2xl font-bold text-white mb-4">Solution</h2>
-          <p className="text-gray-400 max-w-3xl leading-relaxed">{cs.solution}</p>
+          <p className="text-graphite-300 max-w-3xl leading-relaxed">{cs.solution}</p>
         </Container>
       </Section>
 
@@ -77,7 +77,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <Section>
         <Container>
           <h2 className="text-2xl font-bold text-white mb-4">Impact</h2>
-          <p className="text-gray-400 max-w-3xl leading-relaxed">{cs.impact}</p>
+          <p className="text-graphite-300 max-w-3xl leading-relaxed">{cs.impact}</p>
         </Container>
       </Section>
 

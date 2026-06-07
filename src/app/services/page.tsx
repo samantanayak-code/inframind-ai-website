@@ -26,7 +26,7 @@ export default function ServicesPage() {
       <Section className="pt-20 pb-16 md:pt-32 md:pb-24">
         <Container>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Services</h1>
-          <p className="text-lg text-gray-400 max-w-2xl">
+          <p className="text-lg text-graphite-300 max-w-2xl">
             EPC intelligence consulting — from strategy through deployment.
           </p>
         </Container>
@@ -37,13 +37,13 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service) => (
               <Link key={service.slug} href={`/services/${service.slug}`} className="group block">
-                <article className="h-full p-6 rounded-xl bg-gray-900 border border-gray-800 hover:border-gray-700 transition-all duration-300">
-                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                <article className="h-full p-6 rounded-xl bg-graphite-800 border border-graphite-700 hover:border-graphite-600 transition-all duration-300">
+                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-infrastructure-400 transition-colors">
                     {service.name}
                   </h3>
-                  <p className="text-sm text-gray-400 mb-3 line-clamp-3">{service.description}</p>
-                  <div className="text-xs text-gray-500 mb-4">For: {service.targetClient}</div>
-                  <div className="flex items-center text-sm text-indigo-400 group-hover:text-indigo-300 transition-colors">
+                  <p className="text-sm text-graphite-400 mb-3 line-clamp-3">{service.description}</p>
+                  <div className="text-xs text-graphite-500 mb-4">For: {service.targetClient}</div>
+                  <div className="flex items-center text-sm text-infrastructure-400 group-hover:text-infrastructure-300 transition-colors">
                     Learn More
                     <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -59,10 +59,10 @@ export default function ServicesPage() {
           <h2 className="text-2xl font-bold text-white mb-6">Service Packages</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {packages.map((pkg) => (
-              <div key={pkg.name} className="p-6 rounded-xl bg-gray-900 border border-gray-800">
+              <div key={pkg.name} className="p-6 rounded-xl bg-graphite-800 border border-graphite-700">
                 <h3 className="text-lg font-semibold text-white mb-2">{pkg.name}</h3>
-                <p className="text-sm text-gray-400 mb-1">{pkg.services}</p>
-                <p className="text-xs text-gray-500">For: {pkg.target}</p>
+                <p className="text-sm text-graphite-400 mb-1">{pkg.services}</p>
+                <p className="text-xs text-graphite-500">For: {pkg.target}</p>
               </div>
             ))}
           </div>
