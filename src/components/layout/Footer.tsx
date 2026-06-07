@@ -28,7 +28,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg mb-4">
-              <InfraMindLogo variant="icon" />
+              <InfraMindLogo variant="horizontal" />
             </Link>
             <p className="text-sm text-graphite-500">
               Operational Intelligence for Infrastructure EPC Megaprojects

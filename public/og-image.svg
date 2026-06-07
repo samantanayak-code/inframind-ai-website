@@ -8,24 +8,26 @@
   <!-- Background -->
   <rect width="1200" height="630" fill="#111827"/>
   
-  <!-- Blue IM Monogram (centered) -->
-  <g transform="translate(500, 100)">
-    <rect x="0" y="0" width="14" height="200" rx="3" fill="#2A6094"/>
-    <rect x="40" y="0" width="14" height="200" rx="3" fill="#2A6094"/>
-    <path d="M40 0 L80 68 L74 68 L40 8" fill="#2A6094"/>
-    <path d="M120 0 L80 68 L86 68 L120 8" fill="#2A6094"/>
-    <rect x="120" y="0" width="14" height="200" rx="3" fill="#2A6094"/>
-    <rect x="0" y="195" width="134" height="14" rx="3" fill="#2A6094"/>
+  <!-- Horizontal Logo (centered) -->
+  <g transform="translate(380, 200)">
+    <!-- IM Monogram -->
+    <rect x="0" y="0" width="10" height="60" rx="2" fill="#2A6094"/>
+    <rect x="18" y="0" width="10" height="60" rx="2" fill="#2A6094"/>
+    <path d="M18 0 L32 22 L28.5 22 L18 3" fill="#2A6094"/>
+    <path d="M50 0 L32 22 L35.5 22 L50 3" fill="#2A6094"/>
+    <rect x="50" y="0" width="10" height="60" rx="2" fill="#2A6094"/>
+    <rect x="0" y="58" width="60" height="5" rx="1.5" fill="#2A6094"/>
+    
+    <!-- Wordmark -->
+    <text x="80" y="50" font-family="Inter, sans-serif" font-weight="700" font-size="52" fill="#D1D5DB">InfraMind</text>
+    <text x="348" y="50" font-family="Inter, sans-serif" font-weight="700" font-size="52" fill="#2A6094">AI</text>
   </g>
   
-  <!-- Title -->
-  <text x="600" y="390" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="52" fill="#D1D5DB">InfraMind AI</text>
-  
   <!-- Tagline -->
-  <text x="600" y="440" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="24" fill="#9CA3AF">Digitise. Analyse. Decide.</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="22" fill="#9CA3AF">Digitise. Analyse. Decide.</text>
   
   <!-- Subtitle -->
-  <text x="600" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="18" fill="#2A6094">AI-Enabled EPC Operational Intelligence</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="16" fill="#2A6094">AI-Enabled EPC Operational Intelligence</text>
   
   <!-- Website URL -->
   <text x="600" y="570" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="14" fill="#6B7280">https://inframind.ai</text>
