@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/primitives/Button";
+import { InfraMindLogo } from "@/components/branding/InfraMindLogo";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -24,19 +25,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg">
-            <svg viewBox="0 0 48 48" className="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="8" y1="8" x2="8" y2="40" stroke="#C45A27" strokeWidth="3" strokeLinecap="round"/>
-              <line x1="40" y1="8" x2="24" y2="40" stroke="#C45A27" strokeWidth="3" strokeLinecap="round"/>
-              <line x1="24" y1="40" x2="40" y2="40" stroke="#C45A27" strokeWidth="3" strokeLinecap="round"/>
-              <line x1="8" y1="24" x2="40" y2="24" stroke="#C45A27" strokeWidth="2" strokeLinecap="round"/>
-              <circle cx="8" cy="8" r="4" fill="#C45A27"/>
-              <circle cx="8" cy="40" r="4" fill="#C45A27"/>
-              <circle cx="40" cy="8" r="4" fill="#C45A27"/>
-              <circle cx="24" cy="40" r="4" fill="#C45A27"/>
-              <circle cx="8" cy="24" r="3" fill="#C45A27"/>
-              <circle cx="40" cy="24" r="3" fill="#C45A27"/>
-            </svg>
-            <span>InfraMind AI</span>
+            <InfraMindLogo variant="icon" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">

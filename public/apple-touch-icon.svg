@@ -1,25 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
-  <!-- Infrastructure Nexus Mark (centered) -->
-  <g transform="translate(50, 30)">
-    <!-- Left vertical (hidden "I") -->
-    <line x1="8" y1="8" x2="8" y2="88" stroke="#C45A27" stroke-width="4" stroke-linecap="round"/>
-    
-    <!-- Right triangle (hidden "A") -->
-    <line x1="72" y1="8" x2="40" y2="88" stroke="#C45A27" stroke-width="4" stroke-linecap="round"/>
-    <line x1="40" y1="88" x2="72" y2="88" stroke="#C45A27" stroke-width="4" stroke-linecap="round"/>
-    
-    <!-- Crossbar (connects "I" and "A") -->
-    <line x1="8" y1="48" x2="72" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
-    
-    <!-- Intelligence nodes -->
-    <circle cx="8" cy="8" r="6" fill="#C45A27"/>
-    <circle cx="8" cy="88" r="6" fill="#C45A27"/>
-    <circle cx="72" cy="8" r="6" fill="#C45A27"/>
-    <circle cx="40" cy="88" r="6" fill="#C45A27"/>
-    <circle cx="8" cy="48" r="4" fill="#C45A27"/>
-    <circle cx="72" cy="48" r="4" fill="#C45A27"/>
+  <rect width="180" height="180" rx="24" fill="#111827"/>
+  <g transform="translate(42, 32)">
+    <rect x="0" y="12" width="10" height="72" rx="2" fill="#2A6094"/>
+    <rect x="18" y="12" width="10" height="72" rx="2" fill="#2A6094"/>
+    <path d="M18 12 L36 38 L32 38 L18 16" fill="#2A6094"/>
+    <path d="M56 12 L36 38 L40 38 L56 16" fill="#2A6094"/>
+    <rect x="56" y="12" width="10" height="72" rx="2" fill="#2A6094"/>
+    <rect x="0" y="82" width="66" height="7" rx="2" fill="#2A6094"/>
+    <text x="33" y="118" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="18" fill="#D1D5DB">InfraMind</text>
+    <text x="33" y="136" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="18" fill="#2A6094">AI</text>
   </g>
-  
-  <!-- Text -->
-  <text x="90" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="#D0D3D8">InfraMind AI</text>
 </svg>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InfraMindLogo } from "@/components/branding/InfraMindLogo";
 
 const footerLinks = {
   products: [
@@ -27,19 +28,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg mb-4">
-              <svg viewBox="0 0 48 48" className="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="8" y1="8" x2="8" y2="40" stroke="#C45A27" strokeWidth="3" strokeLinecap="round"/>
-                <line x1="40" y1="8" x2="24" y2="40" stroke="#C45A27" strokeWidth="3" strokeLinecap="round"/>
-                <line x1="24" y1="40" x2="40" y2="40" stroke="#C45A27" strokeWidth="3" strokeLinecap="round"/>
-                <line x1="8" y1="24" x2="40" y2="24" stroke="#C45A27" strokeWidth="2" strokeLinecap="round"/>
-                <circle cx="8" cy="8" r="4" fill="#C45A27"/>
-                <circle cx="8" cy="40" r="4" fill="#C45A27"/>
-                <circle cx="40" cy="8" r="4" fill="#C45A27"/>
-                <circle cx="24" cy="40" r="4" fill="#C45A27"/>
-                <circle cx="8" cy="24" r="3" fill="#C45A27"/>
-                <circle cx="40" cy="24" r="3" fill="#C45A27"/>
-              </svg>
-              <span>InfraMind AI</span>
+              <InfraMindLogo variant="icon" />
             </Link>
             <p className="text-sm text-graphite-500">
               Operational Intelligence for Infrastructure EPC Megaprojects
