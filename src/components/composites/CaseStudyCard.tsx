@@ -24,12 +24,12 @@ export function CaseStudyCard({
   return (
     <Link href={`/case-studies/${slug}`} className="group block">
       <article
-        className={`h-full p-6 rounded-xl bg-graphite-800 border border-graphite-700 hover:border-graphite-600 transition-all duration-300 ${
+        className={`h-full p-[var(--space-3)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 hover:shadow-[var(--shadow-md)] ${
           featured ? "md:col-span-2" : ""
         }`}
       >
         {screenshot ? (
-          <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-4 bg-graphite-700">
+          <div className="relative aspect-[16/9] rounded-[var(--radius-md)] overflow-hidden mb-6 bg-[var(--color-surface-subtle)]">
             <Image
               src={screenshot}
               alt={title}
@@ -39,23 +39,26 @@ export function CaseStudyCard({
             />
           </div>
         ) : (
-          <div className="aspect-[16/9] rounded-lg mb-4 bg-graphite-700 flex items-center justify-center">
-            <span className="text-graphite-500 text-sm">TCB Simulation — Pilot</span>
+          <div className="aspect-[16/9] rounded-[var(--radius-md)] mb-6 bg-[var(--color-surface-subtle)] flex items-center justify-center">
+            <span className="text-[var(--color-text-secondary)] text-sm opacity-60">TCB Simulation — Pilot</span>
           </div>
         )}
 
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs font-medium text-infrastructure-400">{product}</span>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-[var(--font-caption)] font-bold uppercase tracking-wider text-[var(--color-accent)]">{product}</span>
         </div>
 
-        <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-infrastructure-400 transition-colors">
+        <h3 className="text-[var(--font-body)] font-bold text-white mb-2 group-hover:text-[var(--color-accent)] transition-colors">
           {title}
         </h3>
-        <p className="text-sm text-graphite-400 mb-3">{subtitle}</p>
+        <p className="text-sm text-[var(--color-text-secondary)] mb-6 line-clamp-2 leading-relaxed">{subtitle}</p>
 
-        <div className="flex items-center justify-between">
-          <span className="text-sm font-mono text-success-light">{heroMetric}</span>
-          <ArrowRight className="w-4 h-4 text-graphite-500 group-hover:text-infrastructure-400 group-hover:translate-x-1 transition-all" />
+        <div className="flex items-center justify-between pt-4 border-t border-[var(--color-border)]">
+          <span className="text-sm font-mono font-bold text-[var(--color-success)]">{heroMetric}</span>
+          <div className="flex items-center text-sm font-medium text-[var(--color-accent)] group-hover:translate-x-1 transition-all">
+            Read Case Study
+            <ArrowRight className="ml-1 w-4 h-4" />
+          </div>
         </div>
       </article>
     </Link>

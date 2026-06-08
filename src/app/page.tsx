@@ -8,10 +8,28 @@ import { CaseStudyCard } from "@/components/composites/CaseStudyCard";
 import { AutomationCard } from "@/components/composites/AutomationCard";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
+import { InfrastructureIllustration } from "@/components/branding/InfrastructureIllustration";
 import { products } from "@/lib/products";
 import { caseStudies } from "@/lib/case-studies";
 import { automations } from "@/lib/automations";
-import { ArrowRight, Shield, Zap, FileText, AlertTriangle, Layers, Download, CheckCircle, Building2, Scale, Clock } from "lucide-react";
+import {
+  ArrowRight,
+  Shield,
+  Zap,
+  FileText,
+  AlertTriangle,
+  Layers,
+  Download,
+  CheckCircle,
+  Building2,
+  Scale,
+  Clock,
+  HardHat,
+  Train,
+  Globe,
+  Gavel,
+  Cpu,
+} from "lucide-react";
 
 const metrics = [
   { value: "16 → Under 4", label: "Person-Hours", description: "Weekly MIS compilation effort reduced by 75%" },
@@ -20,12 +38,37 @@ const metrics = [
   { value: "Zero", label: "Preventable Failures", description: "Automated deadline monitoring" },
 ];
 
-const whyReasons = [
-  { icon: Shield, title: "Practitioner-Built, Not Developer-Created", description: "Every system designed by a practicing Contracts Manager with 20+ years EPC experience" },
-  { icon: Zap, title: "Deployed on Live Megaprojects", description: "Every product operational on active EPC projects, not prototype stage" },
-  { icon: FileText, title: "Contractually Aware Intelligence", description: "Every system understands FIDIC obligations, notice periods, and claim entitlements" },
-  { icon: AlertTriangle, title: "Defensible Contemporaneous Records", description: "Every system produces timestamp-governed, dispute-resolution-ready records" },
-  { icon: Layers, title: "Integrated Product Ecosystem", description: "Products feed into each other creating compound intelligence" },
+const experienceHighlights = [
+  {
+    icon: Clock,
+    title: "20+ Years Experience",
+    description: "Lived EPC operational judgment from award to close-out.",
+  },
+  {
+    icon: Train,
+    title: "High-Speed Rail",
+    description: "Deep domain expertise in linear infrastructure megaprojects.",
+  },
+  {
+    icon: Building2,
+    title: "EPC Megaprojects",
+    description: "Navigating the complexities of INR 3,000+ Crore contracts.",
+  },
+  {
+    icon: FileText,
+    title: "FIDIC Yellow Book",
+    description: "Specialized in design-build contract administration and compliance.",
+  },
+  {
+    icon: Gavel,
+    title: "Claims & Arbitration",
+    description: "Defensible records engineered for dispute resolution scrutiny.",
+  },
+  {
+    icon: Cpu,
+    title: "Digital Twin Intelligence",
+    description: "Converts operational data into actionable project outcomes.",
+  },
 ];
 
 const representativeExperience = [
@@ -61,71 +104,130 @@ const projectImpacts = [
   {
     icon: Building2,
     title: "Large-Scale EPC Programme Support",
-    description: "Programme controls and schedule governance for INR 3,142 Crore megaproject — 115.877 km track construction under FIDIC Yellow Book.",
+    description:
+      "Programme controls and schedule governance for INR 3,142 Crore megaproject — 115.877 km track construction under FIDIC Yellow Book.",
     metric: "115.877 km",
     metricLabel: "Track Package",
   },
   {
     icon: FileText,
     title: "Contract Administration Support",
-    description: "Complete FIDIC contract administration from award to compliance — notice management, correspondence, and obligation tracking.",
+    description:
+      "Complete FIDIC contract administration from award to compliance — notice management, correspondence, and obligation tracking.",
     metric: "100%",
     metricLabel: "Notice Compliance",
   },
   {
     icon: Scale,
     title: "Claims Documentation Support",
-    description: "Forensic delay analysis and EOT claim preparation with contemporaneous records suitable for ICC arbitration.",
+    description:
+      "Forensic delay analysis and EOT claim preparation with contemporaneous records suitable for ICC arbitration.",
     metric: "15+",
     metricLabel: "EOT Claims",
   },
   {
     icon: Zap,
     title: "Operational Automation Initiatives",
-    description: "Practitioner-built automation reducing manual effort — from correspondence extraction to notice compliance monitoring.",
+    description:
+      "Practitioner-built automation reducing manual effort — from correspondence extraction to notice compliance monitoring.",
     metric: "85–90%",
     metricLabel: "Time Reduction",
   },
 ];
 
+const whyReasons = [
+  {
+    icon: Shield,
+    title: "Practitioner-Built, Not Developer-Created",
+    description: "Every system designed by a practicing Contracts Manager with 20+ years EPC experience",
+  },
+  {
+    icon: Zap,
+    title: "Deployed on Live Megaprojects",
+    description: "Every product operational on active EPC projects, not prototype stage",
+  },
+  {
+    icon: FileText,
+    title: "Contractually Aware Intelligence",
+    description: "Every system understands FIDIC obligations, notice periods, and claim entitlements",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Defensible Contemporaneous Records",
+    description: "Every system produces timestamp-governed, dispute-resolution-ready records",
+  },
+  {
+    icon: Layers,
+    title: "Integrated Product Ecosystem",
+    description: "Products feed into each other creating compound intelligence",
+  },
+];
+
 export default function HomePage() {
-  const featuredCaseStudies = caseStudies.filter((cs) => ["mahsr-digital-twin", "ncr-tracker", "contract-forensics"].includes(cs.slug));
+  const featuredCaseStudies = caseStudies.filter((cs) =>
+    ["mahsr-digital-twin", "ncr-tracker", "contract-forensics"].includes(cs.slug)
+  );
 
   return (
     <>
       {/* Hero */}
-      <Section className="relative overflow-hidden pt-20 pb-24 md:pt-32 md:pb-36">
-        <div className="absolute inset-0 bg-gradient-to-b from-infrastructure-900/30 to-transparent" />
+      <Section className="relative overflow-hidden pt-20 pb-24 md:pt-32 md:pb-40">
+        <div className="absolute inset-0 bg-gradient-to-br from-var(--color-surface-subtle) to-transparent opacity-50" />
         <Container className="relative">
-          <div className="max-w-3xl">
-            <Badge variant="production" className="mb-4">Deployed on MAHSR T-3</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-balance">
-              Operational Intelligence for Infrastructure
-            </h1>
-            <p className="text-lg md:text-xl text-graphite-300 mb-8 max-w-2xl">
-              Practitioner-built AI systems for EPC megaprojects — deployed on India&apos;s major infrastructure contracts, engineered by 20+ years of lived FIDIC contract administration experience.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button href="/capability-statement" size="lg">
-                <Download className="w-4 h-4" />
-                Download Capability Statement
-              </Button>
-              <CalendlyCTA variant="button" buttonText="Schedule Consultation" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge variant="production" className="mb-6">
+                Deployed on MAHSR T-3
+              </Badge>
+              <h1 className="text-[var(--font-h1)] md:text-[var(--font-display)] font-bold text-white mb-6 leading-tight text-balance">
+                Operational Intelligence for Infrastructure
+              </h1>
+              <p className="text-[var(--font-body)] md:text-[20px] text-[var(--color-text-secondary)] mb-10 max-w-2xl leading-relaxed">
+                Practitioner-built AI systems for EPC megaprojects — deployed on India&apos;s major infrastructure
+                contracts, engineered by 20+ years of lived FIDIC contract administration experience.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button href="/capability-statement" size="lg">
+                  <Download className="w-4 h-4" />
+                  Download Capability Statement
+                </Button>
+                <CalendlyCTA variant="button" buttonText="Schedule Consultation" />
+              </div>
+              <p className="mt-8 text-xs text-[var(--color-text-secondary)] opacity-60 max-w-lg">
+                Verified deployment on MAHSR T-3 Track Package — INR 3,142 Crore FIDIC Yellow Book contract. JICA
+                (Funder) → NHSRCL (Employer) → JICC (Engineer) → L&T Limited (Contractor)
+              </p>
             </div>
-            <p className="mt-6 text-sm text-graphite-500">
-              Deployed on MAHSR T-3 Track Package — INR 3,142 Crore FIDIC Yellow Book contract. JICA (Funder) → NHSRCL (Employer) → JICC (Engineer) → L&T Limited (Contractor)
-            </p>
+            <div className="hidden lg:block relative">
+              <div className="absolute -inset-4 bg-[var(--color-primary)] opacity-5 blur-3xl rounded-full" />
+              <InfrastructureIllustration className="relative w-full h-auto drop-shadow-2xl" />
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* Positioning */}
-      <Section className="py-12">
+      {/* Experience Highlights — Task 3 */}
+      <Section className="bg-[var(--color-surface-subtle)] border-y border-[var(--color-border)]">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-graphite-300">
-              For EPC project leaders who manage megaprojects under FIDIC contract regimes — where information lag transforms manageable risks into costly disputes, and where defensible contemporaneous records determine claim outcomes.
+          <div className="text-center mb-12">
+            <h2 className="text-[var(--font-h2)] font-bold text-white mb-4">Executive Highlights</h2>
+            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+              Practitioner-led intelligence calibrated for the specific pressures of EPC megaproject administration.
             </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {experienceHighlights.map((item) => (
+              <div
+                key={item.title}
+                className="p-6 rounded-[var(--radius-lg)] bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]"
+              >
+                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
+                  <item.icon className="w-5 h-5 text-[var(--color-accent)]" />
+                </div>
+                <h3 className="text-[var(--font-body)] font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{item.description}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </Section>
@@ -133,54 +235,61 @@ export default function HomePage() {
       {/* Key Metrics */}
       <Section>
         <Container>
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Measurable Impact</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-[var(--font-h3)] font-bold text-white mb-10 text-center">Measurable Impact</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {metrics.map((m) => (
-              <MetricCard key={m.label} {...m} />
+              <MetricCard key={m.label} {...m} className="hover:border-[var(--color-accent)] transition-colors" />
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* Representative Experience — Trust Signal */}
-      <Section>
+      {/* Representative Experience — Trust Signal (Preserved but visually grouped) */}
+      <Section className="bg-[var(--color-surface-subtle)]/50">
         <Container>
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">Representative Experience</h2>
-          <p className="text-graphite-400 mb-8 text-center max-w-2xl mx-auto">
+          <h2 className="text-[var(--font-h3)] font-bold text-white mb-2 text-center">Representative Experience</h2>
+          <p className="text-[var(--color-text-secondary)] mb-12 text-center max-w-2xl mx-auto">
             Verified project experience across EPC megaprojects under FIDIC contract regimes.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {representativeExperience.map((exp) => (
-              <div key={exp.project} className="p-6 rounded-xl bg-graphite-800 border border-graphite-700">
-                <div className="flex items-center gap-2 mb-3">
+              <div
+                key={exp.project}
+                className="p-8 rounded-[var(--radius-lg)] bg-[var(--color-surface)] border border-[var(--color-border)] shadow-[var(--shadow-sm)]"
+              >
+                <div className="flex items-center gap-2 mb-4">
                   <Badge variant="production">Verified</Badge>
-                  <span className="text-xs text-graphite-500">{exp.contract}</span>
+                  <span className="text-xs text-[var(--color-text-secondary)]">{exp.contract}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-4">{exp.project}</h3>
-                <div className="grid grid-cols-2 gap-3 text-sm mb-4">
+                <h3 className="text-[var(--font-body)] font-bold text-white mb-6">{exp.project}</h3>
+                <div className="grid grid-cols-2 gap-6 text-sm mb-6">
                   <div>
-                    <div className="text-xs text-graphite-500">Contract Value</div>
+                    <div className="text-xs text-[var(--color-text-secondary)] mb-1">Contract Value</div>
                     <div className="font-medium text-white">{exp.value}</div>
                   </div>
                   <div>
-                    <div className="text-xs text-graphite-500">Role</div>
+                    <div className="text-xs text-[var(--color-text-secondary)] mb-1">Role</div>
                     <div className="font-medium text-white">{exp.role}</div>
                   </div>
                   <div className="col-span-2">
-                    <div className="text-xs text-graphite-500">Scope</div>
+                    <div className="text-xs text-[var(--color-text-secondary)] mb-1">Scope</div>
                     <div className="font-medium text-white">{exp.scope}</div>
                   </div>
                 </div>
-                <div className="pt-4 border-t border-graphite-700 mb-3">
-                  <div className="text-xs text-graphite-500 mb-2">Governance</div>
-                  <div className="text-sm text-graphite-300">{exp.governance}</div>
+                <div className="pt-6 border-t border-[var(--color-border)] mb-4">
+                  <div className="text-xs text-[var(--color-text-secondary)] mb-2 uppercase tracking-wider font-semibold opacity-60">
+                    Governance
+                  </div>
+                  <div className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{exp.governance}</div>
                 </div>
-                <div className="pt-4 border-t border-graphite-700">
-                  <div className="text-xs text-graphite-500 mb-2">Key Achievements</div>
-                  <div className="space-y-1.5">
+                <div className="pt-6 border-t border-[var(--color-border)]">
+                  <div className="text-xs text-[var(--color-text-secondary)] mb-3 uppercase tracking-wider font-semibold opacity-60">
+                    Key Achievements
+                  </div>
+                  <div className="space-y-2">
                     {exp.highlights.map((h) => (
-                      <div key={h} className="flex items-center gap-2 text-xs text-graphite-400">
-                        <CheckCircle className="w-3 h-3 text-success-light flex-shrink-0" />
+                      <div key={h} className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
+                        <CheckCircle className="w-4 h-4 text-[var(--color-success)] flex-shrink-0 mt-0.5" />
                         {h}
                       </div>
                     ))}
@@ -195,21 +304,24 @@ export default function HomePage() {
       {/* Project Impact */}
       <Section>
         <Container>
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">Project Impact</h2>
-          <p className="text-graphite-400 mb-8 text-center max-w-2xl mx-auto">
+          <h2 className="text-[var(--font-h3)] font-bold text-white mb-2 text-center">Project Impact</h2>
+          <p className="text-[var(--color-text-secondary)] mb-10 text-center max-w-2xl mx-auto">
             Verified outcomes from live EPC project deployments.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {projectImpacts.map((impact) => (
-              <div key={impact.title} className="p-5 rounded-xl bg-graphite-800 border border-graphite-700">
-                <div className="w-10 h-10 rounded-lg bg-infrastructure-500/10 flex items-center justify-center mb-3">
-                  <impact.icon className="w-5 h-5 text-infrastructure-400" />
+              <div
+                key={impact.title}
+                className="p-6 rounded-[var(--radius-lg)] bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
+                  <impact.icon className="w-5 h-5 text-[var(--color-accent)]" />
                 </div>
-                <h3 className="text-sm font-semibold text-white mb-2">{impact.title}</h3>
-                <p className="text-xs text-graphite-400 mb-3">{impact.description}</p>
-                <div className="pt-3 border-t border-graphite-700">
-                  <div className="text-lg font-bold text-infrastructure-400 font-mono">{impact.metric}</div>
-                  <div className="text-xs text-graphite-500">{impact.metricLabel}</div>
+                <h3 className="text-sm font-bold text-white mb-2">{impact.title}</h3>
+                <p className="text-xs text-[var(--color-text-secondary)] mb-4 leading-relaxed">{impact.description}</p>
+                <div className="pt-4 border-t border-[var(--color-border)]">
+                  <div className="text-xl font-bold text-[var(--color-accent)] font-mono">{impact.metric}</div>
+                  <div className="text-xs text-[var(--color-text-secondary)]">{impact.metricLabel}</div>
                 </div>
               </div>
             ))}
@@ -217,21 +329,23 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Featured Products */}
-      <Section>
+      {/* Featured Products — Task 4 (Advisory Suite card logic preserved but visuals refined) */}
+      <Section className="bg-[var(--color-surface-subtle)]/30">
         <Container>
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-white">Products</h2>
+          <div className="flex items-center justify-between mb-10">
+            <h2 className="text-[var(--font-h2)] font-bold text-white">Products</h2>
             <Button href="/products" variant="ghost" size="sm">
               View All <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <ProductCard
                 key={product.slug}
                 {...product}
-                linkTo={product.status === "production" ? `/products/${product.slug}` : `/case-studies/contract-forensics`}
+                linkTo={
+                  product.status === "production" ? `/products/${product.slug}` : `/case-studies/contract-forensics`
+                }
               />
             ))}
             {/* Contract Forensics Card */}
@@ -260,24 +374,26 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Operational Automation Suite */}
+      {/* Operational Automation Suite — Task 5 */}
       <Section>
         <Container>
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-lg bg-infrastructure-500/10 flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-infrastructure-400" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 rounded-[var(--radius-md)] bg-[var(--color-primary)]/20 flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
-                <span className="text-sm font-medium text-infrastructure-400">Operational Automation Suite</span>
+                <span className="text-sm font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                  Automation Suite
+                </span>
               </div>
-              <h2 className="text-2xl font-bold text-white">Practitioner-Built Automation</h2>
+              <h2 className="text-[var(--font-h2)] font-bold text-white">Practitioner-Built Automation</h2>
             </div>
             <Button href="/automations" variant="ghost" size="sm">
               View All <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {automations.map((automation) => (
               <AutomationCard
                 key={automation.slug}
@@ -291,28 +407,30 @@ export default function HomePage() {
               />
             ))}
           </div>
-          <div className="mt-8 p-6 rounded-xl bg-graphite-800 border border-graphite-700">
-            <p className="text-sm text-graphite-400 text-center">
-              <span className="text-white font-medium">Automation born from operational pain.</span>{" "}
-              Every capability in the Suite was built to solve a problem the founder personally experienced on a live INR 3,142 Crore megaproject.
+          <div className="mt-12 p-8 rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] border border-[var(--color-border)] relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-primary)] opacity-5 blur-3xl -mr-16 -mt-16" />
+            <p className="text-[var(--font-body)] text-[var(--color-text-secondary)] text-center relative z-10">
+              <span className="text-white font-bold">Automation born from operational pain.</span> Every capability in the
+              Suite was built to solve a problem the founder personally experienced on a live INR 3,142 Crore
+              megaproject.
             </p>
           </div>
         </Container>
       </Section>
 
       {/* Why InfraMind AI */}
-      <Section>
+      <Section className="bg-[var(--color-surface-subtle)]/50">
         <Container>
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Why InfraMind AI</h2>
-          <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className="text-[var(--font-h2)] font-bold text-white mb-12 text-center">Why InfraMind AI</h2>
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             {whyReasons.map((reason) => (
-              <div key={reason.title} className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                  <reason.icon className="w-5 h-5 text-cyan-500" />
+              <div key={reason.title} className="flex gap-5">
+                <div className="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[var(--color-accent)]/10 flex items-center justify-center border border-[var(--color-accent)]/20">
+                  <reason.icon className="w-6 h-6 text-[var(--color-accent)]" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">{reason.title}</h3>
-                  <p className="text-sm text-graphite-400">{reason.description}</p>
+                  <h3 className="text-[var(--font-body)] font-bold text-white mb-2">{reason.title}</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{reason.description}</p>
                 </div>
               </div>
             ))}
@@ -323,13 +441,13 @@ export default function HomePage() {
       {/* Case Study Highlights */}
       <Section>
         <Container>
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-white">Case Studies</h2>
+          <div className="flex items-center justify-between mb-10">
+            <h2 className="text-[var(--font-h2)] font-bold text-white">Case Studies</h2>
             <Button href="/case-studies" variant="ghost" size="sm">
               View All <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredCaseStudies.map((cs) => (
               <CaseStudyCard key={cs.slug} {...cs} />
             ))}
@@ -338,13 +456,13 @@ export default function HomePage() {
       </Section>
 
       {/* Consultation CTA with Calendly */}
-      <Section>
+      <Section id="schedule-consultation">
         <Container>
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">Schedule a Consultation</h2>
-          <p className="text-graphite-400 mb-8 text-center max-w-2xl mx-auto">
+          <h2 className="text-[var(--font-h2)] font-bold text-white mb-4 text-center">Schedule a Consultation</h2>
+          <p className="text-[var(--color-text-secondary)] mb-12 text-center max-w-2xl mx-auto">
             Choose a time that works for you. Our consultations are free and confidential.
           </p>
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <CalendlyCTA
               variant="inline"
               title="Book a Consultation"

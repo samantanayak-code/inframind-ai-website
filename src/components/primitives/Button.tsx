@@ -27,18 +27,18 @@ export function Button({
   disabled,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-900 disabled:pointer-events-none disabled:opacity-50";
+    "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-[var(--radius-md)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]";
 
   const variants = {
-    primary: "bg-infrastructure-600 text-white hover:bg-infrastructure-500",
-    secondary: "bg-graphite-800 text-white border border-graphite-700 hover:bg-graphite-700",
-    ghost: "text-graphite-400 hover:text-white hover:bg-graphite-800",
+    primary: "bg-[var(--color-primary)] text-white hover:bg-[var(--color-accent)] shadow-[var(--shadow-sm)]",
+    secondary: "bg-[var(--color-surface)] text-white border border-[var(--color-border)] hover:bg-[var(--color-surface-elevated)]",
+    ghost: "text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-surface-subtle)]",
   };
 
   const sizes = {
-    sm: "text-sm px-3 py-1.5 gap-1.5",
-    md: "text-sm px-4 py-2 gap-2",
-    lg: "text-base px-6 py-3 gap-2",
+    sm: "text-sm px-[var(--space-2)] py-[var(--space-1)] gap-[var(--space-1)]",
+    md: "text-sm px-[var(--space-3)] py-[var(--space-2)] gap-[var(--space-2)]",
+    lg: "text-base px-[var(--space-4)] py-[var(--space-3)] gap-[var(--space-2)]",
   };
 
   const classes = cn(baseStyles, variants[variant], sizes[size], className);
