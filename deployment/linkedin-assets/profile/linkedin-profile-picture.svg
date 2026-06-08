@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#111827"/>
+      <stop offset="100%" style="stop-color:#0F172A"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGrad)"/>
+  
+  <!-- Blue IM Monogram (centered, 60% scale) -->
+  <g transform="translate(200, 200) scale(5) translate(-20, -22)">
+    <rect x="6" y="6" width="5" height="32" rx="1.5" fill="#2A6094"/>
+    <rect x="16" y="6" width="5" height="32" rx="1.5" fill="#2A6094"/>
+    <path d="M16 6 L24 18 L21.5 18 L16 8" fill="#2A6094"/>
+    <path d="M34 6 L24 18 L26.5 18 L34 8" fill="#2A6094"/>
+    <rect x="34" y="6" width="5" height="32" rx="1.5" fill="#2A6094"/>
+    <rect x="6" y="36" width="33" height="4" rx="1.5" fill="#2A6094"/>
+  </g>
+</svg>

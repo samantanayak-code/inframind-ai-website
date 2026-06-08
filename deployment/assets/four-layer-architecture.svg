@@ -5,12 +5,12 @@
       text { font-family: 'Inter', sans-serif; }
     </style>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1E2128"/>
-      <stop offset="100%" style="stop-color:#14171C"/>
+      <stop offset="0%" style="stop-color:#111827"/>
+      <stop offset="100%" style="stop-color:#0F172A"/>
     </linearGradient>
     <linearGradient id="layer1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#C45A27;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#C45A27;stop-opacity:0.05"/>
+      <stop offset="0%" style="stop-color:#2A6094;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#2A6094;stop-opacity:0.05"/>
     </linearGradient>
     <linearGradient id="layer2" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:0.15"/>
@@ -30,71 +30,67 @@
   <rect width="800" height="500" fill="url(#bgGrad)"/>
   
   <!-- Title -->
-  <text x="400" y="40" text-anchor="middle" font-weight="700" font-size="22" fill="#D0D3D8">Four-Layer Architecture</text>
-  <text x="400" y="60" text-anchor="middle" font-weight="400" font-size="12" fill="#8A8D95">InfraMind AI Operational Intelligence Stack</text>
+  <text x="400" y="40" text-anchor="middle" font-weight="700" font-size="22" fill="#D1D5DB">Four-Layer Architecture</text>
+  <text x="400" y="60" text-anchor="middle" font-weight="400" font-size="12" fill="#9CA3AF">InfraMind AI Operational Intelligence Stack</text>
   
-  <!-- Infrastructure Nexus Mark (top-right) -->
+  <!-- Blue IM Monogram (top-right) -->
   <g transform="translate(720, 15) scale(0.4)">
-    <line x1="8" y1="8" x2="8" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
-    <line x1="40" y1="8" x2="24" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
-    <line x1="24" y1="48" x2="40" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
-    <line x1="8" y1="28" x2="40" y2="28" stroke="#C45A27" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="8" cy="8" r="4" fill="#C45A27"/>
-    <circle cx="8" cy="48" r="4" fill="#C45A27"/>
-    <circle cx="40" cy="8" r="4" fill="#C45A27"/>
-    <circle cx="24" cy="48" r="4" fill="#C45A27"/>
-    <circle cx="8" cy="28" r="3" fill="#C45A27"/>
-    <circle cx="40" cy="28" r="3" fill="#C45A27"/>
+    <rect x="6" y="6" width="4" height="28" rx="1" fill="#2A6094"/>
+    <rect x="14" y="6" width="4" height="28" rx="1" fill="#2A6094"/>
+    <path d="M14 6 L20 16 L18 16 L14 8" fill="#2A6094"/>
+    <path d="M26 6 L20 16 L22 16 L26 8" fill="#2A6094"/>
+    <rect x="26" y="6" width="4" height="28" rx="1" fill="#2A6094"/>
+    <rect x="6" y="32" width="24" height="3" rx="1" fill="#2A6094"/>
   </g>
   
   <!-- Layer 4: Evidence (Top) -->
   <rect x="60" y="80" width="680" height="85" rx="8" fill="url(#layer4)" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.3"/>
   <text x="80" y="105" font-weight="600" font-size="14" fill="#8B5CF6">Layer 4 — Evidence</text>
-  <text x="80" y="125" font-weight="400" font-size="11" fill="#D0D3D8">Defensible contemporaneous records for dispute resolution</text>
-  <text x="80" y="145" font-weight="400" font-size="10" fill="#8A8D95">Audit Trails · Timestamp Governance · FIDIC Compliance · Arbitration-Ready Documentation</text>
+  <text x="80" y="125" font-weight="400" font-size="11" fill="#D1D5DB">Structured documentation aligned with contractual and evidentiary requirements</text>
+  <text x="80" y="145" font-weight="400" font-size="10" fill="#9CA3AF">Audit Trails · Timestamp Governance · FIDIC Compliance · Dispute Resolution Support</text>
   <rect x="520" y="95" width="200" height="55" rx="6" fill="#8B5CF6" fill-opacity="0.2" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.4"/>
   <text x="620" y="118" text-anchor="middle" font-weight="600" font-size="11" fill="#8B5CF6">All Products</text>
-  <text x="620" y="138" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">Unified Evidence Layer</text>
+  <text x="620" y="138" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">Unified Evidence Layer</text>
   
   <!-- Arrow -->
-  <line x1="400" y1="165" x2="400" y2="180" stroke="#8A8D95" stroke-width="1" stroke-dasharray="4,4"/>
-  <polygon points="395,180 405,180 400,188" fill="#8A8D95"/>
+  <line x1="400" y1="165" x2="400" y2="180" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="4,4"/>
+  <polygon points="395,180 405,180 400,188" fill="#9CA3AF"/>
   
   <!-- Layer 3: Decision -->
   <rect x="60" y="190" width="680" height="85" rx="8" fill="url(#layer3)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
   <text x="80" y="215" font-weight="600" font-size="14" fill="#10B981">Layer 3 — Decision</text>
-  <text x="80" y="235" font-weight="400" font-size="11" fill="#D0D3D8">AI-powered contract analysis and claim intelligence</text>
-  <text x="80" y="255" font-weight="400" font-size="10" fill="#8A8D95">Contract Forensics · Clause Extraction · Notice Tracking · Claim Pattern Detection</text>
+  <text x="80" y="235" font-weight="400" font-size="11" fill="#D1D5DB">AI-powered contract analysis and claim intelligence</text>
+  <text x="80" y="255" font-weight="400" font-size="10" fill="#9CA3AF">Contract Forensics · Clause Extraction · Notice Tracking · Claim Pattern Detection</text>
   <rect x="520" y="205" width="200" height="55" rx="6" fill="#10B981" fill-opacity="0.2" stroke="#10B981" stroke-width="1" stroke-opacity="0.4"/>
   <text x="620" y="228" text-anchor="middle" font-weight="600" font-size="11" fill="#10B981">Contract Forensics</text>
-  <text x="620" y="248" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">Weeks → Hours Review</text>
+  <text x="620" y="248" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">Weeks → Hours Review</text>
   
   <!-- Arrow -->
-  <line x1="400" y1="275" x2="400" y2="290" stroke="#8A8D95" stroke-width="1" stroke-dasharray="4,4"/>
-  <polygon points="395,290 405,290 400,298" fill="#8A8D95"/>
+  <line x1="400" y1="275" x2="400" y2="290" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="4,4"/>
+  <polygon points="395,290 405,290 400,298" fill="#9CA3AF"/>
   
   <!-- Layer 2: Intelligence -->
   <rect x="60" y="300" width="680" height="85" rx="8" fill="url(#layer2)" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.3"/>
   <text x="80" y="325" font-weight="600" font-size="14" fill="#06B6D4">Layer 2 — Intelligence</text>
-  <text x="80" y="345" font-weight="400" font-size="11" fill="#D0D3D8">Operational intelligence and quality analytics</text>
-  <text x="80" y="365" font-weight="400" font-size="10" fill="#8A8D95">Digital Twin · NCR Tracker · Pattern Detection · Escalation Engines · Analytics</text>
+  <text x="80" y="345" font-weight="400" font-size="11" fill="#D1D5DB">Operational intelligence and quality analytics</text>
+  <text x="80" y="365" font-weight="400" font-size="10" fill="#9CA3AF">Digital Twin · NCR Tracker · Pattern Detection · Escalation Engines · Analytics</text>
   <rect x="520" y="315" width="200" height="55" rx="6" fill="#06B6D4" fill-opacity="0.2" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.4"/>
   <text x="620" y="338" text-anchor="middle" font-weight="600" font-size="11" fill="#06B6D4">Digital Twin + NCR</text>
-  <text x="620" y="358" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">13 Modules · 6 NCR Stages</text>
+  <text x="620" y="358" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">13 Modules · 6 NCR Stages</text>
   
   <!-- Arrow -->
-  <line x1="400" y1="385" x2="400" y2="400" stroke="#8A8D95" stroke-width="1" stroke-dasharray="4,4"/>
-  <polygon points="395,400 405,400 400,408" fill="#8A8D95"/>
+  <line x1="400" y1="385" x2="400" y2="400" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="4,4"/>
+  <polygon points="395,400 405,400 400,408" fill="#9CA3AF"/>
   
   <!-- Layer 1: Data Capture (Bottom) -->
-  <rect x="60" y="410" width="680" height="85" rx="8" fill="url(#layer1)" stroke="#C45A27" stroke-width="1" stroke-opacity="0.3"/>
-  <text x="80" y="435" font-weight="600" font-size="14" fill="#C45A27">Layer 1 — Data Capture</text>
-  <text x="80" y="455" font-weight="400" font-size="11" fill="#D0D3D8">Document digitization and OCR intelligence</text>
-  <text x="80" y="475" font-weight="400" font-size="10" fill="#8A8D95">OCR Intelligence · PDF Processing · Handwritten Recognition · 98%+ Accuracy</text>
-  <rect x="520" y="425" width="200" height="55" rx="6" fill="#C45A27" fill-opacity="0.2" stroke="#C45A27" stroke-width="1" stroke-opacity="0.4"/>
-  <text x="620" y="448" text-anchor="middle" font-weight="600" font-size="11" fill="#C45A27">OCR Intelligence</text>
-  <text x="620" y="468" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">98%+ Document Accuracy</text>
+  <rect x="60" y="410" width="680" height="85" rx="8" fill="url(#layer1)" stroke="#2A6094" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="80" y="435" font-weight="600" font-size="14" fill="#2A6094">Layer 1 — Data Capture</text>
+  <text x="80" y="455" font-weight="400" font-size="11" fill="#D1D5DB">Document digitization and OCR intelligence</text>
+  <text x="80" y="475" font-weight="400" font-size="10" fill="#9CA3AF">OCR Intelligence · PDF Processing · Handwritten Recognition · 98%+ Accuracy</text>
+  <rect x="520" y="425" width="200" height="55" rx="6" fill="#2A6094" fill-opacity="0.2" stroke="#2A6094" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="620" y="448" text-anchor="middle" font-weight="600" font-size="11" fill="#2A6094">OCR Intelligence</text>
+  <text x="620" y="468" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">98%+ Document Accuracy</text>
   
   <!-- Bottom Brand -->
-  <text x="400" y="495" text-anchor="middle" font-weight="400" font-size="9" fill="#C45A27">InfraMind AI — AI-Enabled EPC Operational Intelligence</text>
+  <text x="400" y="495" text-anchor="middle" font-weight="400" font-size="9" fill="#2A6094">InfraMind AI — AI-Enabled EPC Operational Intelligence</text>
 </svg>

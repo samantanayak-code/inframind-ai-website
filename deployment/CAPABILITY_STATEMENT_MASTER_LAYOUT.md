@@ -11,10 +11,10 @@
 | Element | Specification |
 |---------|---------------|
 | **Background** | #1E2128 (dark graphite) |
-| **Logo** | Infrastructure Nexus Mark (centered, 120x120) |
+| **Logo** | Blue IM Monogram (centered, 120x120) |
 | **Title** | "InfraMind AI" — Inter Bold, 48pt, #D0D3D8 |
 | **Subtitle** | "Executive Capability Statement" — Inter Regular, 18pt, #8A8D95 |
-| **Tagline** | "AI-Enabled EPC Operational Intelligence" — Inter Regular, 14pt, #C45A27 |
+| **Tagline** | "AI-Enabled EPC Operational Intelligence" — Inter Regular, 14pt, #2A6094 |
 | **Date** | "June 2026" — Inter Regular, 12pt, #8A8D95 |
 | **Footer** | "Confidential — For Intended Recipient Only" — Inter Regular, 8pt, #8A8D95 |
 
@@ -26,8 +26,8 @@
 |---------|---------------|
 | **Section Header** | "Executive Summary" — Inter Bold, 24pt, #D0D3D8 |
 | **Content** | 2-3 paragraphs, Inter Regular, 11pt, #D0D3D8 |
-| **Metrics Row** | 3 metric cards, #C45A27 accent |
-| **Image** | Infrastructure Nexus Mark (small, top-right) |
+| **Metrics Row** | 3 metric cards, #2A6094 accent |
+| **Image** | Blue IM Monogram (small, top-right) |
 
 **Content Blocks:**
 1. Company Overview
@@ -41,7 +41,7 @@
 | Element | Specification |
 |---------|---------------|
 | **Section Header** | "Operational Intelligence Products" — Inter Bold, 24pt, #D0D3D8 |
-| **Product Grid** | 2x3 grid, each card: #1E2128 bg, #C45A27 accent |
+| **Product Grid** | 2x3 grid, each card: #1E2128 bg, #2A6094 accent |
 | **Card Layout** | Product name, category, status badge, key metric |
 
 **Product Cards:**
@@ -49,7 +49,6 @@
 2. NCR Tracker — Production — 40%+ faster closure
 3. Contract Forensics — Demonstrable — Weeks → Hours
 4. OCR Intelligence — Demonstrable — 98%+ accuracy
-5. TCB Simulation — In Development — Time-Cost-Buffer
 
 ---
 
@@ -62,7 +61,7 @@
 | **Legend** | 4-layer color-coded legend |
 
 **Layers:**
-- Layer 1: Data Capture (#C45A27)
+- Layer 1: Data Capture (#2A6094)
 - Layer 2: Intelligence (#06B6D4)
 - Layer 3: Decision (#10B981)
 - Layer 4: Evidence (#8B5CF6)
@@ -97,7 +96,7 @@
 |---------|---------------|
 | **Section Header** | "Product Ecosystem" — Inter Bold, 24pt, #D0D3D8 |
 | **Diagram** | `assets/product-ecosystem-flow.svg` (full-width) |
-| **Description** | 5 interconnected products creating compound intelligence |
+| **Description** | 4 interconnected products creating compound intelligence |
 
 ---
 
@@ -106,7 +105,7 @@
 | Element | Specification |
 |---------|---------------|
 | **Section Header** | "EPC Intelligence Consulting" — Inter Bold, 24pt, #D0D3D8 |
-| **Service Grid** | 2x3 grid, each card: #1E2128 bg, #06B6D4 accent |
+| **Service Grid** | 2x3 grid, each card: #1E2128 bg, #2A6094 accent |
 | **Packages** | 4 service packages |
 
 **Services:**
@@ -166,7 +165,7 @@
 | Element | Specification |
 |---------|---------------|
 | **Background** | #1E2128 (dark graphite) |
-| **Logo** | Infrastructure Nexus Mark (centered, 80x80) |
+| **Logo** | Blue IM Monogram (centered, 80x80) |
 | **Title** | "InfraMind AI" — Inter Bold, 36pt, #D0D3D8 |
 | **Contact** | Website, email placeholders |
 | **Tagline** | "Digitise. Analyse. Decide." — Inter Regular, 14pt, #8A8D95 |
@@ -180,13 +179,13 @@
 
 | Color | Hex | Usage |
 |-------|-----|-------|
-| Primary | #C45A27 | Logo, headings, accents |
+| Primary | #2A6094 | Logo, headings, accents |
 | Secondary | #06B6D4 | Links, highlights |
 | Success | #10B981 | Positive metrics |
 | Warning | #F59E0B | Alerts, caution |
 | Purple | #8B5CF6 | Evidence layer |
 | Pink | #EC4899 | Services |
-| Background | #1E2128 | Page backgrounds |
+| Background | #111827 | Page backgrounds |
 | Surface | #14171C | Card backgrounds |
 | Text Primary | #D0D3D8 | Body text |
 | Text Secondary | #8A8D95 | Captions, labels |
@@ -238,7 +237,7 @@
 
 ## Production Notes
 
-- All diagrams use Infrastructure Nexus v1 color scheme
+- All diagrams use Blue IM Monogram color scheme
 - Brand mark applied to all visual assets
 - Optimized for both digital (screen) and print (300 DPI)
 - PDF/A version available for archival

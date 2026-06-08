@@ -79,7 +79,7 @@ export const services: Service[] = [
     slug: "expert-advisory",
     name: "Expert Advisory",
     description:
-      "ICC Arbitration and dispute resolution support backed by 19 years of EPC infrastructure experience. Fact witness testimony and expert report preparation.",
+      "ICC Arbitration and dispute resolution support backed by 20+ years of EPC infrastructure experience. Fact witness testimony and expert report preparation.",
     deliverables: [
       "Expert Report Preparation",
       "Fact Witness Statement Support",
@@ -126,7 +126,7 @@ export const services: Service[] = [
     slug: "delay-analysis-eot",
     name: "Delay Analysis, EOT & Claims Support",
     description:
-      "Forensic delay analysis and Extension of Time assessment under FIDIC contract regimes. Time Impact Analysis, Window Analysis, and concurrent delay resolution backed by 19 years of claims experience.",
+      "Forensic delay analysis and Extension of Time assessment under FIDIC contract regimes. Time Impact Analysis, Window Analysis, and concurrent delay resolution backed by 20+ years of claims experience.",
     deliverables: [
       "Time Impact Analysis (TIA)",
       "Delay Impact Analysis (DIA)",

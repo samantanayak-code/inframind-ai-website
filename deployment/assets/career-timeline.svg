@@ -5,8 +5,8 @@
       text { font-family: 'Inter', sans-serif; }
     </style>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1E2128"/>
-      <stop offset="100%" style="stop-color:#14171C"/>
+      <stop offset="0%" style="stop-color:#111827"/>
+      <stop offset="100%" style="stop-color:#0F172A"/>
     </linearGradient>
   </defs>
   
@@ -14,89 +14,85 @@
   <rect width="800" height="400" fill="url(#bgGrad)"/>
   
   <!-- Title -->
-  <text x="400" y="35" text-anchor="middle" font-weight="700" font-size="22" fill="#D0D3D8">Career Timeline</text>
-  <text x="400" y="55" text-anchor="middle" font-weight="400" font-size="12" fill="#8A8D95">Samanta Nayak — Infrastructure AI Architect</text>
+  <text x="400" y="35" text-anchor="middle" font-weight="700" font-size="22" fill="#D1D5DB">Career Timeline</text>
+  <text x="400" y="55" text-anchor="middle" font-weight="400" font-size="12" fill="#9CA3AF">Samanta Nayak — Infrastructure AI Architect</text>
   
-  <!-- Infrastructure Nexus Mark -->
+  <!-- Blue IM Monogram -->
   <g transform="translate(720, 10) scale(0.4)">
-    <line x1="8" y1="8" x2="8" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
-    <line x1="40" y1="8" x2="24" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
-    <line x1="24" y1="48" x2="40" y2="48" stroke="#C45A27" stroke-width="3" stroke-linecap="round"/>
-    <line x1="8" y1="28" x2="40" y2="28" stroke="#C45A27" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="8" cy="8" r="4" fill="#C45A27"/>
-    <circle cx="8" cy="48" r="4" fill="#C45A27"/>
-    <circle cx="40" cy="8" r="4" fill="#C45A27"/>
-    <circle cx="24" cy="48" r="4" fill="#C45A27"/>
-    <circle cx="8" cy="28" r="3" fill="#C45A27"/>
-    <circle cx="40" cy="28" r="3" fill="#C45A27"/>
+    <rect x="6" y="6" width="4" height="28" rx="1" fill="#2A6094"/>
+    <rect x="14" y="6" width="4" height="28" rx="1" fill="#2A6094"/>
+    <path d="M14 6 L20 16 L18 16 L14 8" fill="#2A6094"/>
+    <path d="M26 6 L20 16 L22 16 L26 8" fill="#2A6094"/>
+    <rect x="26" y="6" width="4" height="28" rx="1" fill="#2A6094"/>
+    <rect x="6" y="32" width="24" height="3" rx="1" fill="#2A6094"/>
   </g>
   
   <!-- Timeline Line -->
-  <line x1="100" y1="200" x2="700" y2="200" stroke="#C45A27" stroke-width="3"/>
+  <line x1="100" y1="200" x2="700" y2="200" stroke="#2A6094" stroke-width="3"/>
   
   <!-- Timeline Points -->
   <!-- 2006 -->
-  <circle cx="100" cy="200" r="8" fill="#C45A27"/>
-  <text x="100" y="190" text-anchor="middle" font-weight="700" font-size="11" fill="#C45A27">2006</text>
-  <text x="100" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">Started career</text>
-  <text x="100" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">in EPC</text>
+  <circle cx="100" cy="200" r="8" fill="#2A6094"/>
+  <text x="100" y="190" text-anchor="middle" font-weight="700" font-size="11" fill="#2A6094">2006</text>
+  <text x="100" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">Started career</text>
+  <text x="100" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">in EPC</text>
   
   <!-- 2010 -->
-  <circle cx="220" cy="200" r="8" fill="#C45A27"/>
-  <text x="220" y="190" text-anchor="middle" font-weight="700" font-size="11" fill="#C45A27">2010</text>
-  <text x="220" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">Joined SEPCO1</text>
-  <text x="220" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">(PowerChina)</text>
+  <circle cx="220" cy="200" r="8" fill="#2A6094"/>
+  <text x="220" y="190" text-anchor="middle" font-weight="700" font-size="11" fill="#2A6094">2010</text>
+  <text x="220" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">Joined SEPCO1</text>
+  <text x="220" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">(PowerChina)</text>
   
   <!-- 2015 -->
   <circle cx="340" cy="200" r="8" fill="#06B6D4"/>
   <text x="340" y="190" text-anchor="middle" font-weight="700" font-size="11" fill="#06B6D4">2015</text>
-  <text x="340" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">Joined L&T</text>
-  <text x="340" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">Contracts & Claims</text>
+  <text x="340" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">Joined L&T</text>
+  <text x="340" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">Contracts & Claims</text>
   
   <!-- 2021 -->
   <circle cx="460" cy="200" r="8" fill="#10B981"/>
   <text x="460" y="190" text-anchor="middle" font-weight="700" font-size="11" fill="#10B981">2021</text>
-  <text x="460" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">ICC Arbitration</text>
-  <text x="460" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">Fact Witness</text>
+  <text x="460" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">ICC Arbitration</text>
+  <text x="460" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">Fact Witness</text>
   
   <!-- 2022 -->
   <circle cx="580" cy="200" r="8" fill="#8B5CF6"/>
   <text x="580" y="190" text-anchor="middle" font-weight="700" font-size="11" fill="#8B5CF6">2022</text>
-  <text x="580" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">MAHSR T-3</text>
-  <text x="580" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">INR 3,142 Cr</text>
+  <text x="580" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">MAHSR T-3</text>
+  <text x="580" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">INR 3,142 Cr</text>
   
   <!-- 2025 -->
-  <circle cx="700" cy="200" r="12" fill="#C45A27" stroke="#FFF" stroke-width="2"/>
-  <text x="700" y="185" text-anchor="middle" font-weight="700" font-size="11" fill="#C45A27">2025</text>
-  <text x="700" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">Founded</text>
-  <text x="700" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D0D3D8">InfraMind AI</text>
+  <circle cx="700" cy="200" r="12" fill="#2A6094" stroke="#FFF" stroke-width="2"/>
+  <text x="700" y="185" text-anchor="middle" font-weight="700" font-size="11" fill="#2A6094">2025</text>
+  <text x="700" y="225" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">Founded</text>
+  <text x="700" y="238" text-anchor="middle" font-weight="400" font-size="9" fill="#D1D5DB">InfraMind AI</text>
   
   <!-- Milestone Markers -->
-  <rect x="80" y="260" width="120" height="45" rx="6" fill="#C45A27" fill-opacity="0.1" stroke="#C45A27" stroke-width="1"/>
-  <text x="140" y="280" text-anchor="middle" font-weight="600" font-size="9" fill="#C45A27">EPC Foundation</text>
-  <text x="140" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#8A8D95">4 years</text>
+  <rect x="80" y="260" width="120" height="45" rx="6" fill="#2A6094" fill-opacity="0.1" stroke="#2A6094" stroke-width="1"/>
+  <text x="140" y="280" text-anchor="middle" font-weight="600" font-size="9" fill="#2A6094">EPC Foundation</text>
+  <text x="140" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#9CA3AF">4 years</text>
   
   <rect x="200" y="260" width="120" height="45" rx="6" fill="#06B6D4" fill-opacity="0.1" stroke="#06B6D4" stroke-width="1"/>
   <text x="260" y="280" text-anchor="middle" font-weight="600" font-size="9" fill="#06B6D4">International</text>
-  <text x="260" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#8A8D95">5 years</text>
+  <text x="260" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#9CA3AF">5 years</text>
   
   <rect x="320" y="260" width="120" height="45" rx="6" fill="#10B981" fill-opacity="0.1" stroke="#10B981" stroke-width="1"/>
   <text x="380" y="280" text-anchor="middle" font-weight="600" font-size="9" fill="#10B981">L&T Contracts</text>
-  <text x="380" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#8A8D95">7+ years</text>
+  <text x="380" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#9CA3AF">7+ years</text>
   
   <rect x="440" y="260" width="120" height="45" rx="6" fill="#8B5CF6" fill-opacity="0.1" stroke="#8B5CF6" stroke-width="1"/>
   <text x="500" y="280" text-anchor="middle" font-weight="600" font-size="9" fill="#8B5CF6">Dispute Resolution</text>
-  <text x="500" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#8A8D95">ICC Expert</text>
+  <text x="500" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#9CA3AF">ICC Expert</text>
   
-  <rect x="660" y="260" width="100" height="45" rx="6" fill="#C45A27" fill-opacity="0.15" stroke="#C45A27" stroke-width="1.5"/>
-  <text x="710" y="280" text-anchor="middle" font-weight="600" font-size="9" fill="#C45A27">AI Pioneer</text>
-  <text x="710" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#8A8D95">Current</text>
+  <rect x="660" y="260" width="100" height="45" rx="6" fill="#2A6094" fill-opacity="0.15" stroke="#2A6094" stroke-width="1.5"/>
+  <text x="710" y="280" text-anchor="middle" font-weight="600" font-size="9" fill="#2A6094">AI Pioneer</text>
+  <text x="710" y="295" text-anchor="middle" font-weight="400" font-size="8" fill="#9CA3AF">Current</text>
   
   <!-- Credentials -->
-  <rect x="40" y="320" width="720" height="60" rx="8" fill="#C45A27" fill-opacity="0.08" stroke="#C45A27" stroke-width="1"/>
-  <text x="60" y="345" font-weight="600" font-size="11" fill="#C45A27">Credentials</text>
-  <text x="60" y="365" font-weight="400" font-size="10" fill="#D0D3D8">20+ Years EPC Infrastructure · ICC Arbitration Fact Witness · AI Generalist Certification · AIG Community Champion 2025</text>
+  <rect x="40" y="320" width="720" height="60" rx="8" fill="#2A6094" fill-opacity="0.08" stroke="#2A6094" stroke-width="1"/>
+  <text x="60" y="345" font-weight="600" font-size="11" fill="#2A6094">Credentials</text>
+  <text x="60" y="365" font-weight="400" font-size="10" fill="#D1D5DB">20+ Years EPC Infrastructure · ICC Arbitration Fact Witness · AI Generalist Certification · AIG Community Champion 2025</text>
   
   <!-- Bottom Brand -->
-  <text x="400" y="395" text-anchor="middle" font-weight="400" font-size="9" fill="#C45A27">InfraMind AI — AI-Enabled EPC Operational Intelligence</text>
+  <text x="400" y="395" text-anchor="middle" font-weight="400" font-size="9" fill="#2A6094">InfraMind AI — AI-Enabled EPC Operational Intelligence</text>
 </svg>

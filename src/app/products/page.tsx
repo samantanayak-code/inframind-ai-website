@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { Button } from "@/components/primitives/Button";
 import { ProductCard } from "@/components/composites/ProductCard";
+import { AutomationCard } from "@/components/composites/AutomationCard";
 import { CTASection } from "@/components/composites/CTASection";
 import { products } from "@/lib/products";
+import { automations } from "@/lib/automations";
+import { ArrowRight, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Products — Operational Intelligence for EPC Megaprojects",
@@ -111,33 +115,72 @@ export default function ProductsPage() {
         </Container>
       </Section>
 
-      {/* Ecosystem */}
+      {/* Product Ecosystem */}
       <Section>
         <Container>
           <h2 className="text-2xl font-bold text-white mb-6">Product Ecosystem</h2>
           <div className="max-w-3xl p-6 rounded-xl bg-graphite-800 border border-graphite-700">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
               <div className="p-4 rounded-lg bg-graphite-700">
                 <div className="text-xs text-graphite-500 mb-1">Layer 1</div>
-                <div className="text-sm font-medium text-white">Data Capture</div>
-                <div className="text-xs text-graphite-400 mt-1">OCR Intelligence</div>
+                <div className="text-sm font-medium text-white">Extract</div>
+                <div className="text-xs text-infrastructure-400 mt-1">Unifier Sync</div>
               </div>
               <div className="p-4 rounded-lg bg-graphite-700">
                 <div className="text-xs text-graphite-500 mb-1">Layer 2</div>
-                <div className="text-sm font-medium text-white">Intelligence</div>
-                <div className="text-xs text-graphite-400 mt-1">Digital Twin, NCR Tracker</div>
+                <div className="text-sm font-medium text-white">Digitize</div>
+                <div className="text-xs text-infrastructure-400 mt-1">OCR Intelligence</div>
               </div>
               <div className="p-4 rounded-lg bg-graphite-700">
                 <div className="text-xs text-graphite-500 mb-1">Layer 3</div>
-                <div className="text-sm font-medium text-white">Decision</div>
-                <div className="text-xs text-graphite-400 mt-1">Contract Forensics</div>
+                <div className="text-sm font-medium text-white">Analyze</div>
+                <div className="text-xs text-infrastructure-400 mt-1">Contract Forensics</div>
               </div>
               <div className="p-4 rounded-lg bg-graphite-700">
                 <div className="text-xs text-graphite-500 mb-1">Layer 4</div>
+                <div className="text-sm font-medium text-white">Intelligence</div>
+                <div className="text-xs text-infrastructure-400 mt-1">Digital Twin, NCR Tracker</div>
+              </div>
+              <div className="p-4 rounded-lg bg-graphite-700">
+                <div className="text-xs text-graphite-500 mb-1">Layer 5</div>
                 <div className="text-sm font-medium text-white">Evidence</div>
-                <div className="text-xs text-graphite-400 mt-1">All Products</div>
+                <div className="text-xs text-infrastructure-400 mt-1">All Products</div>
               </div>
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Operational Automation Suite */}
+      <Section>
+        <Container>
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-lg bg-infrastructure-500/10 flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-infrastructure-400" />
+                </div>
+                <span className="text-sm font-medium text-infrastructure-400">Operational Automation Suite</span>
+              </div>
+              <h2 className="text-2xl font-bold text-white">Practitioner-Built Automation</h2>
+            </div>
+            <Button href="/automations" variant="ghost" size="sm">
+              View All <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {automations.map((automation) => (
+              <AutomationCard
+                key={automation.slug}
+                slug={automation.slug}
+                name={automation.name}
+                category={automation.category}
+                status={automation.status}
+                icon={automation.icon}
+                tagline={automation.tagline}
+                metrics={automation.metrics}
+              />
+            ))}
           </div>
         </Container>
       </Section>

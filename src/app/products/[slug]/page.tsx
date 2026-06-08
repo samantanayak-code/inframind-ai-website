@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/primitives/Button";
+import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { Badge } from "@/components/primitives/Badge";
 import { MetricCard } from "@/components/composites/MetricCard";
 import { FeatureItem } from "@/components/composites/FeatureItem";
@@ -48,9 +49,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{product.name}</h1>
               <p className="text-lg text-graphite-300 mb-8">{product.description}</p>
               <div className="flex gap-3">
-                <Button href="/contact" size="lg">
-                  Request Consultation <ArrowRight className="w-4 h-4" />
-                </Button>
+                <CalendlyCTA variant="button" buttonText="Schedule Consultation" className="flex items-center gap-2" />
                 <Button href={`/case-studies/${product.slug}`} variant="secondary" size="lg">
                   View Case Study
                 </Button>

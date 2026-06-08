@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/primitives/Button";
+import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { MetricCard } from "@/components/composites/MetricCard";
 import { ScreenshotGallery } from "@/components/composites/ScreenshotGallery";
 import { CTASection } from "@/components/composites/CTASection";
@@ -95,9 +96,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <Section>
         <Container>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button href="/contact" size="lg">
-              Request Consultation <ArrowRight className="w-4 h-4" />
-            </Button>
+            <CalendlyCTA variant="button" buttonText="Schedule Consultation" className="flex items-center gap-2" />
             <Button href={`/products/${cs.slug === "mahsr-digital-twin" || cs.slug === "ncr-tracker" ? cs.slug : "/products"}`} variant="secondary" size="lg">
               View Product
             </Button>

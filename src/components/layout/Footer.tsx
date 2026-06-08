@@ -6,6 +6,10 @@ const footerLinks = {
     { href: "/products/mahsr-digital-twin", label: "MAHSR Digital Twin" },
     { href: "/products/ncr-tracker", label: "NCR Tracker" },
   ],
+  automations: [
+    { href: "/automations/unifier-sync", label: "Unifier Sync" },
+    { href: "/automations", label: "View All Automations" },
+  ],
   services: [
     { href: "/services/ai-strategy", label: "AI Strategy Consulting" },
     { href: "/services/digital-twin-architecture", label: "Digital Twin Architecture" },
@@ -25,7 +29,7 @@ export function Footer() {
   return (
     <footer className="border-t border-graphite-800 bg-graphite-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div>
             <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg mb-4">
               <InfraMindLogo variant="horizontal" />
@@ -39,6 +43,19 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-white mb-3">Products</h3>
             <ul className="space-y-2">
               {footerLinks.products.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-graphite-400 hover:text-white transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-white mb-3">Automation</h3>
+            <ul className="space-y-2">
+              {footerLinks.automations.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-graphite-400 hover:text-white transition-colors">
                     {link.label}

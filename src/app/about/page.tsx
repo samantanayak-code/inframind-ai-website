@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/primitives/Button";
+import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { Badge } from "@/components/primitives/Badge";
 import { MetricCard } from "@/components/composites/MetricCard";
 import { CTASection } from "@/components/composites/CTASection";
@@ -172,9 +173,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="mt-8 flex gap-3">
-            <Button href="/contact" size="lg">
-              Work With Me <ArrowRight className="w-4 h-4" />
-            </Button>
+            <CalendlyCTA variant="button" buttonText="Schedule Consultation" className="flex items-center gap-2" />
             <Button href="/case-studies" variant="secondary" size="lg">
               View Case Studies
             </Button>

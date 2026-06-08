@@ -31,7 +31,7 @@
 ┌─────────────────────────────────────────────┐
 │                                             │
 │                                             │
-│           [Infrastructure Nexus Mark]       │
+│           [Blue IM Monogram]       │
 │                  (120x120)                  │
 │                                             │
 │              InfraMind AI                   │
@@ -252,7 +252,7 @@
 ┌─────────────────────────────────────────────┐
 │                                             │
 │                                             │
-│           [Infrastructure Nexus Mark]       │
+│           [Blue IM Monogram]       │
 │                  (80x80)                    │
 │                                             │
 │              InfraMind AI                   │

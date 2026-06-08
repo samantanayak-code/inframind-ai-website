@@ -1,0 +1,15 @@
+advisory-suite-overview.pdf: PASS
+capability-statement.pdf: PASS
+capability-statement.pptx: PASS
+claim-narrative-drafter-spec.pdf: PASS
+contracts-claims-brochure.pdf: PASS
+contracts-claims-flyer.pdf: PASS
+delay-analysis-eot-brochure.pdf: PASS
+eot-event-log-compiler-spec.pdf: PASS
+fidic-claims-intelligence-suite-overview.pdf: PASS
+fidic-notice-monitor-demo-script.pdf: PASS
+fidic-notice-monitor-one-pager.pdf: PASS
+letter-drafter-epc-spec.pdf: PASS
+planning-scheduling-brochure.pdf: PASS
+unifier-sync-case-study.pdf: PASS
+unifier-sync-one-pager.pdf: PASS

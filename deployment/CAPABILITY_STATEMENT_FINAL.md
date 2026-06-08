@@ -4,7 +4,7 @@
 
 ---
 
-![Infrastructure Nexus Mark](assets/logo-mark.svg)
+![Blue IM Monogram](assets/logo-mark.svg)
 
 ---
 
@@ -28,6 +28,12 @@
 
 ---
 
+**Ready to explore how operational intelligence can reduce contractual exposure on your project?**
+
+Schedule a consultation: [https://inframind-ai-website.vercel.app/contact](https://inframind-ai-website.vercel.app/contact)
+
+---
+
 ## Product Portfolio
 
 ### Operational Intelligence Products
@@ -38,7 +44,6 @@
 | **NCR Tracker** | Quality Intelligence | Production | 40%+ faster closure |
 | **Contract Forensics** | Contract Intelligence | Demonstrable | Weeks → Hours review |
 | **OCR Intelligence** | Document Intelligence | Demonstrable | 98%+ accuracy |
-| **TCB Simulation** | Programme Intelligence | In Development | Time-Cost-Buffer analysis |
 
 ---
 
@@ -51,7 +56,7 @@
 | **Layer 1: Data Capture** | Document digitization & OCR | OCR Intelligence |
 | **Layer 2: Intelligence** | Operational intelligence & analytics | Digital Twin, NCR Tracker |
 | **Layer 3: Decision** | AI-powered contract analysis | Contract Forensics |
-| **Layer 4: Evidence** | Defensible contemporaneous records | All Products |
+| **Layer 4: Evidence** | Structured documentation aligned with contractual and evidentiary requirements | All Products |
 
 ---
 
@@ -69,6 +74,16 @@
 | Contractor | Larsen & Toubro Limited |
 
 **Governance Structure:** JICA (Funding Agency) → NHSRCL (Employer) → JICC (Engineer / PMC) → L&T Limited (Contractor)
+
+---
+
+## Representative Project Experience
+
+| Project | Role | Scope |
+|---------|------|-------|
+| **MAHSR T-3 Track Package** | Manager — Contracts & Claims, Larsen & Toubro Limited | FIDIC Yellow Book contract administration for 115.877 km of high-speed rail track construction under JICA/JICC oversight |
+| **ICC Arbitration** | Fact Witness | Dispute resolution and expert testimony in international arbitration proceedings |
+| **AI Product Deployment** | Founder, InfraMind AI | Operational deployment of Digital Twin and NCR Tracker on live EPC megaprojects |
 
 ---
 
@@ -114,10 +129,10 @@
 |-------------|-------------------|
 | **EPC Contractors** | Operational intelligence, reduced contractual exposure |
 | **PMCs** | Real-time project visibility, automated quality tracking |
-| **Infrastructure Owners** | Defensible records, dispute prevention |
+| **Infrastructure Owners** | Structured records, dispute prevention |
 | **Government Authorities** | Compliance dashboards, audit-ready documentation |
 | **Rail Projects** | Chainage-referenced corridor intelligence |
-| **Arbitration Support** | ICC-grade evidence, expert testimony |
+| **Arbitration Support** | Prepared in a manner suitable for supporting dispute avoidance and dispute resolution processes; expert testimony |
 
 ---
 
@@ -141,10 +156,20 @@
 **InfraMind AI**
 AI-Enabled EPC Operational Intelligence
 
-🌐 [https://inframind.ai](https://inframind.ai)
-📧 Contact via website
+**Samanta Nayak**
+Manager — Contracts & Claims | Infrastructure AI Architect
+
+🌐 [https://inframind-ai-website.vercel.app](https://inframind-ai-website.vercel.app)
+📧 [Contact via website](https://inframind-ai-website.vercel.app/contact)
+💼 [LinkedIn](https://linkedin.com)
 
 ---
 
-*Document Version: 1.0 | Generated: June 2026*
-*Infrastructure Nexus v1 Branding Applied*
+**Ready to discuss how operational intelligence can reduce contractual exposure on your project?**
+
+[Schedule a consultation →](https://inframind-ai-website.vercel.app/contact)
+
+---
+
+*Document Version: 1.1 | Generated: June 2026*
+*Blue IM Monogram Branding Applied*

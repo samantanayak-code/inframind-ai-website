@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/primitives/Button";
+import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { FeatureItem } from "@/components/composites/FeatureItem";
 import { CTASection } from "@/components/composites/CTASection";
 import { getService, services } from "@/lib/services";
@@ -85,9 +86,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <Section>
         <Container>
-          <Button href="/contact" size="lg">
-            Request Consultation <ArrowRight className="w-4 h-4" />
-          </Button>
+          <CalendlyCTA variant="button" buttonText="Schedule Consultation" className="flex items-center gap-2" />
         </Container>
       </Section>
 

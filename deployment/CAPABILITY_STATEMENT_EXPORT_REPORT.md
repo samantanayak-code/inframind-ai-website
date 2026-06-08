@@ -66,7 +66,7 @@ The InfraMind AI Executive Capability Statement has been successfully exported t
 - ✅ All 6 SVG diagrams embedded as vector graphics
 - ✅ Screenshots optimized and compressed
 - ✅ Professional tables and metric cards
-- ✅ Brand-compliant color scheme (#C45A27 primary)
+- ✅ Brand-compliant color scheme (#2A6094 primary)
 
 ---
 
@@ -115,15 +115,15 @@ The InfraMind AI Executive Capability Statement has been successfully exported t
 
 ## Brand Compliance
 
-### Infrastructure Nexus v1 System
+### Blue IM Monogram System
 
 | Element | PDF | PPTX |
 |---------|-----|------|
-| Primary Color (#C45A27) | ✅ Applied | ✅ Applied |
+| Primary Color (#2A6094) | ✅ Applied | ✅ Applied |
 | Secondary Color (#06B6D4) | ✅ Applied | ✅ Applied |
 | Logo Mark | ✅ Embedded | ✅ Embedded |
 | Typography | Inter | Arial |
-| Background | #1E2128 | #1E2128 |
+| Background | #111827 | #111827 |
 | Text Colors | #D0D3D8 / #8A8D95 | #D0D3D8 / #8A8D95 |
 
 ### Diagram Embedding
@@ -284,4 +284,4 @@ AI-Enabled EPC Operational Intelligence
 
 *Report Generated: June 7, 2026*
 *Document Version: 1.0*
-*Infrastructure Nexus v1 Branding Applied*
+*Blue IM Monogram Branding Applied*
