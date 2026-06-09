@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description:
     "End-to-end contract administration and claims management for FIDIC-governed EPC projects. 100% Sub-Clause 20.1 compliance. 80%+ claim success rate. Defensible records for ICC arbitration.",
   openGraph: {
-    title: "Contracts & Claims Advisory — InfraMind AI",
+    title: "Contracts & Claims Advisory — InfraMind EPC",
     description:
       "End-to-end contract administration and claims management for FIDIC-governed EPC projects. Practitioner-built, deployed on MAHSR T-3.",
   },

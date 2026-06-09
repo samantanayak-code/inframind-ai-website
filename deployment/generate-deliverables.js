@@ -366,10 +366,10 @@ async function generatePptx() {
   
   // Set presentation properties
   pptx.layout = 'LAYOUT_WIDE';
-  pptx.author = 'InfraMind AI';
-  pptx.company = 'InfraMind AI';
+  pptx.author = 'InfraMind EPC';
+  pptx.company = 'InfraMind EPC';
   pptx.subject = 'Executive Capability Statement';
-  pptx.title = 'InfraMind AI - Executive Capability Statement';
+  pptx.title = 'InfraMind EPC - Executive Capability Statement';
   
   // Common slide background
   const slideBg = { color: '111827' };
@@ -451,10 +451,10 @@ async function generatePptx() {
   slide.addText('Executive Summary', { x: 0.5, y: 0.3, w: 9, h: 0.6, ...headingStyle });
   
   slide.addText([
-    { text: 'InfraMind AI ', options: { bold: true, color: '2A6094' } },
+    { text: 'InfraMind EPC ', options: { bold: true, color: '2A6094' } },
     { text: 'delivers practitioner-built AI operational intelligence systems for EPC megaprojects. Founded by ', options: { color: 'D1D5DB' } },
     { text: 'Samanta Nayak', options: { bold: true, color: 'D1D5DB' } },
-    { text: ' — a 20+ year EPC infrastructure veteran and ICC Arbitration Fact Witness — InfraMind AI encodes real-world contract administration expertise into deployed AI-augmented systems.', options: { color: 'D1D5DB' } }
+    { text: ' — a 20+ year EPC infrastructure veteran and ICC Arbitration Fact Witness — InfraMind EPC encodes real-world contract administration expertise into deployed AI-augmented systems.', options: { color: 'D1D5DB' } }
   ], { x: 0.5, y: 1.0, w: 9, h: 1.2, fontSize: 12, fontFace: 'Arial', valign: 'top' });
   
   slide.addText('Mission: Eliminate the information lag that transforms manageable risks into costly disputes on infrastructure megaprojects.', { 

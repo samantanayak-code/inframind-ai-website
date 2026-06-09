@@ -418,10 +418,10 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Why InfraMind AI */}
+      {/* Why InfraMind EPC */}
       <Section className="bg-[var(--color-surface-subtle)]/50">
         <Container>
-          <h2 className="text-[var(--font-h2)] font-bold text-white mb-12 text-center">Why InfraMind AI</h2>
+          <h2 className="text-[var(--font-h2)] font-bold text-white mb-12 text-center">Why InfraMind EPC</h2>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
             {whyReasons.map((reason) => (
               <div key={reason.title} className="flex gap-5">

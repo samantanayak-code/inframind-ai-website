@@ -11,11 +11,11 @@ import { ArrowRight, Award, Briefcase, GraduationCap, Globe } from "lucide-react
 export const metadata: Metadata = {
   title: "About — Samanta Nayak, Infrastructure AI Architect",
   description:
-    "20+ years EPC infrastructure experience. ICC Arbitration Fact Witness. Infrastructure AI Architect behind InfraMind AI — deployed on MAHSR T-3 (INR 3,142 Crore FIDIC Yellow Book).",
+    "20+ years EPC infrastructure experience. ICC Arbitration Fact Witness. Infrastructure AI architect behind InfraMind EPC — deployed on MAHSR T-3 (INR 3,142 Crore FIDIC Yellow Book).",
   openGraph: {
     title: "About — Samanta Nayak, Infrastructure AI Architect",
     description:
-      "20+ years EPC infrastructure experience. ICC Arbitration Fact Witness. Infrastructure AI Architect behind InfraMind AI.",
+      "20+ years EPC infrastructure experience. ICC Arbitration Fact Witness. Infrastructure AI architect behind InfraMind EPC.",
   },
 };
 
@@ -32,7 +32,7 @@ const timeline = [
   { year: "2015", event: "Joined Larsen & Toubro Limited — Contracts & Claims" },
   { year: "2021", event: "ICC Arbitration Fact Witness" },
   { year: "2022", event: "MAHSR T-3 Track Package — INR 3,142 Crore FIDIC Yellow Book" },
-  { year: "2025", event: "Founded InfraMind AI — Operational Intelligence" },
+  { year: "2025", event: "Founded InfraMind EPC — Operational Intelligence" },
   { year: "2025", event: "Operational deployment of AI product portfolio on live EPC megaprojects" },
   { year: "2026", event: "Advancing the EPC AI Product Portfolio" },
 ];
@@ -114,7 +114,7 @@ export default function AboutPage() {
               <strong className="text-white">The Response:</strong> Build AI systems that understand FIDIC obligations, compress information lag, and produce defensible contemporaneous records. Not developer tools — practitioner-built systems.
             </p>
             <p>
-              <strong className="text-white">The Rarest Combination:</strong> 20+ years of hands-on EPC contract administration, combined with AI engineering capability. This is the foundation of InfraMind AI.
+              <strong className="text-white">The Rarest Combination:</strong> 20+ years of hands-on EPC contract administration, combined with AI engineering capability. This is the foundation of InfraMind EPC.
             </p>
           </div>
         </Container>
@@ -169,7 +169,7 @@ export default function AboutPage() {
               &ldquo;To make operational intelligence the default state of EPC megaproject administration — eliminating the information lag that transforms manageable risks into costly disputes.&rdquo;
             </p>
             <p>
-              <strong className="text-white">Mission:</strong> InfraMind AI converts practitioner-earned EPC operational judgment into deployed AI-augmented systems that reduce information lag, create defensible contemporaneous records, and eliminate preventable contractual exposure on infrastructure megaprojects.
+              <strong className="text-white">Mission:</strong> InfraMind EPC converts practitioner-earned EPC operational judgment into deployed AI-augmented systems that reduce information lag, create defensible contemporaneous records, and eliminate preventable contractual exposure on infrastructure megaprojects.
             </p>
           </div>
           <div className="mt-8 flex gap-3">

@@ -18,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "InfraMind AI — Operational Intelligence for Infrastructure EPC Megaprojects",
-    template: "%s — InfraMind AI",
+    default: "InfraMind EPC — Operational Intelligence for Infrastructure EPC Megaprojects",
+    template: "%s — InfraMind EPC",
   },
   description:
     "Practitioner-built AI systems for EPC megaprojects. Deployed on MAHSR T-3 (INR 3,142 Crore FIDIC Yellow Book). Digital Twin, NCR Tracker, Contract Forensics, OCR Intelligence, TCB Simulation.",
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "InfraMind AI",
-    title: "InfraMind AI — Operational Intelligence for Infrastructure EPC Megaprojects",
+    siteName: "InfraMind EPC",
+    title: "InfraMind EPC — Operational Intelligence for Infrastructure EPC Megaprojects",
     description:
       "Practitioner-built AI systems for EPC megaprojects. Deployed on MAHSR T-3 (INR 3,142 Crore FIDIC Yellow Book).",
     images: [
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "InfraMind AI — Operational Intelligence for Infrastructure EPC Megaprojects",
+        alt: "InfraMind EPC — Operational Intelligence for Infrastructure EPC Megaprojects",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "InfraMind AI — Operational Intelligence for Infrastructure EPC Megaprojects",
+    title: "InfraMind EPC — Operational Intelligence for Infrastructure EPC Megaprojects",
     description:
       "Practitioner-built AI systems for EPC megaprojects. Deployed on MAHSR T-3 (INR 3,142 Crore FIDIC Yellow Book).",
     images: ["/og-image.svg"],

@@ -53,7 +53,7 @@ export function InfraMindLogo({ variant = "horizontal", className = "" }: InfraM
             InfraMind
           </span>
           <span className="text-xl font-bold" style={{ color: BLUE }}>
-            AI
+            EPC
           </span>
         </span>
       </span>
@@ -72,7 +72,7 @@ export function InfraMindLogo({ variant = "horizontal", className = "" }: InfraM
           InfraMind
         </span>
         <span className="text-lg font-bold" style={{ color: BLUE }}>
-          AI
+          EPC
         </span>
       </span>
     </span>

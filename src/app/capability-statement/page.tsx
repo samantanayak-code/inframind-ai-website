@@ -102,7 +102,7 @@ const representativeExperience = [
 
 const downloads = [
   {
-    title: "Capability Statement — InfraMind AI",
+    title: "Capability Statement — InfraMind EPC",
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "June 2026",
@@ -111,7 +111,7 @@ const downloads = [
     fileUrl: "/downloads/capability-statement.pdf",
   },
   {
-    title: "Capability Statement — InfraMind AI",
+    title: "Capability Statement — InfraMind EPC",
     format: "PPT" as const,
     version: "v1.0",
     lastUpdated: "June 2026",
@@ -184,7 +184,7 @@ export default function CapabilityStatementPage() {
                 <div className="w-8 h-8 rounded-lg bg-infrastructure-500/10 flex items-center justify-center">
                   <Building2 className="w-4 h-4 text-infrastructure-400" />
                 </div>
-                <h3 className="text-sm font-semibold text-white">InfraMind AI</h3>
+                <h3 className="text-sm font-semibold text-white">InfraMind EPC</h3>
               </div>
               <p className="text-sm text-graphite-400">
                 Practitioner-built AI systems for EPC megaprojects. Every product operational on active EPC projects,
@@ -362,7 +362,7 @@ export default function CapabilityStatementPage() {
             <div>
               <h2 className="text-2xl font-bold text-white mb-2">Download Centre</h2>
               <p className="text-graphite-400 mb-8">
-                Download the InfraMind AI Capability Statement in your preferred format.
+                Download the InfraMind EPC Capability Statement in your preferred format.
               </p>
               <div className="space-y-4">
                 {downloads.map((dl) => (

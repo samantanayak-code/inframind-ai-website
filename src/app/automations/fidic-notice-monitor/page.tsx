@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   description:
     "AI-powered FIDIC contractual notice monitoring that ensures 100% compliance and preserves every entitlement. 100% notice compliance. 100% entitlement preservation. Deployed on MAHSR T-3 — INR 3,142 Crore FIDIC Yellow Book.",
   openGraph: {
-    title: "FIDIC Notice Monitor — InfraMind AI",
+    title: "FIDIC Notice Monitor — InfraMind EPC",
     description:
       "AI-powered FIDIC notice compliance automation. Never miss a notice deadline again. Deployed on MAHSR T-3 — INR 3,142 Crore.",
   },

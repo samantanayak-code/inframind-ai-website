@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   description:
     "AI-assisted claims preparation and contractual intelligence for EPC projects. Four integrated modules: Notice Monitor, EOT Event Log, Claim Narrative Drafter, Letter Drafter EPC. Deployed on MAHSR T-3 — INR 3,142 Crore FIDIC Yellow Book.",
   openGraph: {
-    title: "FIDIC Claims Intelligence Suite — InfraMind AI",
+    title: "FIDIC Claims Intelligence Suite — InfraMind EPC",
     description:
       "AI-assisted claims preparation and contractual intelligence for EPC projects. Never miss a notice, never lose an entitlement. Deployed on MAHSR T-3 — INR 3,142 Crore.",
   },

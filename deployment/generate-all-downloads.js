@@ -37,72 +37,72 @@ const filesToGenerate = [
   {
     source: path.join(__dirname, 'CAPABILITY_STATEMENT_FINAL.md'),
     target: 'capability-statement.pdf',
-    title: 'InfraMind AI — Capability Statement'
+    title: 'InfraMind EPC — Capability Statement'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\ADVISORY_SUITE_MASTER_BROCHURE.md',
     target: 'advisory-suite-overview.pdf',
-    title: 'InfraMind AI — Advisory Suite Overview'
+    title: 'InfraMind EPC — Advisory Suite Overview'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\PLANNING_SCHEDULING_FINAL_RELEASE.md',
     target: 'planning-scheduling-brochure.pdf',
-    title: 'InfraMind AI — Planning & Scheduling Brochure'
+    title: 'InfraMind EPC — Planning & Scheduling Brochure'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\DELAY_ANALYSIS_EOT_FINAL_RELEASE.md',
     target: 'delay-analysis-eot-brochure.pdf',
-    title: 'InfraMind AI — Delay Analysis & EOT Brochure'
+    title: 'InfraMind EPC — Delay Analysis & EOT Brochure'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\CONTRACTS_CLAIMS_FINAL_RELEASE.md',
     target: 'contracts-claims-brochure.pdf',
-    title: 'InfraMind AI — Contracts & Claims Brochure'
+    title: 'InfraMind EPC — Contracts & Claims Brochure'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\CONTRACTS_CLAIMS_ONE_PAGE_FLYER.md',
     target: 'contracts-claims-flyer.pdf',
-    title: 'InfraMind AI — Contracts & Claims Flyer'
+    title: 'InfraMind EPC — Contracts & Claims Flyer'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\UNIFIER_SYNC_ONE_PAGER.md',
     target: 'unifier-sync-one-pager.pdf',
-    title: 'InfraMind AI — Unifier Sync One-Pager'
+    title: 'InfraMind EPC — Unifier Sync One-Pager'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\UNIFIER_SYNC_CASE_STUDY.md',
     target: 'unifier-sync-case-study.pdf',
-    title: 'InfraMind AI — Unifier Sync Case Study'
+    title: 'InfraMind EPC — Unifier Sync Case Study'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\FIDIC_NOTICE_MONITOR_ONE_PAGER.md',
     target: 'fidic-notice-monitor-one-pager.pdf',
-    title: 'InfraMind AI — FIDIC Notice Monitor One-Pager'
+    title: 'InfraMind EPC — FIDIC Notice Monitor One-Pager'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\FIDIC_NOTICE_MONITOR_DEMO_SCRIPT.md',
     target: 'fidic-notice-monitor-demo-script.pdf',
-    title: 'InfraMind AI — FIDIC Notice Monitor Demo Script'
+    title: 'InfraMind EPC — FIDIC Notice Monitor Demo Script'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\FIDIC_CLAIMS_INTELLIGENCE_SUITE_OVERVIEW.md',
     target: 'fidic-claims-intelligence-suite-overview.pdf',
-    title: 'InfraMind AI — FIDIC Claims Suite Executive Overview'
+    title: 'InfraMind EPC — FIDIC Claims Suite Executive Overview'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\EOT_EVENT_LOG_COMPILER_SPEC.md',
     target: 'eot-event-log-compiler-spec.pdf',
-    title: 'InfraMind AI — EOT Event Log Compiler Spec'
+    title: 'InfraMind EPC — EOT Event Log Compiler Spec'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\CLAIM_NARRATIVE_DRAFTER_SPEC.md',
     target: 'claim-narrative-drafter-spec.pdf',
-    title: 'InfraMind AI — Claim Narrative Drafter Spec'
+    title: 'InfraMind EPC — Claim Narrative Drafter Spec'
   },
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\LETTER_DRAFTER_EPC_SPEC.md',
     target: 'letter-drafter-epc-spec.pdf',
-    title: 'InfraMind AI — Letter Drafter EPC Spec'
+    title: 'InfraMind EPC — Letter Drafter EPC Spec'
   }
 ];
 
@@ -404,8 +404,8 @@ function generateFullHtml(bodyContent, title) {
     <!-- Cover Page -->
     <div class="cover-page">
       <div class="cover-logo">${logoMarkSvg}</div>
-      <div class="cover-title">${title.replace('InfraMind AI — ', '')}</div>
-      <div class="cover-subtitle">InfraMind AI Operational Deliverable Portfolio</div>
+      <div class="cover-title">${title.replace('InfraMind EPC — ', '')}</div>
+      <div class="cover-subtitle">InfraMind EPC Operational Deliverable Portfolio</div>
       <div class="cover-meta">
         <div>Author: Samanta Nayak</div>
         <div>Date: June 2026</div>
@@ -420,7 +420,7 @@ function generateFullHtml(bodyContent, title) {
     </div>
     <div class="footer-layout">
       <div>Confidential — For Prospective Client Evaluation Only</div>
-      <div>InfraMind AI Operational Intelligence</div>
+      <div>InfraMind EPC Operational Intelligence</div>
     </div>
 
     <!-- Main Content -->
@@ -438,10 +438,10 @@ async function generatePptx() {
   const pptx = new PptxGenJS();
   
   pptx.layout = 'LAYOUT_WIDE';
-  pptx.author = 'InfraMind AI';
-  pptx.company = 'InfraMind AI';
+  pptx.author = 'InfraMind EPC';
+  pptx.company = 'InfraMind EPC';
   pptx.subject = 'Executive Capability Statement';
-  pptx.title = 'InfraMind AI - Executive Capability Statement';
+  pptx.title = 'InfraMind EPC - Executive Capability Statement';
   
   const slideBg = { color: '111827' };
   

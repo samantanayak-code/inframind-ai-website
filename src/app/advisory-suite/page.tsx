@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   description:
     "Three integrated advisory offerings. One practitioner-built platform. Full lifecycle coverage from planning to arbitration. 20+ years EPC experience.",
   openGraph: {
-    title: "Advisory Suite — InfraMind AI",
+    title: "Advisory Suite — InfraMind EPC",
     description:
       "Three integrated advisory offerings. Planning. Claims. Contractual Certainty. Practitioner-built, deployed on MAHSR T-3.",
   },
@@ -479,10 +479,10 @@ export default function AdvisorySuitePage() {
         </Container>
       </Section>
 
-      {/* Why InfraMind AI */}
+      {/* Why InfraMind EPC */}
       <Section>
         <Container>
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">Why InfraMind AI</h2>
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">Why InfraMind EPC</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {whyReasons.map((reason) => (
               <div key={reason.title} className="p-5 rounded-xl bg-graphite-800 border border-graphite-700">

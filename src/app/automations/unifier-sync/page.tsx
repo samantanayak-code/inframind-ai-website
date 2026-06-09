@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   description:
     "Automated Oracle Primavera Unifier correspondence extraction and organization. 85–90% time reduction. 50 records per batch. Forensic-grade archive for claims preparation.",
   openGraph: {
-    title: "Unifier Sync — InfraMind AI",
+    title: "Unifier Sync — InfraMind EPC",
     description:
       "Automated correspondence extraction for Oracle Primavera Unifier. Deployed on MAHSR T-3 — INR 3,142 Crore FIDIC Yellow Book.",
   },

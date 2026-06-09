@@ -121,7 +121,7 @@ export function LeadCaptureForm({ onSubmitSuccess }: LeadCaptureFormProps) {
         <Send className="w-4 h-4" />
       </Button>
       <p className="text-xs text-graphite-500 text-center">
-        By downloading, you agree to receive follow-up communication from InfraMind AI.
+        By downloading, you agree to receive follow-up communication from InfraMind EPC.
       </p>
     </form>
   );

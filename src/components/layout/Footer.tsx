@@ -94,7 +94,7 @@ export function Footer() {
 
         <div className="mt-10 pt-8 border-t border-graphite-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-graphite-500">
-            &copy; {new Date().getFullYear()} InfraMind AI. All rights reserved.
+            &copy; {new Date().getFullYear()} InfraMind EPC. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link href="https://linkedin.com" className="text-xs text-graphite-500 hover:text-white transition-colors">
