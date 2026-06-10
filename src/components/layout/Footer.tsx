@@ -27,24 +27,24 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-graphite-800 bg-graphite-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-          <div>
-            <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg mb-4">
+    <footer className="border-t border-white/5 bg-[#07090C]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
+          <div className="col-span-2 md:col-span-1">
+            <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg mb-6">
               <InfraMindLogo variant="horizontal" />
             </Link>
-            <p className="text-sm text-graphite-500">
+            <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-text-muted)] leading-relaxed">
               Operational Intelligence for Infrastructure EPC Megaprojects
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white mb-3">Products</h3>
-            <ul className="space-y-2">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6">Products</h3>
+            <ul className="space-y-4">
               {footerLinks.products.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-graphite-400 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors font-medium">
                     {link.label}
                   </Link>
                 </li>
@@ -53,11 +53,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white mb-3">Automation</h3>
-            <ul className="space-y-2">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6">Automation</h3>
+            <ul className="space-y-4">
               {footerLinks.automations.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-graphite-400 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors font-medium">
                     {link.label}
                   </Link>
                 </li>
@@ -66,11 +66,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white mb-3">Services</h3>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6">Services</h3>
+            <ul className="space-y-4">
+              {footerLinks.services.slice(0, 4).map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-graphite-400 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors font-medium">
                     {link.label}
                   </Link>
                 </li>
@@ -79,35 +79,37 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white mb-3">Company</h3>
-            <ul className="space-y-2">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6">Company</h3>
+            <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-graphite-400 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors font-medium">
                     {link.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/resources" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors font-medium">
+                  Resources
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-graphite-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-graphite-500">
-            &copy; {new Date().getFullYear()} InfraMind EPC. All rights reserved.
+        <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
+            &copy; {new Date().getFullYear()} InfraMind EPC. Practitioner-Built Intelligence.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="mailto:samanta@inframindepc.com" className="text-xs text-graphite-500 hover:text-white transition-colors">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
+            <a href="mailto:samanta@inframindepc.com" className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] hover:text-white transition-colors">
               samanta@inframindepc.com
             </a>
-            <a href="tel:+917682858603" className="text-xs text-graphite-500 hover:text-white transition-colors">
+            <a href="tel:+917682858603" className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] hover:text-white transition-colors">
               +91 7682858603
             </a>
-            <Link href="https://linkedin.com" className="text-xs text-graphite-500 hover:text-white transition-colors">
+            <Link href="https://linkedin.com" className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] hover:text-white transition-colors">
               LinkedIn
-            </Link>
-            <Link href="/contact" className="text-xs text-graphite-500 hover:text-white transition-colors">
-              Contact
             </Link>
           </div>
         </div>
