@@ -8,8 +8,8 @@ import { CaseStudyCard } from "@/components/composites/CaseStudyCard";
 import { AutomationCard } from "@/components/composites/AutomationCard";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
-import { InfrastructureIllustration } from "@/components/branding/InfrastructureIllustration";
 import { HeroVisual } from "@/components/branding/HeroVisual";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/feedback/ScrollReveal";
 import { motion } from "framer-motion";
 import { products } from "@/lib/products";
 import { caseStudies } from "@/lib/case-studies";
@@ -26,9 +26,7 @@ import {
   Building2,
   Scale,
   Clock,
-  HardHat,
   Train,
-  Globe,
   Gavel,
   Cpu,
 } from "lucide-react";
@@ -165,9 +163,6 @@ const whyReasons = [
   },
 ];
 
-import { HeroVisual } from "@/components/branding/HeroVisual";
-import { motion } from "framer-motion";
-
 export default function HomePage() {
   const featuredCaseStudies = caseStudies.filter((cs) =>
     ["mahsr-digital-twin", "ncr-tracker", "contract-forensics"].includes(cs.slug)
@@ -245,277 +240,308 @@ export default function HomePage() {
       {/* Experience Highlights — Task 3 */}
       <Section className="bg-[var(--color-surface-subtle)] border-y border-[var(--color-border)]">
         <Container>
-          <div className="text-center mb-12">
+          <ScrollReveal className="text-center mb-16">
             <h2 className="text-[var(--font-h2)] font-bold text-white mb-4">Executive Highlights</h2>
-            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-lg">
               Practitioner-led intelligence calibrated for the specific pressures of EPC megaproject administration.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          </ScrollReveal>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {experienceHighlights.map((item) => (
-              <div
+              <StaggerItem
                 key={item.title}
-                className="p-6 rounded-[var(--radius-lg)] bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]"
+                className="p-8 rounded-[var(--radius-lg)] bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/40 transition-all duration-300 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-glow)] group"
               >
-                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
-                  <item.icon className="w-5 h-5 text-[var(--color-accent)]" />
+                <div className="w-12 h-12 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 flex items-center justify-center mb-6 border border-[var(--color-primary)]/20 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-6 h-6 text-[var(--color-primary)]" />
                 </div>
-                <h3 className="text-[var(--font-body)] font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{item.description}</p>
-              </div>
+                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">{item.description}</p>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </Container>
       </Section>
 
       {/* Key Metrics */}
       <Section>
         <Container>
-          <h2 className="text-[var(--font-h3)] font-bold text-white mb-10 text-center">Measurable Impact</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <ScrollReveal className="mb-16">
+            <h2 className="text-[var(--font-h2)] font-bold text-white text-center">Measurable Impact</h2>
+          </ScrollReveal>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {metrics.map((m) => (
-              <MetricCard key={m.label} {...m} className="hover:border-[var(--color-accent)] transition-colors" />
+              <StaggerItem key={m.label}>
+                <MetricCard {...m} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </Container>
       </Section>
 
-      {/* Representative Experience — Trust Signal (Preserved but visually grouped) */}
+      {/* Representative Experience — Trust Signal */}
       <Section className="bg-[var(--color-surface-subtle)]/50">
         <Container>
-          <h2 className="text-[var(--font-h3)] font-bold text-white mb-2 text-center">Representative Experience</h2>
-          <p className="text-[var(--color-text-secondary)] mb-12 text-center max-w-2xl mx-auto">
-            Verified project experience across EPC megaprojects under FIDIC contract regimes.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <ScrollReveal className="text-center mb-16">
+            <h2 className="text-[var(--font-h2)] font-bold text-white mb-4">Representative Experience</h2>
+            <p className="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
+              Verified project experience across EPC megaprojects under FIDIC contract regimes.
+            </p>
+          </ScrollReveal>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {representativeExperience.map((exp) => (
-              <div
+              <StaggerItem
                 key={exp.project}
-                className="p-8 rounded-[var(--radius-lg)] bg-[var(--color-surface)] border border-[var(--color-border)] shadow-[var(--shadow-sm)]"
+                className="p-10 rounded-[var(--radius-lg)] bg-[var(--color-elevated)] border border-[var(--color-border)] shadow-[var(--shadow-sm)] hover:border-[var(--color-primary)]/20 transition-colors"
               >
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-3 mb-6">
                   <Badge variant="production">Verified</Badge>
-                  <span className="text-xs text-[var(--color-text-secondary)]">{exp.contract}</span>
+                  <span className="text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest">{exp.contract}</span>
                 </div>
-                <h3 className="text-[var(--font-body)] font-bold text-white mb-6">{exp.project}</h3>
-                <div className="grid grid-cols-2 gap-6 text-sm mb-6">
+                <h3 className="text-2xl font-bold text-white mb-8">{exp.project}</h3>
+                <div className="grid grid-cols-2 gap-8 text-sm mb-8">
                   <div>
-                    <div className="text-xs text-[var(--color-text-secondary)] mb-1">Contract Value</div>
-                    <div className="font-medium text-white">{exp.value}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] mb-2">Contract Value</div>
+                    <div className="font-bold text-white text-base">{exp.value}</div>
                   </div>
                   <div>
-                    <div className="text-xs text-[var(--color-text-secondary)] mb-1">Role</div>
-                    <div className="font-medium text-white">{exp.role}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] mb-2">Role</div>
+                    <div className="font-bold text-white text-base">{exp.role}</div>
                   </div>
                   <div className="col-span-2">
-                    <div className="text-xs text-[var(--color-text-secondary)] mb-1">Scope</div>
-                    <div className="font-medium text-white">{exp.scope}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] mb-2">Scope</div>
+                    <div className="font-medium text-[var(--color-text-secondary)] leading-relaxed">{exp.scope}</div>
                   </div>
                 </div>
-                <div className="pt-6 border-t border-[var(--color-border)] mb-4">
-                  <div className="text-xs text-[var(--color-text-secondary)] mb-2 uppercase tracking-wider font-semibold opacity-60">
+                <div className="pt-8 border-t border-[var(--color-border)] mb-6">
+                  <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] mb-4 font-bold">
                     Governance
                   </div>
-                  <div className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{exp.governance}</div>
+                  <div className="text-sm text-[var(--color-text-secondary)] leading-relaxed font-medium">{exp.governance}</div>
                 </div>
-                <div className="pt-6 border-t border-[var(--color-border)]">
-                  <div className="text-xs text-[var(--color-text-secondary)] mb-3 uppercase tracking-wider font-semibold opacity-60">
+                <div className="pt-8 border-t border-[var(--color-border)]">
+                  <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] mb-4 font-bold">
                     Key Achievements
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {exp.highlights.map((h) => (
                       <div key={h} className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
                         <CheckCircle className="w-4 h-4 text-[var(--color-success)] flex-shrink-0 mt-0.5" />
-                        {h}
+                        <span className="font-medium">{h}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </Container>
       </Section>
 
       {/* Project Impact */}
       <Section>
         <Container>
-          <h2 className="text-[var(--font-h3)] font-bold text-white mb-2 text-center">Project Impact</h2>
-          <p className="text-[var(--color-text-secondary)] mb-10 text-center max-w-2xl mx-auto">
-            Verified outcomes from live EPC project deployments.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <ScrollReveal className="text-center mb-16">
+            <h2 className="text-[var(--font-h2)] font-bold text-white mb-4">Project Impact</h2>
+            <p className="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
+              Verified outcomes from live EPC project deployments.
+            </p>
+          </ScrollReveal>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {projectImpacts.map((impact) => (
-              <div
+              <StaggerItem
                 key={impact.title}
-                className="p-6 rounded-[var(--radius-lg)] bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-300"
+                className="p-8 rounded-[var(--radius-lg)] bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/30 transition-all duration-300 group"
               >
-                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
-                  <impact.icon className="w-5 h-5 text-[var(--color-accent)]" />
+                <div className="w-12 h-12 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 flex items-center justify-center mb-6 border border-[var(--color-primary)]/20 group-hover:scale-110 transition-transform duration-300">
+                  <impact.icon className="w-6 h-6 text-[var(--color-primary)]" />
                 </div>
-                <h3 className="text-sm font-bold text-white mb-2">{impact.title}</h3>
-                <p className="text-xs text-[var(--color-text-secondary)] mb-4 leading-relaxed">{impact.description}</p>
-                <div className="pt-4 border-t border-[var(--color-border)]">
-                  <div className="text-xl font-bold text-[var(--color-accent)] font-mono">{impact.metric}</div>
-                  <div className="text-xs text-[var(--color-text-secondary)]">{impact.metricLabel}</div>
+                <h3 className="text-base font-bold text-white mb-3">{impact.title}</h3>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-6 leading-relaxed">{impact.description}</p>
+                <div className="pt-6 border-t border-[var(--color-border)]">
+                  <div className="text-3xl font-extrabold text-[var(--color-primary)] font-mono mb-1">{impact.metric}</div>
+                  <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] font-bold">{impact.metricLabel}</div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </Container>
       </Section>
 
-      {/* Featured Products — Task 4 (Advisory Suite card logic preserved but visuals refined) */}
+      {/* Featured Products */}
       <Section className="bg-[var(--color-surface-subtle)]/30">
         <Container>
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-[var(--font-h2)] font-bold text-white">Products</h2>
+          <ScrollReveal className="flex items-center justify-between mb-16">
+            <div>
+              <h2 className="text-[var(--font-h2)] font-bold text-white mb-2">Products</h2>
+              <p className="text-[var(--color-text-secondary)]">Strategic solutions for infrastructure intelligence.</p>
+            </div>
             <Button href="/products" variant="ghost" size="sm">
-              View All <ArrowRight className="w-4 h-4" />
+              View All <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </ScrollReveal>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
-              <ProductCard
-                key={product.slug}
-                {...product}
-                linkTo={
-                  product.status === "production" ? `/products/${product.slug}` : `/case-studies/contract-forensics`
-                }
-              />
+              <StaggerItem key={product.slug} className="h-full">
+                <ProductCard
+                  {...product}
+                  linkTo={
+                    product.status === "production" ? `/products/${product.slug}` : `/case-studies/contract-forensics`
+                  }
+                />
+              </StaggerItem>
             ))}
             {/* Contract Forensics Card */}
-            <ProductCard
-              slug="contract-forensics"
-              name="Contract Forensics"
-              category="Contract Intelligence"
-              status="demonstrable"
-              description="AI-Powered Contractual Intelligence — compresses document review from weeks to hours."
-              screenshot="/screenshots/contract-forensics/02_Analyse Document.png"
-              metrics={[{ label: "Review Time", value: "Weeks → Hours" }]}
-              linkTo="/case-studies/contract-forensics"
-            />
+            <StaggerItem className="h-full">
+              <ProductCard
+                slug="contract-forensics"
+                name="Contract Forensics"
+                category="Contract Intelligence"
+                status="demonstrable"
+                description="AI-Powered Contractual Intelligence — compresses document review from weeks to hours."
+                screenshot="/screenshots/contract-forensics/02_Analyse Document.png"
+                metrics={[{ label: "Review Time", value: "Weeks → Hours" }]}
+                linkTo="/case-studies/contract-forensics"
+              />
+            </StaggerItem>
             {/* OCR Intelligence Card */}
-            <ProductCard
-              slug="ocr-intelligence"
-              name="OCR Intelligence"
-              category="Document Intelligence"
-              status="demonstrable"
-              description="Document Digitization for AI Analysis — 98% OCR accuracy on construction documents."
-              screenshot="/screenshots/pdf-ocr-web-app/00_HOME.png"
-              metrics={[{ label: "Accuracy", value: "98%+" }]}
-              linkTo="/case-studies/ocr-intelligence"
-            />
-          </div>
+            <StaggerItem className="h-full">
+              <ProductCard
+                slug="ocr-intelligence"
+                name="OCR Intelligence"
+                category="Document Intelligence"
+                status="demonstrable"
+                description="Document Digitization for AI Analysis — 98% OCR accuracy on construction documents."
+                screenshot="/screenshots/pdf-ocr-web-app/00_HOME.png"
+                metrics={[{ label: "Accuracy", value: "98%+" }]}
+                linkTo="/case-studies/ocr-intelligence"
+              />
+            </StaggerItem>
+          </StaggerContainer>
         </Container>
       </Section>
 
-      {/* Operational Automation Suite — Task 5 */}
+      {/* Operational Automation Suite */}
       <Section>
         <Container>
-          <div className="flex items-center justify-between mb-12">
+          <ScrollReveal className="flex items-center justify-between mb-16">
             <div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 rounded-[var(--radius-md)] bg-[var(--color-primary)]/20 flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-[var(--color-accent)]" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-[var(--radius-md)] bg-[var(--color-primary)]/20 flex items-center justify-center border border-[var(--color-primary)]/30">
+                  <Zap className="w-4 h-4 text-[var(--color-primary)]" />
                 </div>
-                <span className="text-sm font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                <span className="text-sm font-bold uppercase tracking-widest text-[var(--color-primary)]">
                   Automation Suite
                 </span>
               </div>
               <h2 className="text-[var(--font-h2)] font-bold text-white">Practitioner-Built Automation</h2>
             </div>
             <Button href="/automations" variant="ghost" size="sm">
-              View All <ArrowRight className="w-4 h-4" />
+              View All <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </ScrollReveal>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {automations.map((automation) => (
-              <AutomationCard
-                key={automation.slug}
-                slug={automation.slug}
-                name={automation.name}
-                category={automation.category}
-                status={automation.status}
-                icon={automation.icon}
-                tagline={automation.tagline}
-                metrics={automation.metrics}
-              />
+              <StaggerItem key={automation.slug} className="h-full">
+                <AutomationCard
+                  slug={automation.slug}
+                  name={automation.name}
+                  category={automation.category}
+                  status={automation.status}
+                  icon={automation.icon}
+                  tagline={automation.tagline}
+                  metrics={automation.metrics}
+                />
+              </StaggerItem>
             ))}
-          </div>
-          <div className="mt-12 p-8 rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] border border-[var(--color-border)] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-primary)] opacity-5 blur-3xl -mr-16 -mt-16" />
-            <p className="text-[var(--font-body)] text-[var(--color-text-secondary)] text-center relative z-10">
+          </StaggerContainer>
+          <ScrollReveal delay={0.2} className="mt-20 p-12 rounded-[var(--radius-xl)] bg-[var(--color-elevated)] border border-[var(--color-border)] relative overflow-hidden text-center">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-primary)] opacity-5 blur-[100px] -mr-32 -mt-32" />
+            <p className="text-2xl text-[var(--color-text-secondary)] relative z-10 font-medium leading-relaxed max-w-4xl mx-auto">
               <span className="text-white font-bold">Automation born from operational pain.</span> Every capability in the
               Suite was built to solve a problem the founder personally experienced on a live INR 3,142 Crore
               megaproject.
             </p>
-          </div>
+          </ScrollReveal>
         </Container>
       </Section>
 
       {/* Why InfraMind EPC */}
       <Section className="bg-[var(--color-surface-subtle)]/50">
         <Container>
-          <h2 className="text-[var(--font-h2)] font-bold text-white mb-12 text-center">Why InfraMind EPC</h2>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+          <ScrollReveal className="text-center mb-20">
+            <h2 className="text-[var(--font-h2)] font-bold text-white mb-4">Why InfraMind EPC</h2>
+            <p className="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
+              Our unique position at the intersection of megaproject administration and artificial intelligence.
+            </p>
+          </ScrollReveal>
+          <StaggerContainer className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
             {whyReasons.map((reason) => (
-              <div key={reason.title} className="flex gap-5">
-                <div className="flex-shrink-0 w-12 h-12 rounded-[var(--radius-md)] bg-[var(--color-accent)]/10 flex items-center justify-center border border-[var(--color-accent)]/20">
-                  <reason.icon className="w-6 h-6 text-[var(--color-accent)]" />
+              <StaggerItem key={reason.title} className="flex gap-6 group">
+                <div className="flex-shrink-0 w-14 h-14 rounded-[var(--radius-lg)] bg-[var(--color-primary)]/10 flex items-center justify-center border border-[var(--color-primary)]/20 group-hover:scale-110 group-hover:shadow-[var(--shadow-glow)] transition-all duration-300">
+                  <reason.icon className="w-7 h-7 text-[var(--color-primary)]" />
                 </div>
                 <div>
-                  <h3 className="text-[var(--font-body)] font-bold text-white mb-2">{reason.title}</h3>
-                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{reason.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[var(--color-primary)] transition-colors">{reason.title}</h3>
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed">{reason.description}</p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </Container>
       </Section>
 
       {/* Case Study Highlights */}
       <Section>
         <Container>
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-[var(--font-h2)] font-bold text-white">Case Studies</h2>
+          <ScrollReveal className="flex items-center justify-between mb-16">
+            <div>
+              <h2 className="text-[var(--font-h2)] font-bold text-white mb-2">Case Studies</h2>
+              <p className="text-[var(--color-text-secondary)]">Empirical proof of operational transformation.</p>
+            </div>
             <Button href="/case-studies" variant="ghost" size="sm">
-              View All <ArrowRight className="w-4 h-4" />
+              View All <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </ScrollReveal>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredCaseStudies.map((cs) => (
-              <CaseStudyCard key={cs.slug} {...cs} />
+              <StaggerItem key={cs.slug} className="h-full">
+                <CaseStudyCard {...cs} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </Container>
       </Section>
 
       {/* Consultation CTA with Calendly */}
-      <Section id="schedule-consultation">
+      <Section id="schedule-consultation" className="bg-[#0A0D10]">
         <Container>
-          <h2 className="text-[var(--font-h2)] font-bold text-white mb-4 text-center">Schedule a Consultation</h2>
-          <p className="text-[var(--color-text-secondary)] mb-12 text-center max-w-2xl mx-auto">
-            Choose a time that works for you. Our consultations are free and confidential.
-          </p>
-          <div className="max-w-3xl mx-auto">
+          <ScrollReveal className="text-center mb-16">
+            <h2 className="text-[var(--font-h2)] font-bold text-white mb-6">Schedule a Consultation</h2>
+            <p className="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
+              Speak directly with a practitioner to explore how operational intelligence can be deployed on your project.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2} className="max-w-4xl mx-auto">
             <CalendlyCTA
               variant="inline"
               title="Book a Consultation"
               description="Select a 30-minute discovery call to discuss your project challenges."
               buttonText="Schedule Discovery Call"
             />
-          </div>
+          </ScrollReveal>
         </Container>
       </Section>
 
       {/* CTA */}
-      <CTASection
-        headline="Ready to Reduce Your Contractual Exposure?"
-        description="Schedule a consultation to discuss how practitioner-built operational intelligence can reduce contractual exposure on your EPC project."
-        primaryCTA={{ text: "Schedule Consultation", href: "#schedule-consultation" }}
-        secondaryCTA={{ text: "Download Capability Statement", href: "/capability-statement" }}
-      />
+      <ScrollReveal>
+        <CTASection
+          headline="Ready to Reduce Your Contractual Exposure?"
+          description="Schedule a consultation to discuss how practitioner-built operational intelligence can reduce contractual exposure on your EPC project."
+          primaryCTA={{ text: "Schedule Consultation", href: "#schedule-consultation" }}
+          secondaryCTA={{ text: "Download Capability Statement", href: "/capability-statement" }}
+        />
+      </ScrollReveal>
     </>
   );
 }
