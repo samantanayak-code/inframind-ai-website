@@ -1,18 +1,21 @@
 @layer base {
   :root {
-    /* Colors */
-    --color-bg: #111827;
-    --color-surface: #1F2937;
-    --color-surface-elevated: #243244;
-    --color-surface-subtle: #182232;
+    /* Colors — V2 Deep Infrastructure */
+    --color-bg: #0A0D10;
+    --color-surface: #14181D;
+    --color-surface-elevated: #1C2229;
+    --color-surface-subtle: #0F1216;
 
-    --color-primary: #2A6094;
-    --color-accent: #4F8CC9;
+    --color-primary: #00D1FF;
+    --color-accent: #3A7AB8;
+    --color-accent-light: #4F8CC9;
 
-    --color-text-primary: #F9FAFB;
-    --color-text-secondary: #D1D5DB;
+    --color-text-primary: #F7FAFC;
+    --color-text-secondary: #94A3B8;
+    --color-text-muted: #64748B;
 
-    --color-border: #374151;
+    --color-border: #252D38;
+    --color-border-bright: #334155;
 
     --color-success: #10B981;
     --color-error: #EF4444;
@@ -26,21 +29,27 @@
     --space-6: 48px;
     --space-7: 56px;
     --space-8: 64px;
+    
+    --section-py: 120px;
+    --section-py-mobile: 80px;
 
     /* Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
+    --radius-xl: 24px;
 
-    /* Shadows */
+    /* Shadows & Glows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px rgba(0, 209, 255, 0.1);
+    --shadow-glow-strong: 0 0 30px rgba(0, 209, 255, 0.2);
 
-    /* Typography Hierarchy */
-    --font-display: 56px;
-    --font-h1: 44px;
-    --font-h2: 32px;
+    /* Typography Hierarchy (Golden Scale) */
+    --font-display: 72px;
+    --font-h1: 56px;
+    --font-h2: 40px;
     --font-h3: 24px;
     --font-body: 18px;
     --font-caption: 14px;

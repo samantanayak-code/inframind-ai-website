@@ -8,10 +8,10 @@ interface BadgeProps {
 
 export function Badge({ variant = "default", children, className }: BadgeProps) {
   const variants = {
-    production: "bg-success/10 text-success-light border-success/20",
-    pilot: "bg-warning/10 text-warning-light border-warning/20",
-    demonstrable: "bg-info/10 text-info-light border-info/20",
-    default: "bg-graphite-500/10 text-graphite-400 border-graphite-500/20",
+    production: "bg-[var(--color-success)]/10 text-[var(--color-success)] border-[var(--color-success)]/20",
+    pilot: "bg-[var(--color-warning)]/10 text-[var(--color-warning)] border-[var(--color-warning)]/20",
+    demonstrable: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/20",
+    default: "bg-white/5 text-[var(--color-text-secondary)] border-white/10",
   };
 
   return (
