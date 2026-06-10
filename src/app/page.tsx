@@ -9,6 +9,8 @@ import { AutomationCard } from "@/components/composites/AutomationCard";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
 import { InfrastructureIllustration } from "@/components/branding/InfrastructureIllustration";
+import { HeroVisual } from "@/components/branding/HeroVisual";
+import { motion } from "framer-motion";
 import { products } from "@/lib/products";
 import { caseStudies } from "@/lib/case-studies";
 import { automations } from "@/lib/automations";
@@ -163,6 +165,9 @@ const whyReasons = [
   },
 ];
 
+import { HeroVisual } from "@/components/branding/HeroVisual";
+import { motion } from "framer-motion";
+
 export default function HomePage() {
   const featuredCaseStudies = caseStudies.filter((cs) =>
     ["mahsr-digital-twin", "ncr-tracker", "contract-forensics"].includes(cs.slug)
@@ -171,36 +176,67 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <Section className="relative overflow-hidden pt-20 pb-24 md:pt-32 md:pb-40">
-        <div className="absolute inset-0 bg-gradient-to-br from-var(--color-surface-subtle) to-transparent opacity-50" />
-        <Container className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge variant="production" className="mb-6">
-                Deployed on MAHSR T-3
-              </Badge>
-              <h1 className="text-[var(--font-h1)] md:text-[var(--font-display)] font-bold text-white mb-6 leading-tight text-balance">
-                Operational Intelligence for Infrastructure
-              </h1>
-              <p className="text-[var(--font-body)] md:text-[20px] text-[var(--color-text-secondary)] mb-10 max-w-2xl leading-relaxed">
-                Practitioner-built AI systems for EPC megaprojects — deployed on India&apos;s major infrastructure
-                contracts, engineered by 20+ years of lived FIDIC contract administration experience.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="/capability-statement" size="lg">
-                  <Download className="w-4 h-4" />
-                  Download Capability Statement
-                </Button>
-                <CalendlyCTA variant="button" buttonText="Schedule Consultation" />
-              </div>
-              <p className="mt-8 text-xs text-[var(--color-text-secondary)] opacity-60 max-w-lg">
-                Verified deployment on MAHSR T-3 Track Package — INR 3,142 Crore FIDIC Yellow Book contract. JICA
-                (Funder) → NHSRCL (Employer) → JICC (Engineer) → L&T Limited (Contractor)
-              </p>
+      <Section className="relative overflow-hidden pt-32 pb-32 md:pt-48 md:pb-48 bg-[#07090C]">
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[var(--color-primary)]/5 blur-[120px] rounded-full -translate-y-1/2" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[var(--color-accent)]/5 blur-[120px] rounded-full translate-y-1/2" />
+        
+        <Container className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-7">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Badge variant="production" className="mb-8 px-4 py-1.5 text-xs tracking-widest uppercase">
+                  Deployed on MAHSR T-3 • INR 3,142 Cr
+                </Badge>
+                <h1 className="text-[var(--font-h1)] md:text-[var(--font-display)] font-extrabold text-white mb-8 leading-[1.1] text-balance">
+                  Infrastructure AI <br />
+                  <span className="text-[var(--color-primary)] bg-linear-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-transparent">
+                    Architect
+                  </span>
+                </h1>
+                <p className="text-[var(--font-body)] md:text-[22px] text-[var(--color-text-secondary)] mb-12 max-w-2xl leading-relaxed font-medium">
+                  Operational intelligence for EPC megaprojects. Engineered by 20+ years of lived FIDIC administration on India&apos;s most complex infrastructure contracts.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-5 mb-12">
+                  <Button href="/capability-statement" size="lg" className="px-10 h-14 text-lg">
+                    <Download className="w-5 h-5 mr-2" />
+                    Capability Statement
+                  </Button>
+                  <Button href="#schedule-consultation" variant="secondary" size="lg" className="px-10 h-14 text-lg">
+                    Book Discovery Call
+                  </Button>
+                </div>
+                
+                {/* Credentials Row */}
+                <div className="flex flex-wrap items-center gap-x-10 gap-y-6 opacity-60">
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-[var(--color-primary)]" />
+                    <span className="text-sm font-bold text-white uppercase tracking-wider">FIDIC Specialist</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Building2 className="w-5 h-5 text-[var(--color-primary)]" />
+                    <span className="text-sm font-bold text-white uppercase tracking-wider">EPC Transformation</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-[var(--color-primary)]" />
+                    <span className="text-sm font-bold text-white uppercase tracking-wider">Operational AI</span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-            <div className="hidden lg:block relative">
-              <div className="absolute -inset-4 bg-[var(--color-primary)] opacity-5 blur-3xl rounded-full" />
-              <InfrastructureIllustration className="relative w-full h-auto drop-shadow-2xl" />
+            
+            <div className="lg:col-span-5 relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <HeroVisual />
+              </motion.div>
             </div>
           </div>
         </Container>
