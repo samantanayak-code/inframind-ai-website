@@ -97,6 +97,12 @@ export function Footer() {
             &copy; {new Date().getFullYear()} InfraMind EPC. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
+            <a href="mailto:samanta@inframindepc.com" className="text-xs text-graphite-500 hover:text-white transition-colors">
+              samanta@inframindepc.com
+            </a>
+            <a href="tel:+917682858603" className="text-xs text-graphite-500 hover:text-white transition-colors">
+              +91 7682858603
+            </a>
             <Link href="https://linkedin.com" className="text-xs text-graphite-500 hover:text-white transition-colors">
               LinkedIn
             </Link>

@@ -12,7 +12,7 @@ interface CalendlyCTAProps {
   className?: string;
 }
 
-const defaultCalendlyUrl = "https://calendly.com/inframind-ai/discovery";
+const defaultCalendlyUrl = "https://calendly.com/samanta-nayak/30min";
 
 export function CalendlyCTA({
   variant = "inline",

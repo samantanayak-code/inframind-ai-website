@@ -7,7 +7,7 @@ import { Button } from "@/components/primitives/Button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, Clock, Mail, MapPin } from "lucide-react";
+import { Send, Clock, Mail, MapPin, Phone } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -167,7 +167,15 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 text-sm text-graphite-400">
                     <Mail className="w-4 h-4" />
-                    samanta.nayak@gmail.com
+                    <a href="mailto:samanta@inframindepc.com" className="hover:text-white transition-colors">
+                      samanta@inframindepc.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-graphite-400">
+                    <Phone className="w-4 h-4" />
+                    <a href="tel:+917682858603" className="hover:text-white transition-colors">
+                      +91 7682858603
+                    </a>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-graphite-400">
                     <MapPin className="w-4 h-4" />
