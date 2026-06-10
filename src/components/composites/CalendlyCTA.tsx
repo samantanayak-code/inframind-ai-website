@@ -29,9 +29,9 @@ export function CalendlyCTA({
       <>
         <button
           onClick={() => setShowModal(true)}
-          className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-infrastructure-600 text-white text-sm font-medium hover:bg-infrastructure-500 transition-colors ${className}`}
+          className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[var(--radius-md)] bg-linear-to-br from-[var(--color-primary)] to-[var(--color-accent)] text-white text-lg font-bold hover:shadow-[var(--shadow-glow-strong)] transition-all duration-300 active:scale-[0.98] ${className}`}
         >
-          <Calendar className="w-4 h-4" />
+          <Calendar className="w-5 h-5" />
           {buttonText}
         </button>
         {showModal && (
@@ -49,7 +49,7 @@ export function CalendlyCTA({
       <>
         <button
           onClick={() => setShowModal(true)}
-          className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-infrastructure-600 text-white text-sm font-medium hover:bg-infrastructure-500 transition-colors ${className}`}
+          className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 text-sm font-bold hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300 ${className}`}
         >
           <Calendar className="w-4 h-4" />
           {buttonText}
@@ -67,14 +67,14 @@ export function CalendlyCTA({
   // Card variant
   if (variant === "card") {
     return (
-      <div className={`p-5 rounded-xl bg-graphite-800 border border-graphite-700 ${className}`}>
-        <h3 className="text-sm font-semibold text-white mb-2">{title}</h3>
-        <p className="text-xs text-graphite-400 mb-3">{description}</p>
+      <div className={`p-8 rounded-[var(--radius-xl)] bg-[var(--color-elevated)] border border-[var(--color-border)] shadow-xl ${className}`}>
+        <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+        <p className="text-sm text-[var(--color-text-secondary)] mb-6 leading-relaxed">{description}</p>
         <button
           onClick={() => setShowModal(true)}
-          className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-infrastructure-600 text-white text-sm font-medium hover:bg-infrastructure-500 transition-colors"
+          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-primary)] text-white text-sm font-bold hover:shadow-[var(--shadow-glow)] transition-all duration-300"
         >
-          <Calendar className="w-3.5 h-3.5" />
+          <Calendar className="w-4 h-4" />
           {buttonText}
         </button>
         {showModal && (
@@ -89,33 +89,36 @@ export function CalendlyCTA({
 
   // Inline variant
   return (
-    <div className={`p-6 rounded-xl bg-graphite-800 border border-graphite-700 ${className}`}>
-      <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-lg bg-infrastructure-500/10 flex items-center justify-center">
-          <Calendar className="w-5 h-5 text-infrastructure-400" />
+    <div className={`p-10 rounded-[var(--radius-xl)] bg-[var(--color-elevated)] border border-[var(--color-border)] shadow-2xl relative overflow-hidden ${className}`}>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-primary)] opacity-5 blur-[100px] -mr-32 -mt-32" />
+      <div className="relative z-10">
+        <div className="flex items-center gap-6 mb-8">
+          <div className="w-16 h-16 rounded-[var(--radius-lg)] bg-[var(--color-primary)]/10 flex items-center justify-center border border-[var(--color-primary)]/20">
+            <Calendar className="w-8 h-8 text-[var(--color-primary)]" />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-1">{title}</h3>
+            <p className="text-[var(--color-text-secondary)] font-medium">{description}</p>
+          </div>
         </div>
-        <div>
-          <h3 className="text-sm font-semibold text-white">{title}</h3>
-          <p className="text-xs text-graphite-400">{description}</p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
+            onClick={() => setShowModal(true)}
+            className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[var(--radius-md)] bg-[var(--color-primary)] text-white text-lg font-bold hover:shadow-[var(--shadow-glow)] transition-all duration-300"
+          >
+            <Calendar className="w-5 h-5" />
+            {buttonText}
+          </button>
+          <a
+            href={calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[var(--radius-md)] border border-[var(--color-border)] text-white text-lg font-bold hover:bg-white/5 transition-all duration-300"
+          >
+            <ExternalLink className="w-5 h-5" />
+            Direct Link
+          </a>
         </div>
-      </div>
-      <div className="flex gap-2">
-        <button
-          onClick={() => setShowModal(true)}
-          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-infrastructure-600 text-white text-sm font-medium hover:bg-infrastructure-500 transition-colors"
-        >
-          <Calendar className="w-3.5 h-3.5" />
-          {buttonText}
-        </button>
-        <a
-          href={calendlyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-graphite-700 text-graphite-400 text-sm hover:text-white hover:border-graphite-600 transition-colors"
-        >
-          <ExternalLink className="w-3.5 h-3.5" />
-          Open
-        </a>
       </div>
     </div>
   );
@@ -129,21 +132,21 @@ function CalendlyModal({
   onClose: () => void;
 }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="relative w-full max-w-4xl mx-4 bg-graphite-900 rounded-xl border border-graphite-700 overflow-hidden">
-        <div className="flex items-center justify-between p-4 border-b border-graphite-700">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+      <div className="relative w-full max-w-5xl bg-[var(--color-bg)] rounded-[var(--radius-xl)] border border-white/10 overflow-hidden shadow-2xl">
+        <div className="flex items-center justify-between p-6 border-b border-white/5 bg-white/[0.02]">
           <div>
-            <h3 className="text-lg font-semibold text-white">Schedule a Consultation</h3>
-            <p className="text-sm text-graphite-400">Choose a time that works for you</p>
+            <h3 className="text-xl font-bold text-white">Schedule Strategy Session</h3>
+            <p className="text-sm text-[var(--color-text-muted)] font-medium">Practitioner-led technical discovery</p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg text-graphite-400 hover:text-white hover:bg-graphite-800 transition-colors"
+            className="p-3 rounded-full text-[var(--color-text-muted)] hover:text-white hover:bg-white/5 transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           </button>
         </div>
-        <div className="aspect-[4/3] w-full">
+        <div className="aspect-video w-full">
           <iframe
             src={url}
             className="w-full h-full border-0"

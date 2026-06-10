@@ -59,21 +59,22 @@ export function LeadCaptureForm({ onSubmitSuccess }: LeadCaptureFormProps) {
   };
 
   const inputClass =
-    "w-full px-3 py-2 bg-graphite-800 border border-graphite-700 rounded-lg text-white text-sm placeholder-graphite-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent";
-  const labelClass = "block text-sm font-medium text-graphite-300 mb-1";
-  const errorClass = "text-xs text-error-light mt-1";
+    "w-full px-4 py-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] text-white text-sm placeholder-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-[var(--color-primary)] transition-all";
+  const labelClass = "block text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-2";
+  const errorClass = "text-xs text-[var(--color-error)] mt-2 font-medium";
 
   if (submitted) {
     return (
-      <div className="p-8 rounded-xl bg-graphite-800 border border-graphite-700 text-center">
-        <div className="w-16 h-16 rounded-full bg-success/10 flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="w-8 h-8 text-success-light" />
+      <div className="p-12 rounded-[var(--radius-xl)] bg-[var(--color-elevated)] border border-[var(--color-border)] text-center shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-success)] opacity-5 blur-3xl -mr-16 -mt-16" />
+        <div className="w-20 h-20 rounded-full bg-[var(--color-success)]/10 flex items-center justify-center mx-auto mb-6 border border-[var(--color-success)]/20">
+          <CheckCircle className="w-10 h-10 text-[var(--color-success)]" />
         </div>
-        <h3 className="text-xl font-bold text-white mb-2">Thank you. Your download is ready.</h3>
-        <p className="text-graphite-400 mb-6">
-          Check your email for the Capability Statement. We will also follow up within 2 business days.
+        <h3 className="text-2xl font-bold text-white mb-3">Submission Successful</h3>
+        <p className="text-[var(--color-text-secondary)] mb-8 max-w-md mx-auto leading-relaxed">
+          Your request has been logged. Our practitioner team will reach out within 24 hours to schedule your strategy session.
         </p>
-        <Button onClick={() => setSubmitted(false)} variant="secondary">
+        <Button onClick={() => setSubmitted(false)} variant="secondary" size="lg">
           Submit Another Request
         </Button>
       </div>
@@ -81,31 +82,31 @@ export function LeadCaptureForm({ onSubmitSuccess }: LeadCaptureFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className={labelClass}>Full Name *</label>
-          <input {...register("name")} className={inputClass} placeholder="John Doe" />
+          <label className={labelClass}>Full Name</label>
+          <input {...register("name")} className={inputClass} placeholder="Enter your name" />
           {errors.name && <p className={errorClass}>{errors.name.message}</p>}
         </div>
         <div>
-          <label className={labelClass}>Company *</label>
-          <input {...register("company")} className={inputClass} placeholder="Larsen & Toubro" />
+          <label className={labelClass}>Company</label>
+          <input {...register("company")} className={inputClass} placeholder="Enter company name" />
           {errors.company && <p className={errorClass}>{errors.company.message}</p>}
         </div>
         <div>
-          <label className={labelClass}>Email *</label>
-          <input {...register("email")} type="email" className={inputClass} placeholder="john@company.com" />
+          <label className={labelClass}>Email Address</label>
+          <input {...register("email")} type="email" className={inputClass} placeholder="name@company.com" />
           {errors.email && <p className={errorClass}>{errors.email.message}</p>}
         </div>
         <div>
-          <label className={labelClass}>Role *</label>
-          <input {...register("role")} className={inputClass} placeholder="Contracts Manager" />
+          <label className={labelClass}>Professional Role</label>
+          <input {...register("role")} className={inputClass} placeholder="e.g. Contracts Manager" />
           {errors.role && <p className={errorClass}>{errors.role.message}</p>}
         </div>
       </div>
       <div>
-        <label className={labelClass}>Interest Area *</label>
+        <label className={labelClass}>Interest Area</label>
         <select {...register("interestArea")} className={inputClass}>
           <option value="">Select your area of interest...</option>
           {interestAreas.map((area) => (
@@ -116,12 +117,12 @@ export function LeadCaptureForm({ onSubmitSuccess }: LeadCaptureFormProps) {
         </select>
         {errors.interestArea && <p className={errorClass}>{errors.interestArea.message}</p>}
       </div>
-      <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Submitting..." : "Download Capability Statement"}
-        <Send className="w-4 h-4" />
+      <Button type="submit" size="lg" className="w-full h-14 text-lg" disabled={isSubmitting}>
+        {isSubmitting ? "Processing..." : "Submit Discovery Request"}
+        <Send className="w-5 h-5 ml-2" />
       </Button>
-      <p className="text-xs text-graphite-500 text-center">
-        By downloading, you agree to receive follow-up communication from InfraMind EPC.
+      <p className="text-[10px] text-[var(--color-text-muted)] text-center uppercase tracking-widest font-bold">
+        Secure Encryption • Practitioner Confidentiality Guaranteed
       </p>
     </form>
   );
