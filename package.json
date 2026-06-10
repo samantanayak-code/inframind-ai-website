@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@types/three": "^0.184.1",
     "adm-zip": "^0.5.17",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
@@ -19,6 +22,7 @@
     "react-dom": "19.2.4",
     "react-hook-form": "^7.77.0",
     "resend": "^6.12.4",
+    "three": "^0.184.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {

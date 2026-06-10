@@ -1,76 +1,244 @@
 "use client";
 
+import React, { useRef, useMemo, Suspense } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import {
+  PerspectiveCamera,
+  Float,
+  Text,
+  AdaptiveDpr,
+  AdaptiveEvents,
+  Edges,
+} from "@react-three/drei";
+import * as THREE from "three";
 import { motion } from "framer-motion";
+
+// --- 3D Components ---
+
+function HighSpeedTrain() {
+  const meshRef = useRef<THREE.Group>(null);
+  
+  useFrame((state) => {
+    if (!meshRef.current) return;
+    const t = state.clock.getElapsedTime();
+    // Subtle float and vibration
+    meshRef.current.position.y = Math.sin(t * 2) * 0.05;
+  });
+
+  return (
+    <group ref={meshRef}>
+      {/* Main Body */}
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[4, 0.8, 1]} />
+        <meshStandardMaterial color="#0A0D10" metalness={0.8} roughness={0.2} transparent opacity={0.9} />
+        <Edges color="#00D1FF" threshold={15} />
+      </mesh>
+      
+      {/* Front Nose */}
+      <mesh position={[2.5, -0.1, 0]} rotation={[0, 0, -Math.PI / 8]}>
+        <boxGeometry args={[1.5, 0.6, 0.95]} />
+        <meshStandardMaterial color="#0A0D10" metalness={0.8} roughness={0.2} transparent opacity={0.9} />
+        <Edges color="#00D1FF" threshold={15} />
+      </mesh>
+
+      {/* Windows / Detail */}
+      <mesh position={[0.5, 0.2, 0.51]}>
+        <planeGeometry args={[3, 0.2]} />
+        <meshBasicMaterial color="#00D1FF" transparent opacity={0.3} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh position={[0.5, 0.2, -0.51]}>
+        <planeGeometry args={[3, 0.2]} />
+        <meshBasicMaterial color="#00D1FF" transparent opacity={0.3} side={THREE.DoubleSide} />
+      </mesh>
+    </group>
+  );
+}
+
+function GlowingRails() {
+  return (
+    <group position={[0, -0.6, 0]}>
+      {/* Left Rail */}
+      <mesh position={[0, 0, 0.4]}>
+        <boxGeometry args={[20, 0.05, 0.05]} />
+        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" />
+      </mesh>
+      {/* Right Rail */}
+      <mesh position={[0, 0, -0.4]}>
+        <boxGeometry args={[20, 0.05, 0.05]} />
+        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" />
+      </mesh>
+      
+      {/* Sleepers */}
+      {useMemo(() => [...Array(20)].map((_, i) => (
+        <mesh key={i} position={[-10 + i * 1.5, -0.05, 0]}>
+          <boxGeometry args={[0.1, 0.02, 1.2]} />
+          <meshStandardMaterial color="#252D38" transparent opacity={0.5} />
+        </mesh>
+      )), [])}
+    </group>
+  );
+}
+
+function DataStreams() {
+  const count = 40;
+  const points = useMemo(() => {
+    const p = [];
+    for (let i = 0; i < count; i++) {
+      p.push({
+        pos: new THREE.Vector3(
+          (Math.random() - 0.5) * 20,
+          (Math.random() - 0.5) * 5,
+          (Math.random() - 0.5) * 10
+        ),
+        speed: 0.05 + Math.random() * 0.1,
+      });
+    }
+    return p;
+  }, []);
+
+  const refs = useRef<THREE.Group[]>([]);
+
+  useFrame(() => {
+    refs.current.forEach((ref, i) => {
+      if (ref) {
+        ref.position.x -= points[i].speed;
+        if (ref.position.x < -10) ref.position.x = 10;
+      }
+    });
+  });
+
+  return (
+    <group>
+      {points.map((p, i) => (
+        <group key={i} ref={(el) => (refs.current[i] = el!)} position={p.pos}>
+          <mesh>
+            <sphereGeometry args={[0.02, 8, 8]} />
+            <meshBasicMaterial color="#00D1FF" transparent opacity={0.6} />
+          </mesh>
+        </group>
+      ))}
+    </group>
+  );
+}
+
+function OperationalNodes() {
+  const labels = [
+    { text: "CONTRACT", pos: [2, 1.5, 2] },
+    { text: "QUALITY", pos: [-1, 2, -3] },
+    { text: "SCHEDULE", pos: [-4, 1.2, 1] },
+    { text: "DOCUMENTS", pos: [5, 2.5, -2] },
+  ];
+
+  return (
+    <group>
+      {labels.map((l, i) => (
+        <Float key={i} speed={2} rotationIntensity={0.5} floatIntensity={1}>
+          <Text
+            position={l.pos as any}
+            fontSize={0.2}
+            color="#00D1FF"
+            font="https://fonts.gstatic.com/s/jetbrainsmono/v18/t64vAd_S_K-vVxFxsByv5q8.woff"
+            anchorX="center"
+            anchorY="middle"
+          >
+            {l.text}
+          </Text>
+          <mesh position={[l.pos[0], l.pos[1] - 0.3, l.pos[2]]}>
+            <sphereGeometry args={[0.05, 16, 16]} />
+            <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={1} color="#00D1FF" />
+          </mesh>
+        </Float>
+      ))}
+    </group>
+  );
+}
+
+function SceneContent() {
+  const { viewport } = useThree();
+  const groupRef = useRef<THREE.Group>(null);
+
+  useFrame((state) => {
+    if (!groupRef.current) return;
+    // Subtle mouse parallax
+    const x = (state.mouse.x * viewport.width) / 20;
+    const y = (state.mouse.y * viewport.height) / 20;
+    groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, x * 0.1, 0.1);
+    groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, -y * 0.1, 0.1);
+  });
+
+  return (
+    <group ref={groupRef}>
+      <PerspectiveCamera makeDefault position={[0, 2, 8]} fov={50} />
+      
+      {/* Lighting */}
+      <ambientLight intensity={0.2} />
+      <pointLight position={[10, 10, 10]} intensity={1} color="#00D1FF" />
+      <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={2} color="#3A7AB8" />
+
+      {/* Main Elements */}
+      <HighSpeedTrain />
+      <GlowingRails />
+      <DataStreams />
+      <OperationalNodes />
+      
+      {/* Floor Grid */}
+      <gridHelper args={[100, 50, "#252D38", "#14181D"]} position={[0, -0.65, 0]} />
+    </group>
+  );
+}
 
 export function HeroVisual() {
   return (
-    <div className="relative w-full aspect-square max-w-2xl mx-auto">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[var(--color-primary)] opacity-10 blur-[120px] rounded-full" />
-      
-      {/* Central "Core" */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
-        className="absolute inset-[15%] rounded-[var(--radius-xl)] bg-linear-to-br from-white/10 to-transparent border border-white/20 backdrop-blur-3xl shadow-[var(--shadow-glow)] overflow-hidden"
-      >
-        {/* Animated Grid Lines */}
-        <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
-        <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(0, 209, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 209, 255, 0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+    <div className="relative w-full aspect-square max-w-2xl mx-auto rounded-[var(--radius-xl)] overflow-hidden border border-white/10 bg-[#0A0D10] shadow-2xl">
+      <div className="absolute inset-0 z-0">
+        <Canvas
+          shadows
+          gl={{ antialias: true, alpha: true }}
+          camera={{ position: [0, 2, 8], fov: 50 }}
+          dpr={[1, 2]}
+        >
+          <color attach="background" args={["#0A0D10"]} />
+          <fog attach="fog" args={["#0A0D10", 5, 20]} />
+          
+          <Suspense fallback={null}>
+            <SceneContent />
+            <AdaptiveDpr pixelated />
+            <AdaptiveEvents />
+          </Suspense>
+        </Canvas>
+      </div>
+
+      {/* Overlay UI elements to match previous visual style */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#0A0D10] opacity-50" />
         
-        {/* Data "Pips" */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0 }}
-            animate={{ 
-              opacity: [0.2, 0.5, 0.2],
-              x: [Math.random() * 100, Math.random() * 300],
-              y: [Math.random() * 100, Math.random() * 300]
-            }}
-            transition={{ 
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute w-1 h-1 bg-[var(--color-primary)] rounded-full"
-          />
-        ))}
+        {/* Animated HUD Elements */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute top-6 left-6 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10"
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-2 h-2 rounded-full bg-[var(--color-success)] animate-pulse" />
+            <span className="text-[10px] uppercase tracking-widest text-white font-bold opacity-60">System Online</span>
+          </div>
+          <div className="text-xs font-mono text-[var(--color-primary)]">TRACK_PKGE_T3_ACTIVE</div>
+        </motion.div>
 
-        {/* Floating "Product" Element */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1/2 h-1/2 rounded-[var(--radius-lg)] bg-[var(--color-elevated)] border border-[var(--color-primary)]/40 shadow-2xl p-4 flex flex-col justify-between"
-          >
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[var(--color-success)] animate-pulse" />
-              <div className="h-2 w-16 bg-white/10 rounded" />
-            </div>
-            <div className="space-y-2">
-              <div className="h-3 w-full bg-white/10 rounded" />
-              <div className="h-3 w-3/4 bg-white/10 rounded" />
-            </div>
-            <div className="h-8 w-full bg-[var(--color-primary)]/20 rounded border border-[var(--color-primary)]/30" />
-          </motion.div>
-        </div>
-      </motion.div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-6 right-6 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-right"
+        >
+          <div className="text-[10px] uppercase tracking-widest text-white font-bold opacity-60 mb-1">Intelligence Layer</div>
+          <div className="text-xs font-mono text-[var(--color-primary)]">FIDIC_CLAUSE_MONITOR_V2</div>
+        </motion.div>
+      </div>
 
-      {/* Orbiting Elements */}
-      <motion.div 
-        animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0"
-      >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 rounded-xl bg-[var(--color-elevated)] border border-white/10 flex items-center justify-center backdrop-blur-sm">
-          <div className="w-6 h-6 rounded bg-[var(--color-primary)]/20 border border-[var(--color-primary)]/50" />
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12 rounded-xl bg-[var(--color-elevated)] border border-white/10 flex items-center justify-center backdrop-blur-sm">
-          <div className="w-6 h-6 rounded bg-[var(--color-accent)]/20 border border-[var(--color-accent)]/50" />
-        </div>
-      </motion.div>
+      {/* Static Scanline Effect */}
+      <div className="absolute inset-0 pointer-events-none z-20 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
     </div>
   );
 }
