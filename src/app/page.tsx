@@ -163,6 +163,9 @@ const whyReasons = [
   },
 ];
 
+import { AIPipeline } from "@/components/branding/AIPipeline";
+import { InfrastructureNetwork } from "@/components/branding/InfrastructureNetwork";
+
 export default function HomePage() {
   const featuredCaseStudies = caseStudies.filter((cs) =>
     ["mahsr-digital-twin", "ncr-tracker", "contract-forensics"].includes(cs.slug)
