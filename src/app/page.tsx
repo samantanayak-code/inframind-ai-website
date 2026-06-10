@@ -350,24 +350,44 @@ export default function HomePage() {
               Verified outcomes from live EPC project deployments.
             </p>
           </ScrollReveal>
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {projectImpacts.map((impact) => (
-              <StaggerItem
-                key={impact.title}
-                className="p-8 rounded-[var(--radius-lg)] bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/30 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 flex items-center justify-center mb-6 border border-[var(--color-primary)]/20 group-hover:scale-110 transition-transform duration-300">
-                  <impact.icon className="w-6 h-6 text-[var(--color-primary)]" />
-                </div>
-                <h3 className="text-base font-bold text-white mb-3">{impact.title}</h3>
-                <p className="text-sm text-[var(--color-text-secondary)] mb-6 leading-relaxed">{impact.description}</p>
-                <div className="pt-6 border-t border-[var(--color-border)]">
-                  <div className="text-3xl font-extrabold text-[var(--color-primary)] font-mono mb-1">{impact.metric}</div>
-                  <div className="text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] font-bold">{impact.metricLabel}</div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+            <div className="lg:col-span-7">
+              <InfrastructureNetwork />
+            </div>
+            <div className="lg:col-span-5">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {projectImpacts.map((impact) => (
+                  <StaggerItem
+                    key={impact.title}
+                    className="p-6 rounded-[var(--radius-lg)] bg-[var(--color-elevated)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/30 transition-all duration-300 group"
+                  >
+                    <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-primary)]/10 flex items-center justify-center mb-4 border border-[var(--color-primary)]/20 group-hover:scale-110 transition-transform duration-300">
+                      <impact.icon className="w-5 h-5 text-[var(--color-primary)]" />
+                    </div>
+                    <h3 className="text-sm font-bold text-white mb-2">{impact.title}</h3>
+                    <div className="pt-4 border-t border-[var(--color-border)]">
+                      <div className="text-2xl font-extrabold text-[var(--color-primary)] font-mono">{impact.metric}</div>
+                      <div className="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] font-bold">{impact.metricLabel}</div>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* AI Pipeline Visualization */}
+      <Section className="bg-[#07090C] border-y border-[var(--color-border)]">
+        <Container>
+          <ScrollReveal className="text-center mb-12">
+            <h2 className="text-[var(--font-h2)] font-bold text-white mb-4">Document Intelligence Pipeline</h2>
+            <p className="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
+              Transforming unstructured project records into defensible contractual evidence.
+            </p>
+          </ScrollReveal>
+          <AIPipeline />
         </Container>
       </Section>
 
