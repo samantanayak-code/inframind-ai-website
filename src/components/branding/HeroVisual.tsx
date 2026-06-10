@@ -21,34 +21,20 @@ function HighSpeedTrain() {
   useFrame((state) => {
     if (!meshRef.current) return;
     const t = state.clock.getElapsedTime();
-    // Subtle float and vibration
     meshRef.current.position.y = Math.sin(t * 2) * 0.05;
   });
 
   return (
     <group ref={meshRef}>
-      {/* Main Body */}
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[4, 0.8, 1]} />
         <meshStandardMaterial color="#0A0D10" metalness={0.8} roughness={0.2} transparent opacity={0.9} />
         <Edges color="#00D1FF" threshold={15} />
       </mesh>
-      
-      {/* Front Nose */}
       <mesh position={[2.5, -0.1, 0]} rotation={[0, 0, -Math.PI / 8]}>
         <boxGeometry args={[1.5, 0.6, 0.95]} />
         <meshStandardMaterial color="#0A0D10" metalness={0.8} roughness={0.2} transparent opacity={0.9} />
         <Edges color="#00D1FF" threshold={15} />
-      </mesh>
-
-      {/* Windows / Detail */}
-      <mesh position={[0.5, 0.2, 0.51]}>
-        <planeGeometry args={[3, 0.2]} />
-        <meshBasicMaterial color="#00D1FF" transparent opacity={0.3} side={THREE.DoubleSide} />
-      </mesh>
-      <mesh position={[0.5, 0.2, -0.51]}>
-        <planeGeometry args={[3, 0.2]} />
-        <meshBasicMaterial color="#00D1FF" transparent opacity={0.3} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );
@@ -57,18 +43,14 @@ function HighSpeedTrain() {
 function GlowingRails() {
   return (
     <group position={[0, -0.6, 0]}>
-      {/* Left Rail */}
       <mesh position={[0, 0, 0.4]}>
         <boxGeometry args={[20, 0.05, 0.05]} />
         <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" />
       </mesh>
-      {/* Right Rail */}
       <mesh position={[0, 0, -0.4]}>
         <boxGeometry args={[20, 0.05, 0.05]} />
         <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" />
       </mesh>
-      
-      {/* Sleepers */}
       {useMemo(() => [...Array(20)].map((_, i) => (
         <mesh key={i} position={[-10 + i * 1.5, -0.05, 0]}>
           <boxGeometry args={[0.1, 0.02, 1.2]} />
@@ -159,31 +141,29 @@ function SceneContent() {
 
   useFrame((state) => {
     if (!groupRef.current) return;
-    // Subtle mouse parallax
-    const x = (state.mouse.x * viewport.width) / 20;
-    const y = (state.mouse.y * viewport.height) / 20;
-    groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, x * 0.1, 0.1);
-    groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, -y * 0.1, 0.1);
+    // Subtle mouse parallax for the model only
+    const x = state.mouse.x * 0.4;
+    const y = state.mouse.y * 0.4;
+    groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, x, 0.05);
+    groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, -y, 0.05);
   });
 
   return (
-    <group ref={groupRef}>
-      <PerspectiveCamera makeDefault position={[0, 2, 8]} fov={50} />
+    <>
+      <PerspectiveCamera makeDefault position={[0, 2, 10]} fov={35} />
       
-      {/* Lighting */}
-      <ambientLight intensity={0.2} />
-      <pointLight position={[10, 10, 10]} intensity={1} color="#00D1FF" />
-      <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={2} color="#3A7AB8" />
+      <ambientLight intensity={0.4} />
+      <pointLight position={[10, 10, 10]} intensity={2} color="#00D1FF" />
+      <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={3} color="#3A7AB8" />
 
-      {/* Main Elements */}
-      <HighSpeedTrain />
-      <GlowingRails />
-      <DataStreams />
-      <OperationalNodes />
-      
-      {/* Floor Grid */}
-      <gridHelper args={[100, 50, "#252D38", "#14181D"]} position={[0, -0.65, 0]} />
-    </group>
+      <group ref={groupRef}>
+        <HighSpeedTrain />
+        <GlowingRails />
+        <DataStreams />
+        <OperationalNodes />
+        <gridHelper args={[100, 50, "#252D38", "#14181D"]} position={[0, -0.65, 0]} />
+      </group>
+    </>
   );
 }
 
@@ -194,11 +174,10 @@ export function HeroVisual() {
         <Canvas
           shadows
           gl={{ antialias: true, alpha: true }}
-          camera={{ position: [0, 2, 8], fov: 50 }}
           dpr={[1, 2]}
         >
           <color attach="background" args={["#0A0D10"]} />
-          <fog attach="fog" args={["#0A0D10", 5, 20]} />
+          <fog attach="fog" args={["#0A0D10", 8, 25]} />
           
           <Suspense fallback={null}>
             <SceneContent />
@@ -208,11 +187,9 @@ export function HeroVisual() {
         </Canvas>
       </div>
 
-      {/* Overlay UI elements to match previous visual style */}
       <div className="absolute inset-0 pointer-events-none z-10">
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#0A0D10] opacity-50" />
         
-        {/* Animated HUD Elements */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -237,7 +214,6 @@ export function HeroVisual() {
         </motion.div>
       </div>
 
-      {/* Static Scanline Effect */}
       <div className="absolute inset-0 pointer-events-none z-20 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
     </div>
   );
