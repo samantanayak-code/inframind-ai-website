@@ -24,108 +24,104 @@ function HighSpeedTrain() {
     groupRef.current.position.y = Math.sin(t * 1.5) * 0.03;
   });
 
+  // --- Profile Shapes ---
+  const leadShape = useMemo(() => {
+    const s = new THREE.Shape();
+    s.moveTo(-1.8, -0.32);
+    s.lineTo(-1.8, 0.35);
+    s.lineTo(0.2, 0.35);
+    // Iconic Shinkansen "duck-bill" nose curve
+    s.bezierCurveTo(1.8, 0.35, 2.8, 0.05, 3.2, -0.22);
+    s.lineTo(3.2, -0.32);
+    s.closePath();
+    return s;
+  }, []);
+
+  const coachShape = useMemo(() => {
+    const s = new THREE.Shape();
+    s.moveTo(-1.6, -0.32);
+    s.lineTo(-1.6, 0.35);
+    s.lineTo(1.6, 0.35);
+    s.lineTo(1.6, -0.32);
+    s.closePath();
+    return s;
+  }, []);
+
+  const extrudeSettings = { depth: 0.75, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.04, bevelSegments: 3 };
+  
   const bodyMaterial = <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} transparent opacity={0.95} />;
-  const windowMaterial = <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" transparent opacity={0.8} />;
-  const accentMaterial = <meshStandardMaterial color="#14181D" metalness={1} />;
+  const windowMaterial = <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={3} color="#00D1FF" />;
 
   return (
     <group ref={groupRef}>
       {/* --- LEAD CAR --- */}
-      <group position={[1.5, 0, 0]}>
-        {/* Main Body (Lead) */}
-        <mesh position={[-0.5, 0, 0]}>
-          <boxGeometry args={[2.5, 0.65, 0.85]} />
+      <group position={[1.2, 0, -0.375]}>
+        <mesh>
+          <extrudeGeometry args={[leadShape, extrudeSettings]} />
           {bodyMaterial}
-          <Edges color="#00D1FF" threshold={15} />
+          <Edges color="#00D1FF" threshold={20} />
         </mesh>
-        
-        {/* Aerodynamic Nose (Shinkansen Style) */}
-        <group position={[0.75, -0.05, 0]}>
-          {/* Base Taper */}
-          <mesh position={[0.5, 0, 0]} rotation={[0, 0, -Math.PI / 12]}>
-            <boxGeometry args={[1.5, 0.5, 0.8]} />
-            {bodyMaterial}
-            <Edges color="#00D1FF" threshold={10} />
-          </mesh>
-          {/* Tip (Extreme Taper) */}
-          <mesh position={[1.4, -0.15, 0]} rotation={[0, 0, -Math.PI / 8]}>
-            <boxGeometry args={[0.8, 0.25, 0.7]} />
-            {bodyMaterial}
-            <Edges color="#00D1FF" threshold={5} />
-          </mesh>
-        </group>
-
-        {/* Window Band (Lead) */}
-        <mesh position={[-0.4, 0.15, 0.43]}>
-          <planeGeometry args={[2.2, 0.12]} />
+        {/* Lead Window Strip */}
+        <mesh position={[-0.2, 0.12, 0.76]}>
+          <planeGeometry args={[2.5, 0.08]} />
           {windowMaterial}
         </mesh>
-        <mesh position={[-0.4, 0.15, -0.43]}>
-          <planeGeometry args={[2.2, 0.12]} />
+        <mesh position={[-0.2, 0.12, -0.01]}>
+          <planeGeometry args={[2.5, 0.08]} />
           {windowMaterial}
         </mesh>
-
-        {/* Cockpit Window */}
-        <mesh position={[1.2, 0.2, 0.35]} rotation={[0, 0.4, 0]}>
-          <planeGeometry args={[0.4, 0.15]} />
-          {windowMaterial}
-        </mesh>
-        <mesh position={[1.2, 0.2, -0.35]} rotation={[0, -0.4, 0]}>
-          <planeGeometry args={[0.4, 0.15]} />
+        {/* Cockpit Detail */}
+        <mesh position={[1.4, 0.18, 0.375]}>
+          <boxGeometry args={[0.5, 0.1, 0.65]} />
           {windowMaterial}
         </mesh>
       </group>
 
       {/* --- SECOND COACH --- */}
-      <group position={[-1.7, 0, 0]}>
+      <group position={[-2.1, 0, -0.375]}>
         <mesh>
-          <boxGeometry args={[3.2, 0.65, 0.85]} />
+          <extrudeGeometry args={[coachShape, extrudeSettings]} />
           {bodyMaterial}
-          <Edges color="#00D1FF" threshold={15} />
+          <Edges color="#00D1FF" threshold={20} />
         </mesh>
-        {/* Window Band */}
-        <mesh position={[0, 0.15, 0.43]}>
-          <planeGeometry args={[3, 0.12]} />
+        {/* Coach Window Strip */}
+        <mesh position={[0, 0.12, 0.76]}>
+          <planeGeometry args={[3, 0.08]} />
           {windowMaterial}
         </mesh>
-        <mesh position={[0, 0.15, -0.43]}>
-          <planeGeometry args={[3, 0.12]} />
+        <mesh position={[0, 0.12, -0.01]}>
+          <planeGeometry args={[3, 0.08]} />
           {windowMaterial}
         </mesh>
-        {/* Roof Detail (Pantograph Base) */}
-        <mesh position={[0, 0.35, 0]}>
-          <boxGeometry args={[1.5, 0.05, 0.6]} />
-          {accentMaterial}
+        {/* Roof Pantograph Base */}
+        <mesh position={[0, 0.38, 0.375]}>
+          <boxGeometry args={[1.2, 0.05, 0.5]} />
+          <meshStandardMaterial color="#14181D" />
           <Edges color="#3A7AB8" />
         </mesh>
       </group>
 
       {/* --- REAR COACH (Partial) --- */}
-      <group position={[-4.8, 0, 0]}>
+      <group position={[-5.4, 0, -0.375]}>
         <mesh>
-          <boxGeometry args={[2.8, 0.65, 0.85]} />
+          <extrudeGeometry args={[coachShape, extrudeSettings]} />
           {bodyMaterial}
-          <Edges color="#00D1FF" threshold={15} />
+          <Edges color="#00D1FF" threshold={20} />
         </mesh>
-        <mesh position={[0, 0.15, 0.43]}>
-          <planeGeometry args={[2.5, 0.12]} />
+        <mesh position={[0.5, 0.12, 0.76]}>
+          <planeGeometry args={[2.2, 0.08]} />
           {windowMaterial}
         </mesh>
       </group>
 
-      {/* --- BOGIES (Simplified) --- */}
-      <group position={[0, -0.35, 0]}>
-        {[2, 0, -2, -4].map((x) => (
-          <group key={x} position={[x, 0, 0]}>
-            <mesh position={[0, 0, 0.3]}>
-              <boxGeometry args={[0.6, 0.15, 0.2]} />
-              <meshBasicMaterial color="#14181D" />
-            </mesh>
-            <mesh position={[0, 0, -0.3]}>
-              <boxGeometry args={[0.6, 0.15, 0.2]} />
-              <meshBasicMaterial color="#14181D" />
-            </mesh>
-          </group>
+      {/* --- BOGIES --- */}
+      <group position={[0, -0.38, 0]}>
+        {[2.5, 0, -2.5, -5].map((x) => (
+          <mesh key={x} position={[x, 0, 0]}>
+            <boxGeometry args={[0.7, 0.12, 0.6]} />
+            <meshBasicMaterial color="#07090C" />
+            <Edges color="#14181D" />
+          </mesh>
         ))}
       </group>
     </group>
