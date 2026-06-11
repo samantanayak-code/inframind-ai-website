@@ -21,20 +21,40 @@ function HighSpeedTrain() {
   useFrame((state) => {
     if (!meshRef.current) return;
     const t = state.clock.getElapsedTime();
-    meshRef.current.position.y = Math.sin(t * 2) * 0.05;
+    meshRef.current.position.y = Math.sin(t * 1.5) * 0.03;
   });
 
   return (
     <group ref={meshRef}>
-      <mesh position={[0, 0, 0]}>
-        <boxGeometry args={[4, 0.8, 1]} />
-        <meshStandardMaterial color="#0A0D10" metalness={0.8} roughness={0.2} transparent opacity={0.9} />
+      {/* Aerodynamic Body Segment 1 */}
+      <mesh position={[-0.5, 0, 0]}>
+        <boxGeometry args={[3, 0.65, 0.85]} />
+        <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} transparent opacity={0.95} />
         <Edges color="#00D1FF" threshold={15} />
       </mesh>
-      <mesh position={[2.5, -0.1, 0]} rotation={[0, 0, -Math.PI / 8]}>
-        <boxGeometry args={[1.5, 0.6, 0.95]} />
-        <meshStandardMaterial color="#0A0D10" metalness={0.8} roughness={0.2} transparent opacity={0.9} />
-        <Edges color="#00D1FF" threshold={15} />
+      
+      {/* Nose Segment (Tapered) */}
+      <mesh position={[1.8, -0.05, 0]} rotation={[0, 0, -Math.PI / 10]}>
+        <boxGeometry args={[1.8, 0.5, 0.8]} />
+        <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} />
+        <Edges color="#00D1FF" threshold={10} />
+      </mesh>
+
+      {/* Roof Unit */}
+      <mesh position={[-0.6, 0.35, 0]}>
+        <boxGeometry args={[2.5, 0.1, 0.6]} />
+        <meshStandardMaterial color="#14181D" />
+        <Edges color="#3A7AB8" />
+      </mesh>
+
+      {/* Emissive Data Strip */}
+      <mesh position={[0, 0.1, 0.43]}>
+        <planeGeometry args={[3.8, 0.04]} />
+        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={3} color="#00D1FF" />
+      </mesh>
+      <mesh position={[0, 0.1, -0.43]}>
+        <planeGeometry args={[3.8, 0.04]} />
+        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={3} color="#00D1FF" />
       </mesh>
     </group>
   );
@@ -43,14 +63,18 @@ function HighSpeedTrain() {
 function GlowingRails() {
   return (
     <group position={[0, -0.6, 0]}>
+      {/* Left Rail */}
       <mesh position={[0, 0, 0.4]}>
         <boxGeometry args={[20, 0.05, 0.05]} />
         <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" />
       </mesh>
+      {/* Right Rail */}
       <mesh position={[0, 0, -0.4]}>
         <boxGeometry args={[20, 0.05, 0.05]} />
         <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" />
       </mesh>
+      
+      {/* Sleepers */}
       {useMemo(() => [...Array(20)].map((_, i) => (
         <mesh key={i} position={[-10 + i * 1.5, -0.05, 0]}>
           <boxGeometry args={[0.1, 0.02, 1.2]} />
@@ -105,29 +129,28 @@ function DataStreams() {
 
 function OperationalNodes() {
   const labels = [
-    { text: "CONTRACT", pos: [2, 1.5, 2] },
-    { text: "QUALITY", pos: [-1, 2, -3] },
-    { text: "SCHEDULE", pos: [-4, 1.2, 1] },
-    { text: "DOCUMENTS", pos: [5, 2.5, -2] },
+    { text: "CONTRACT_INTEL", pos: [2.5, 2, 2] },
+    { text: "QUALITY_MIS", pos: [-2.5, 2, -1] },
+    { text: "SCHEDULE_SYNC", pos: [-3, 1, 3] },
+    { text: "DOC_ENGINE", pos: [3, 2, -2] },
   ];
 
   return (
     <group>
       {labels.map((l, i) => (
-        <Float key={i} speed={2} rotationIntensity={0.5} floatIntensity={1}>
+        <Float key={i} speed={3} rotationIntensity={0.5} floatIntensity={2}>
           <Text
             position={l.pos as any}
-            fontSize={0.2}
+            fontSize={0.25}
             color="#00D1FF"
-            font="https://fonts.gstatic.com/s/jetbrainsmono/v18/t64vAd_S_K-vVxFxsByv5q8.woff"
             anchorX="center"
             anchorY="middle"
           >
             {l.text}
           </Text>
-          <mesh position={[l.pos[0], l.pos[1] - 0.3, l.pos[2]]}>
-            <sphereGeometry args={[0.05, 16, 16]} />
-            <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={1} color="#00D1FF" />
+          <mesh position={[l.pos[0], l.pos[1] - 0.4, l.pos[2]]}>
+            <sphereGeometry args={[0.06, 16, 16]} />
+            <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={5} color="#00D1FF" />
           </mesh>
         </Float>
       ))}
@@ -152,11 +175,11 @@ function SceneContent() {
     <>
       <PerspectiveCamera makeDefault position={[0, 2, 10]} fov={35} />
       
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={2} color="#00D1FF" />
       <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={3} color="#3A7AB8" />
 
-      <group ref={groupRef}>
+      <group ref={groupRef} position={[0, 1.3, 0]}>
         <HighSpeedTrain />
         <GlowingRails />
         <DataStreams />
@@ -177,7 +200,7 @@ export function HeroVisual() {
           dpr={[1, 2]}
         >
           <color attach="background" args={["#0A0D10"]} />
-          <fog attach="fog" args={["#0A0D10", 8, 25]} />
+          <fog attach="fog" args={["#0A0D10", 10, 30]} />
           
           <Suspense fallback={null}>
             <SceneContent />
@@ -187,9 +210,11 @@ export function HeroVisual() {
         </Canvas>
       </div>
 
+      {/* Overlay UI elements */}
       <div className="absolute inset-0 pointer-events-none z-10">
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#0A0D10] opacity-50" />
         
+        {/* Animated HUD Elements */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -200,7 +225,7 @@ export function HeroVisual() {
             <div className="w-2 h-2 rounded-full bg-[var(--color-success)] animate-pulse" />
             <span className="text-[10px] uppercase tracking-widest text-white font-bold opacity-60">System Online</span>
           </div>
-          <div className="text-xs font-mono text-[var(--color-primary)]">TRACK_PKGE_T3_ACTIVE</div>
+          <div className="text-xs font-mono text-[var(--color-primary)] uppercase tracking-tighter">Track_Pkg_T3_Active</div>
         </motion.div>
 
         <motion.div 
@@ -210,7 +235,7 @@ export function HeroVisual() {
           className="absolute bottom-6 right-6 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-right"
         >
           <div className="text-[10px] uppercase tracking-widest text-white font-bold opacity-60 mb-1">Intelligence Layer</div>
-          <div className="text-xs font-mono text-[var(--color-primary)]">FIDIC_CLAUSE_MONITOR_V2</div>
+          <div className="text-xs font-mono text-[var(--color-primary)] uppercase tracking-tighter">FIDIC_Clause_Monitor_V2</div>
         </motion.div>
       </div>
 
