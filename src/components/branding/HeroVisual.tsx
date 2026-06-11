@@ -30,7 +30,6 @@ function HighSpeedTrain() {
     s.moveTo(-1.8, -0.32);
     s.lineTo(-1.8, 0.35);
     s.lineTo(0.2, 0.35);
-    // Iconic Shinkansen "duck-bill" nose curve
     s.bezierCurveTo(1.8, 0.35, 2.8, 0.05, 3.2, -0.22);
     s.lineTo(3.2, -0.32);
     s.closePath();
@@ -49,11 +48,13 @@ function HighSpeedTrain() {
 
   const extrudeSettings = { depth: 0.75, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.04, bevelSegments: 3 };
   
-  const bodyMaterial = <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} transparent opacity={0.95} />;
-  const windowMaterial = <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={3} color="#00D1FF" />;
+  const bodyMaterial = <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} transparent opacity={0.98} />;
+  const windowMaterial = <meshStandardMaterial color="#00151A" emissive="#00D1FF" emissiveIntensity={0.8} metalness={1} roughness={0} />;
+  const cockpitMaterial = <meshStandardMaterial color="#002B33" emissive="#00D1FF" emissiveIntensity={2} metalness={1} roughness={0} />;
+  const equipmentMaterial = <meshStandardMaterial color="#14181D" metalness={0.8} roughness={0.4} />;
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} position={[-1.5, 0, 0]}>
       {/* --- LEAD CAR --- */}
       <group position={[1.2, 0, -0.375]}>
         <mesh>
@@ -61,19 +62,38 @@ function HighSpeedTrain() {
           {bodyMaterial}
           <Edges color="#00D1FF" threshold={20} />
         </mesh>
-        {/* Lead Window Strip */}
-        <mesh position={[-0.2, 0.12, 0.76]}>
-          <planeGeometry args={[2.5, 0.08]} />
+        
+        {/* Lead Car Window Band */}
+        <mesh position={[-0.2, 0.15, 0.76]}>
+          <planeGeometry args={[2.8, 0.12]} />
           {windowMaterial}
         </mesh>
-        <mesh position={[-0.2, 0.12, -0.01]}>
-          <planeGeometry args={[2.5, 0.08]} />
+        <mesh position={[-0.2, 0.15, -0.01]}>
+          <planeGeometry args={[2.8, 0.12]} />
           {windowMaterial}
         </mesh>
-        {/* Cockpit Detail */}
-        <mesh position={[1.4, 0.18, 0.375]}>
-          <boxGeometry args={[0.5, 0.1, 0.65]} />
-          {windowMaterial}
+
+        {/* Technical Window Frames (Edges for windows) */}
+        <mesh position={[-0.2, 0.15, 0.761]}>
+          <planeGeometry args={[2.8, 0.12]} />
+          <meshBasicMaterial transparent opacity={0} />
+          <Edges color="#00D1FF" />
+        </mesh>
+
+        {/* Aerodynamic Cockpit Windshield */}
+        <group position={[1.6, 0.22, 0.375]} rotation={[0, 0, -Math.PI / 10]}>
+          <mesh>
+            <boxGeometry args={[0.7, 0.15, 0.65]} />
+            {cockpitMaterial}
+            <Edges color="#00D1FF" />
+          </mesh>
+        </group>
+
+        {/* Coach Door Outline */}
+        <mesh position={[-1.3, -0.02, 0.76]}>
+          <planeGeometry args={[0.4, 0.55]} />
+          <meshBasicMaterial transparent opacity={0} />
+          <Edges color="#00D1FF" />
         </mesh>
       </group>
 
@@ -84,21 +104,49 @@ function HighSpeedTrain() {
           {bodyMaterial}
           <Edges color="#00D1FF" threshold={20} />
         </mesh>
-        {/* Coach Window Strip */}
-        <mesh position={[0, 0.12, 0.76]}>
-          <planeGeometry args={[3, 0.08]} />
+        
+        {/* Coach Continuous Window Band */}
+        <mesh position={[0, 0.15, 0.76]}>
+          <planeGeometry args={[3.2, 0.12]} />
           {windowMaterial}
         </mesh>
-        <mesh position={[0, 0.12, -0.01]}>
-          <planeGeometry args={[3, 0.08]} />
+        <mesh position={[0, 0.15, -0.01]}>
+          <planeGeometry args={[3.2, 0.12]} />
           {windowMaterial}
         </mesh>
-        {/* Roof Pantograph Base */}
-        <mesh position={[0, 0.38, 0.375]}>
-          <boxGeometry args={[1.2, 0.05, 0.5]} />
-          <meshStandardMaterial color="#14181D" />
-          <Edges color="#3A7AB8" />
+
+        {/* Coach Door Outlines */}
+        <mesh position={[-1.3, -0.02, 0.76]}>
+          <planeGeometry args={[0.4, 0.55]} />
+          <meshBasicMaterial transparent opacity={0} />
+          <Edges color="#00D1FF" />
         </mesh>
+        <mesh position={[1.3, -0.02, 0.76]}>
+          <planeGeometry args={[0.4, 0.55]} />
+          <meshBasicMaterial transparent opacity={0} />
+          <Edges color="#00D1FF" />
+        </mesh>
+
+        {/* Roof Equipment Layer (HVAC + Pantograph Base) */}
+        <group position={[0, 0.38, 0.375]}>
+          {/* Main Equipment Hatch */}
+          <mesh>
+            <boxGeometry args={[2.5, 0.08, 0.55]} />
+            {equipmentMaterial}
+            <Edges color="#3A7AB8" />
+          </mesh>
+          {/* HVAC Outlines */}
+          <mesh position={[-0.8, 0.05, 0]}>
+            <boxGeometry args={[0.6, 0.05, 0.4]} />
+            {equipmentMaterial}
+            <Edges color="#3A7AB8" />
+          </mesh>
+          <mesh position={[0.8, 0.05, 0]}>
+            <boxGeometry args={[0.6, 0.05, 0.4]} />
+            {equipmentMaterial}
+            <Edges color="#3A7AB8" />
+          </mesh>
+        </group>
       </group>
 
       {/* --- REAR COACH (Partial) --- */}
@@ -108,20 +156,36 @@ function HighSpeedTrain() {
           {bodyMaterial}
           <Edges color="#00D1FF" threshold={20} />
         </mesh>
-        <mesh position={[0.5, 0.12, 0.76]}>
-          <planeGeometry args={[2.2, 0.08]} />
+        <mesh position={[0.5, 0.15, 0.76]}>
+          <planeGeometry args={[2.2, 0.12]} />
+          {windowMaterial}
+        </mesh>
+        <mesh position={[0.5, 0.15, -0.01]}>
+          <planeGeometry args={[2.2, 0.12]} />
           {windowMaterial}
         </mesh>
       </group>
 
-      {/* --- BOGIES --- */}
+      {/* --- BOGIES (Mechanical Grounding) --- */}
       <group position={[0, -0.38, 0]}>
         {[2.5, 0, -2.5, -5].map((x) => (
-          <mesh key={x} position={[x, 0, 0]}>
-            <boxGeometry args={[0.7, 0.12, 0.6]} />
-            <meshBasicMaterial color="#07090C" />
-            <Edges color="#14181D" />
-          </mesh>
+          <group key={x} position={[x, 0, 0]}>
+            {/* Main Bogie Frame */}
+            <mesh>
+              <boxGeometry args={[0.8, 0.15, 0.7]} />
+              <meshBasicMaterial color="#07090C" />
+              <Edges color="#14181D" />
+            </mesh>
+            {/* Wheel Indication */}
+            <mesh position={[0.25, -0.05, 0.3]} rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.1, 0.1, 0.1, 8]} />
+              <meshBasicMaterial color="#14181D" />
+            </mesh>
+            <mesh position={[-0.25, -0.05, 0.3]} rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.1, 0.1, 0.1, 8]} />
+              <meshBasicMaterial color="#14181D" />
+            </mesh>
+          </group>
         ))}
       </group>
     </group>
