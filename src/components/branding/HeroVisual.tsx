@@ -16,46 +16,118 @@ import { motion } from "framer-motion";
 // --- 3D Components ---
 
 function HighSpeedTrain() {
-  const meshRef = useRef<THREE.Group>(null);
+  const groupRef = useRef<THREE.Group>(null);
   
   useFrame((state) => {
-    if (!meshRef.current) return;
+    if (!groupRef.current) return;
     const t = state.clock.getElapsedTime();
-    meshRef.current.position.y = Math.sin(t * 1.5) * 0.03;
+    groupRef.current.position.y = Math.sin(t * 1.5) * 0.03;
   });
 
+  const bodyMaterial = <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} transparent opacity={0.95} />;
+  const windowMaterial = <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" transparent opacity={0.8} />;
+  const accentMaterial = <meshStandardMaterial color="#14181D" metalness={1} />;
+
   return (
-    <group ref={meshRef}>
-      {/* Aerodynamic Body Segment 1 */}
-      <mesh position={[-0.5, 0, 0]}>
-        <boxGeometry args={[3, 0.65, 0.85]} />
-        <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} transparent opacity={0.95} />
-        <Edges color="#00D1FF" threshold={15} />
-      </mesh>
-      
-      {/* Nose Segment (Tapered) */}
-      <mesh position={[1.8, -0.05, 0]} rotation={[0, 0, -Math.PI / 10]}>
-        <boxGeometry args={[1.8, 0.5, 0.8]} />
-        <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} />
-        <Edges color="#00D1FF" threshold={10} />
-      </mesh>
+    <group ref={groupRef}>
+      {/* --- LEAD CAR --- */}
+      <group position={[1.5, 0, 0]}>
+        {/* Main Body (Lead) */}
+        <mesh position={[-0.5, 0, 0]}>
+          <boxGeometry args={[2.5, 0.65, 0.85]} />
+          {bodyMaterial}
+          <Edges color="#00D1FF" threshold={15} />
+        </mesh>
+        
+        {/* Aerodynamic Nose (Shinkansen Style) */}
+        <group position={[0.75, -0.05, 0]}>
+          {/* Base Taper */}
+          <mesh position={[0.5, 0, 0]} rotation={[0, 0, -Math.PI / 12]}>
+            <boxGeometry args={[1.5, 0.5, 0.8]} />
+            {bodyMaterial}
+            <Edges color="#00D1FF" threshold={10} />
+          </mesh>
+          {/* Tip (Extreme Taper) */}
+          <mesh position={[1.4, -0.15, 0]} rotation={[0, 0, -Math.PI / 8]}>
+            <boxGeometry args={[0.8, 0.25, 0.7]} />
+            {bodyMaterial}
+            <Edges color="#00D1FF" threshold={5} />
+          </mesh>
+        </group>
 
-      {/* Roof Unit */}
-      <mesh position={[-0.6, 0.35, 0]}>
-        <boxGeometry args={[2.5, 0.1, 0.6]} />
-        <meshStandardMaterial color="#14181D" />
-        <Edges color="#3A7AB8" />
-      </mesh>
+        {/* Window Band (Lead) */}
+        <mesh position={[-0.4, 0.15, 0.43]}>
+          <planeGeometry args={[2.2, 0.12]} />
+          {windowMaterial}
+        </mesh>
+        <mesh position={[-0.4, 0.15, -0.43]}>
+          <planeGeometry args={[2.2, 0.12]} />
+          {windowMaterial}
+        </mesh>
 
-      {/* Emissive Data Strip */}
-      <mesh position={[0, 0.1, 0.43]}>
-        <planeGeometry args={[3.8, 0.04]} />
-        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={3} color="#00D1FF" />
-      </mesh>
-      <mesh position={[0, 0.1, -0.43]}>
-        <planeGeometry args={[3.8, 0.04]} />
-        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={3} color="#00D1FF" />
-      </mesh>
+        {/* Cockpit Window */}
+        <mesh position={[1.2, 0.2, 0.35]} rotation={[0, 0.4, 0]}>
+          <planeGeometry args={[0.4, 0.15]} />
+          {windowMaterial}
+        </mesh>
+        <mesh position={[1.2, 0.2, -0.35]} rotation={[0, -0.4, 0]}>
+          <planeGeometry args={[0.4, 0.15]} />
+          {windowMaterial}
+        </mesh>
+      </group>
+
+      {/* --- SECOND COACH --- */}
+      <group position={[-1.7, 0, 0]}>
+        <mesh>
+          <boxGeometry args={[3.2, 0.65, 0.85]} />
+          {bodyMaterial}
+          <Edges color="#00D1FF" threshold={15} />
+        </mesh>
+        {/* Window Band */}
+        <mesh position={[0, 0.15, 0.43]}>
+          <planeGeometry args={[3, 0.12]} />
+          {windowMaterial}
+        </mesh>
+        <mesh position={[0, 0.15, -0.43]}>
+          <planeGeometry args={[3, 0.12]} />
+          {windowMaterial}
+        </mesh>
+        {/* Roof Detail (Pantograph Base) */}
+        <mesh position={[0, 0.35, 0]}>
+          <boxGeometry args={[1.5, 0.05, 0.6]} />
+          {accentMaterial}
+          <Edges color="#3A7AB8" />
+        </mesh>
+      </group>
+
+      {/* --- REAR COACH (Partial) --- */}
+      <group position={[-4.8, 0, 0]}>
+        <mesh>
+          <boxGeometry args={[2.8, 0.65, 0.85]} />
+          {bodyMaterial}
+          <Edges color="#00D1FF" threshold={15} />
+        </mesh>
+        <mesh position={[0, 0.15, 0.43]}>
+          <planeGeometry args={[2.5, 0.12]} />
+          {windowMaterial}
+        </mesh>
+      </group>
+
+      {/* --- BOGIES (Simplified) --- */}
+      <group position={[0, -0.35, 0]}>
+        {[2, 0, -2, -4].map((x) => (
+          <group key={x} position={[x, 0, 0]}>
+            <mesh position={[0, 0, 0.3]}>
+              <boxGeometry args={[0.6, 0.15, 0.2]} />
+              <meshBasicMaterial color="#14181D" />
+            </mesh>
+            <mesh position={[0, 0, -0.3]}>
+              <boxGeometry args={[0.6, 0.15, 0.2]} />
+              <meshBasicMaterial color="#14181D" />
+            </mesh>
+          </group>
+        ))}
+      </group>
     </group>
   );
 }
