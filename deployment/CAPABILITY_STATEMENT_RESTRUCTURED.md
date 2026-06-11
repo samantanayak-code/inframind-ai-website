@@ -28,12 +28,6 @@
 
 ---
 
-**Ready to explore how operational intelligence can reduce contractual exposure on your project?**
-
-Schedule a consultation: [https://inframindepc.com/contact](https://inframindepc.com/contact)
-
----
-
 ## Product Portfolio
 
 ### Operational Intelligence Products
@@ -153,23 +147,23 @@ Schedule a consultation: [https://inframindepc.com/contact](https://inframindepc
 
 ## Contact
 
-**InfraMind AI**
+**InfraMind AI**  
 AI-Enabled EPC Operational Intelligence
 
-**Samanta Nayak**
+**Samanta Nayak**  
 Manager — Contracts & Claims | Infrastructure AI Architect
 
-🌐 [https://inframindepc.com](https://inframindepc.com)
-📧 [Contact via website](https://inframindepc.com/contact)
+🌐 [https://www.inframindepc.com](https://www.inframindepc.com)  
+📧 [Contact via website](https://www.inframindepc.com/contact)  
 💼 [LinkedIn](https://linkedin.com)
 
 ---
 
 **Ready to discuss how operational intelligence can reduce contractual exposure on your project?**
 
-[Schedule a consultation →](https://inframindepc.com/contact)
+[Schedule a consultation →](https://www.inframindepc.com/contact)
 
 ---
 
-*Document Version: 1.1 | Generated: June 2026*
+*Document Version: 2.0 | Generated: June 2026*  
 *Blue IM Monogram Branding Applied*

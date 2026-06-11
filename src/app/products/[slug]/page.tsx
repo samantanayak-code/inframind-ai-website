@@ -11,8 +11,7 @@ import { ScreenshotGallery } from "@/components/composites/ScreenshotGallery";
 import { CTASection } from "@/components/composites/CTASection";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/feedback/ScrollReveal";
 import { getProduct, products } from "@/lib/products";
-import { ArrowRight, ChevronRight, Layers, ShieldCheck, Zap } from "lucide-react";
-import * as motion from "framer-motion/client";
+import { Layers, ShieldCheck, Zap } from "lucide-react";
 
 export async function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -189,7 +188,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </Section>
 
       <CTASection
-        id="schedule-consultation"
         headline={`Interested in ${product.name}?`}
         description="Schedule a consultation to discuss how this product can reduce contractual exposure on your EPC project."
         secondaryCTA={{ text: "View Case Study", href: `/case-studies/${product.slug}` }}

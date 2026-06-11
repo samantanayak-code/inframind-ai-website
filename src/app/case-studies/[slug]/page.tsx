@@ -179,7 +179,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </Section>
 
       <CTASection
-        id="schedule-consultation"
         headline="Ready to See These Results on Your Project?"
         description="Schedule a consultation to discuss how practitioner-built operational intelligence can reduce contractual exposure on your EPC project."
       />

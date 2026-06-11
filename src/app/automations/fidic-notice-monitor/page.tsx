@@ -245,15 +245,6 @@ const downloads = [
     description: "Executive summary — problem, solution, outcomes, and contact information.",
     fileUrl: "/downloads/fidic-notice-monitor-one-pager.pdf",
   },
-  {
-    title: "FIDIC Notice Monitor Demo Script",
-    format: "PDF" as const,
-    version: "v1.0",
-    lastUpdated: "June 2026",
-    fileSize: "0.4 MB",
-    description: "5-minute demo walkthrough — MAHSR T-3 scenario with screenshots.",
-    fileUrl: "/downloads/fidic-notice-monitor-demo-script.pdf",
-  },
 ];
 
 export default function FidicNoticeMonitorPage() {

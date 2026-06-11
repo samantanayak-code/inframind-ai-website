@@ -1,6 +1,5 @@
-import { Container } from "@/components/layout/Container";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/feedback/ScrollReveal";
-import { LucideIcon, CheckCircle, Zap, Cpu, Settings } from "lucide-react";
+import { CheckCircle, Zap, Cpu, Settings } from "lucide-react";
 
 interface FeatureGridProps {
   title: string;

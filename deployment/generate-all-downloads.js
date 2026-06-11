@@ -79,11 +79,7 @@ const filesToGenerate = [
     target: 'fidic-notice-monitor-one-pager.pdf',
     title: 'InfraMind EPC — FIDIC Notice Monitor One-Pager'
   },
-  {
-    source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\FIDIC_NOTICE_MONITOR_DEMO_SCRIPT.md',
-    target: 'fidic-notice-monitor-demo-script.pdf',
-    title: 'InfraMind EPC — FIDIC Notice Monitor Demo Script'
-  },
+  // REMOVED: fidic-notice-monitor-demo-script.pdf — internal sales tool, not a portfolio asset
   {
     source: 'd:\\AI-APP\\PORTFOLIO\\deployment\\FIDIC_CLAIMS_INTELLIGENCE_SUITE_OVERVIEW.md',
     target: 'fidic-claims-intelligence-suite-overview.pdf',
@@ -409,7 +405,7 @@ function generateFullHtml(bodyContent, title) {
       <div class="cover-meta">
         <div>Author: Samanta Nayak</div>
         <div>Date: June 2026</div>
-        <div>Classification: Confidential</div>
+        <div>inframindepc.com</div>
       </div>
     </div>
 
@@ -419,8 +415,8 @@ function generateFullHtml(bodyContent, title) {
       <div>${title}</div>
     </div>
     <div class="footer-layout">
-      <div>Confidential — For Prospective Client Evaluation Only</div>
-      <div>InfraMind EPC Operational Intelligence</div>
+      <div>InfraMind EPC</div>
+      <div>inframindepc.com</div>
     </div>
 
     <!-- Main Content -->
@@ -581,8 +577,8 @@ async function generatePptx() {
   slide.addText([
     { text: 'Samanta Nayak\n', options: { bold: true, color: 'D1D5DB', fontSize: 18 } },
     { text: 'Manager — Contracts & Claims | Infrastructure AI Architect\n\n', options: { color: '9CA3AF', fontSize: 13 } },
-    { text: 'Website: https://inframind-ai-website.vercel.app\n', options: { color: 'D1D5DB', fontSize: 14 } },
-    { text: 'Contact Page: https://inframind-ai-website.vercel.app/contact\n', options: { color: 'D1D5DB', fontSize: 14 } }
+    { text: 'Website: https://inframindepc.com\n', options: { color: 'D1D5DB', fontSize: 14 } },
+    { text: 'Contact: https://inframindepc.com/contact\n', options: { color: 'D1D5DB', fontSize: 14 } }
   ], { x: 0.5, y: 1.5, w: 9, h: 2, fontFace: 'Arial', valign: 'top' });
   
   const pptxPath = path.join(PUBLIC_DOWNLOADS_DIR, 'capability-statement.pptx');

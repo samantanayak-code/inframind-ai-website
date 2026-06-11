@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { Button } from "@/components/primitives/Button";
 import { ResourceCard } from "@/components/composites/ResourceCard";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/feedback/ScrollReveal";
 import { Badge } from "@/components/primitives/Badge";

@@ -183,15 +183,6 @@ const downloads = [
     description: "Complete advisory overview — services, FIDIC expertise, ROI metrics, representative experience.",
     fileUrl: "/downloads/contracts-claims-brochure.pdf",
   },
-  {
-    title: "Contracts & Claims One-Page Flyer",
-    format: "PDF" as const,
-    version: "v1.0",
-    lastUpdated: "June 2026",
-    fileSize: "0.4 MB",
-    description: "Executive handout — key services, metrics, and consultation options.",
-    fileUrl: "/downloads/contracts-claims-flyer.pdf",
-  },
 ];
 
 const consultationOptions = [

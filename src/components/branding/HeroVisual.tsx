@@ -4,7 +4,6 @@ import React, { useRef, useMemo, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   PerspectiveCamera,
-  Float,
   Text,
   AdaptiveDpr,
   AdaptiveEvents,
@@ -15,13 +14,45 @@ import { motion } from "framer-motion";
 
 // --- 3D Components ---
 
-function HighSpeedTrain() {
+const HighSpeedTrain = React.forwardRef<THREE.Group>((_, ref) => {
   const groupRef = useRef<THREE.Group>(null);
+  const scanRef = useRef<THREE.Mesh>(null);
+  const bodyMeshRef = useRef<THREE.Mesh>(null);
+  
+  React.useImperativeHandle(ref, () => groupRef.current!, []);
   
   useFrame((state) => {
     if (!groupRef.current) return;
     const t = state.clock.getElapsedTime();
     groupRef.current.position.y = Math.sin(t * 1.5) * 0.03;
+
+    // PHASE 1 — Digital Inspection Scan
+    // Cyan scanning line, nose to rear, 2.5s duration, every 9s
+    if (scanRef.current) {
+      const scanCycle = 9;
+      const scanProgress = (t % scanCycle) / scanCycle;
+      if (scanProgress < 0.28) {
+        const normalizedProgress = scanProgress / 0.28;
+        const trainLength = 8.5;
+        const startX = 2.5;
+        const endX = startX - trainLength;
+        scanRef.current.position.x = THREE.MathUtils.lerp(startX, endX, normalizedProgress);
+        const scanMat = scanRef.current.material as THREE.MeshBasicMaterial;
+        scanMat.opacity = Math.sin(normalizedProgress * Math.PI) * 0.08;
+        scanRef.current.visible = true;
+      } else {
+        scanRef.current.visible = false;
+      }
+    }
+
+    // PHASE 4 — Train Presence: subtle body shimmer
+    // Very slow metalness variation suggesting active digital twin processing
+    if (bodyMeshRef.current && bodyMeshRef.current.material) {
+      const shimmer = Math.sin(t * 0.15) * 0.02;
+      const bodyMat = bodyMeshRef.current.material as THREE.MeshStandardMaterial;
+      bodyMat.metalness = 0.85 + shimmer;
+      bodyMat.roughness = 0.15 - shimmer * 0.5;
+    }
   });
 
   // --- Profile Shapes ---
@@ -48,53 +79,74 @@ function HighSpeedTrain() {
 
   const extrudeSettings = { depth: 0.75, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.04, bevelSegments: 3 };
   
-  const bodyMaterial = <meshStandardMaterial color="#0A0D10" metalness={0.9} roughness={0.1} transparent opacity={0.98} />;
-  const windowMaterial = <meshStandardMaterial color="#00151A" emissive="#00D1FF" emissiveIntensity={0.8} metalness={1} roughness={0} />;
-  const cockpitMaterial = <meshStandardMaterial color="#002B33" emissive="#00D1FF" emissiveIntensity={2} metalness={1} roughness={0} />;
+  const bodyMaterial = <meshStandardMaterial color="#0E1216" metalness={0.85} roughness={0.15} />;
+  const windshieldMaterial = <meshStandardMaterial color="#060E12" emissive="#00D1FF" emissiveIntensity={2} metalness={0.9} roughness={0.05} transparent opacity={0.85} />;
+  const blueprintLineMaterial = <meshBasicMaterial color="#00D1FF" transparent opacity={0.6} />;
+  const separationLineMaterial = <meshBasicMaterial color="#00D1FF" transparent opacity={0.6} />;
   const equipmentMaterial = <meshStandardMaterial color="#14181D" metalness={0.8} roughness={0.4} />;
 
   return (
     <group ref={groupRef} position={[-1.5, 0, 0]}>
       {/* --- LEAD CAR --- */}
       <group position={[1.2, 0, -0.375]}>
-        <mesh>
+        <mesh ref={bodyMeshRef}>
           <extrudeGeometry args={[leadShape, extrudeSettings]} />
           {bodyMaterial}
           <Edges color="#00D1FF" threshold={20} />
         </mesh>
         
-        {/* Lead Car Window Band */}
-        <mesh position={[-0.2, 0.15, 0.76]}>
-          <planeGeometry args={[2.8, 0.12]} />
-          {windowMaterial}
-        </mesh>
-        <mesh position={[-0.2, 0.15, -0.01]}>
-          <planeGeometry args={[2.8, 0.12]} />
-          {windowMaterial}
-        </mesh>
+        {/* Lead Car Passenger Windows - Individual CAD blueprint outlines */}
+        {/* Right side (camera-facing) - 8 windows */}
+        {[-1.25, -0.9, -0.55, -0.2, 0.15, 0.5, 0.85, 1.2].map((x) => (
+          <mesh key={`lead-window-r-${x}`} position={[x, 0.18, 0.768]}>
+            <planeGeometry args={[0.28, 0.22]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+        ))}
+        {/* Left side - 8 windows */}
+        {[-1.25, -0.9, -0.55, -0.2, 0.15, 0.5, 0.85, 1.2].map((x) => (
+          <mesh key={`lead-window-l-${x}`} position={[x, 0.18, -0.018]}>
+            <planeGeometry args={[0.28, 0.22]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+        ))}
 
-        {/* Technical Window Frames (Edges for windows) */}
-        <mesh position={[-0.2, 0.15, 0.761]}>
-          <planeGeometry args={[2.8, 0.12]} />
-          <meshBasicMaterial transparent opacity={0} />
-          <Edges color="#00D1FF" />
-        </mesh>
-
-        {/* Aerodynamic Cockpit Windshield */}
+        {/* Aerodynamic Cockpit Windshield - Dark graphite with thin cyan outline */}
         <group position={[1.6, 0.22, 0.375]} rotation={[0, 0, -Math.PI / 10]}>
           <mesh>
-            <boxGeometry args={[0.7, 0.15, 0.65]} />
-            {cockpitMaterial}
+            <boxGeometry args={[0.85, 0.22, 0.7]} />
+            {windshieldMaterial}
+            <Edges color="#00D1FF" />
+          </mesh>
+          {/* Thin cyan outline only */}
+          <mesh>
+            <boxGeometry args={[0.87, 0.24, 0.72]} />
+            <meshBasicMaterial transparent opacity={0} />
             <Edges color="#00D1FF" />
           </mesh>
         </group>
 
-        {/* Coach Door Outline */}
-        <mesh position={[-1.3, -0.02, 0.76]}>
-          <planeGeometry args={[0.4, 0.55]} />
-          <meshBasicMaterial transparent opacity={0} />
-          <Edges color="#00D1FF" />
-        </mesh>
+        {/* Coach Door Outlines - Blueprint linework only (right side) */}
+        <group position={[-1.3, -0.02, 0.77]}>
+          {/* Door frame rectangle */}
+          <mesh>
+            <planeGeometry args={[0.45, 0.55]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+          {/* Vertical divider */}
+          <mesh rotation={[0, 0, Math.PI / 2]}>
+            <planeGeometry args={[0.55, 0.015]} />
+            {blueprintLineMaterial}
+          </mesh>
+          {/* Horizontal divider */}
+          <mesh position={[0, 0.12, 0]}>
+            <planeGeometry args={[0.45, 0.015]} />
+            {blueprintLineMaterial}
+          </mesh>
+        </group>
       </group>
 
       {/* --- SECOND COACH --- */}
@@ -105,27 +157,62 @@ function HighSpeedTrain() {
           <Edges color="#00D1FF" threshold={20} />
         </mesh>
         
-        {/* Coach Continuous Window Band */}
-        <mesh position={[0, 0.15, 0.76]}>
-          <planeGeometry args={[3.2, 0.12]} />
-          {windowMaterial}
+        {/* Coach Separation Line - Distinct articulation joint */}
+        <mesh position={[-3.7, -0.2, 0]}>
+          <boxGeometry args={[0.1, 0.75, 0.85]} />
+          {separationLineMaterial}
+          <Edges color="#00D1FF" />
         </mesh>
-        <mesh position={[0, 0.15, -0.01]}>
-          <planeGeometry args={[3.2, 0.12]} />
-          {windowMaterial}
-        </mesh>
+        
+        {/* Second Coach Passenger Windows - Individual CAD blueprint outlines */}
+        {/* Right side (camera-facing) - 10 windows */}
+        {[-1.45, -1.1, -0.75, -0.4, -0.05, 0.3, 0.65, 1.0, 1.35, 1.7].map((x) => (
+          <mesh key={`coach2-window-r-${x}`} position={[x, 0.18, 0.768]}>
+            <planeGeometry args={[0.28, 0.22]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+        ))}
+        {/* Left side - 10 windows */}
+        {[-1.45, -1.1, -0.75, -0.4, -0.05, 0.3, 0.65, 1.0, 1.35, 1.7].map((x) => (
+          <mesh key={`coach2-window-l-${x}`} position={[x, 0.18, -0.018]}>
+            <planeGeometry args={[0.28, 0.22]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+        ))}
 
-        {/* Coach Door Outlines */}
-        <mesh position={[-1.3, -0.02, 0.76]}>
-          <planeGeometry args={[0.4, 0.55]} />
-          <meshBasicMaterial transparent opacity={0} />
-          <Edges color="#00D1FF" />
-        </mesh>
-        <mesh position={[1.3, -0.02, 0.76]}>
-          <planeGeometry args={[0.4, 0.55]} />
-          <meshBasicMaterial transparent opacity={0} />
-          <Edges color="#00D1FF" />
-        </mesh>
+        {/* Coach Door Outlines - Blueprint linework only (right side, 2 doors) */}
+        <group position={[-1.3, -0.02, 0.77]}>
+          <mesh>
+            <planeGeometry args={[0.45, 0.55]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+          <mesh rotation={[0, 0, Math.PI / 2]}>
+            <planeGeometry args={[0.55, 0.015]} />
+            {blueprintLineMaterial}
+          </mesh>
+          <mesh position={[0, 0.12, 0]}>
+            <planeGeometry args={[0.45, 0.015]} />
+            {blueprintLineMaterial}
+          </mesh>
+        </group>
+        <group position={[1.3, -0.02, 0.77]}>
+          <mesh>
+            <planeGeometry args={[0.45, 0.55]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+          <mesh rotation={[0, 0, Math.PI / 2]}>
+            <planeGeometry args={[0.55, 0.015]} />
+            {blueprintLineMaterial}
+          </mesh>
+          <mesh position={[0, 0.12, 0]}>
+            <planeGeometry args={[0.45, 0.015]} />
+            {blueprintLineMaterial}
+          </mesh>
+        </group>
 
         {/* Roof Equipment Layer (HVAC + Pantograph Base) */}
         <group position={[0, 0.38, 0.375]}>
@@ -149,6 +236,13 @@ function HighSpeedTrain() {
         </group>
       </group>
 
+      {/* Coach Separation Line - Distinct articulation joint (between 2nd and 3rd) */}
+      <mesh position={[-5.0, -0.2, 0]}>
+        <boxGeometry args={[0.1, 0.75, 0.85]} />
+        {separationLineMaterial}
+        <Edges color="#00D1FF" />
+      </mesh>
+
       {/* --- REAR COACH (Partial) --- */}
       <group position={[-5.4, 0, -0.375]}>
         <mesh>
@@ -156,14 +250,23 @@ function HighSpeedTrain() {
           {bodyMaterial}
           <Edges color="#00D1FF" threshold={20} />
         </mesh>
-        <mesh position={[0.5, 0.15, 0.76]}>
-          <planeGeometry args={[2.2, 0.12]} />
-          {windowMaterial}
-        </mesh>
-        <mesh position={[0.5, 0.15, -0.01]}>
-          <planeGeometry args={[2.2, 0.12]} />
-          {windowMaterial}
-        </mesh>
+        {/* Rear Coach Passenger Windows - Individual CAD blueprint outlines */}
+        {/* Right side (camera-facing) - 6 windows */}
+        {[-0.8, -0.4, 0.0, 0.4, 0.8, 1.2].map((x) => (
+          <mesh key={`rear-window-r-${x}`} position={[x, 0.18, 0.768]}>
+            <planeGeometry args={[0.28, 0.22]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+        ))}
+        {/* Left side - 6 windows */}
+        {[-0.8, -0.4, 0.0, 0.4, 0.8, 1.2].map((x) => (
+          <mesh key={`rear-window-l-${x}`} position={[x, 0.18, -0.018]}>
+            <planeGeometry args={[0.28, 0.22]} />
+            <meshBasicMaterial transparent opacity={0} />
+            <Edges color="#00D1FF" />
+          </mesh>
+        ))}
       </group>
 
       {/* --- BOGIES (Mechanical Grounding) --- */}
@@ -188,22 +291,90 @@ function HighSpeedTrain() {
           </group>
         ))}
       </group>
+
+      {/* Train Scan Effect - subtle cyan scan line */}
+      <mesh
+        ref={scanRef}
+        position={[2.5, 0.45, 0]}
+        visible={false}
+        rotation={[-Math.PI / 2, 0, 0]}
+      >
+        <planeGeometry args={[0.12, 0.8]} />
+        <meshBasicMaterial
+          color="#00D1FF"
+          transparent
+          opacity={0}
+          side={THREE.DoubleSide}
+          depthWrite={false}
+        />
+      </mesh>
     </group>
   );
-}
+});
 
-function GlowingRails() {
+const GlowingRails = React.forwardRef<THREE.Group>((_, ref) => {
+  const groupRef = useRef<THREE.Group>(null);
+  const pulseRef = useRef<(THREE.Mesh | null)[]>([null, null]);
+  
+  React.useImperativeHandle(ref, () => groupRef.current!, []);
+  
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    // PHASE 2 — Rail Data Flow
+    // Small cyan pulse along rail alignment, every 6s, very subtle
+    const pulseCycle = 6;
+    const pulseProgress = (t % pulseCycle) / pulseCycle;
+    if (pulseProgress < 0.33) {
+      const normalizedProgress = pulseProgress / 0.33;
+      const startX = 10;
+      const endX = -10;
+      const currentX = THREE.MathUtils.lerp(startX, endX, normalizedProgress);
+      const opacity = Math.sin(normalizedProgress * Math.PI) * 0.12;
+      pulseRef.current.forEach((pulse, i) => {
+        if (pulse) {
+          pulse.position.x = currentX;
+          pulse.position.z = i === 0 ? 0.4 : -0.4;
+          const pulseMat = pulse.material as THREE.MeshBasicMaterial;
+          pulseMat.opacity = opacity;
+          pulse.visible = true;
+        }
+      });
+    } else {
+      pulseRef.current.forEach((pulse) => {
+        if (pulse) pulse.visible = false;
+      });
+    }
+  });
+
   return (
-    <group position={[0, -0.6, 0]}>
+    <group ref={groupRef} position={[0, -0.6, 0]}>
       {/* Left Rail */}
       <mesh position={[0, 0, 0.4]}>
         <boxGeometry args={[20, 0.05, 0.05]} />
-        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" />
+        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2.2} color="#00D1FF" />
       </mesh>
       {/* Right Rail */}
       <mesh position={[0, 0, -0.4]}>
         <boxGeometry args={[20, 0.05, 0.05]} />
-        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2} color="#00D1FF" />
+        <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={2.2} color="#00D1FF" />
+      </mesh>
+      
+      {/* Rail Data Pulses - small intelligence flow indicators */}
+      <mesh
+        ref={(el) => (pulseRef.current[0] = el!)}
+        position={[10, 0.03, 0.4]}
+        visible={false}
+      >
+        <boxGeometry args={[0.3, 0.06, 0.06]} />
+        <meshBasicMaterial color="#00D1FF" transparent opacity={0} depthWrite={false} />
+      </mesh>
+      <mesh
+        ref={(el) => (pulseRef.current[1] = el!)}
+        position={[10, 0.03, -0.4]}
+        visible={false}
+      >
+        <boxGeometry args={[0.3, 0.06, 0.06]} />
+        <meshBasicMaterial color="#00D1FF" transparent opacity={0} depthWrite={false} />
       </mesh>
       
       {/* Sleepers */}
@@ -215,7 +386,7 @@ function GlowingRails() {
       )), [])}
     </group>
   );
-}
+});
 
 function DataStreams() {
   const count = 40;
@@ -259,48 +430,130 @@ function DataStreams() {
   );
 }
 
-function OperationalNodes() {
+const OperationalNodes = React.forwardRef<THREE.Group>((_, ref) => {
+  const groupRef = useRef<THREE.Group>(null);
   const labels = [
     { text: "CONTRACT_INTEL", pos: [2.5, 2, 2] },
     { text: "QUALITY_MIS", pos: [-2.5, 2, -1] },
     { text: "SCHEDULE_SYNC", pos: [-3, 1, 3] },
     { text: "DOC_ENGINE", pos: [3, 2, -2] },
   ];
+  const textRefs = useRef<(THREE.Mesh | null)[]>([]);
+  const sphereRefs = useRef<(THREE.Mesh | null)[]>([]);
+  
+  React.useImperativeHandle(ref, () => groupRef.current!, []);
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    // PHASE 3 — Node Breathing
+    // Opacity pulse only, ±12%, very slow (6s cycle), no scaling
+    const breathCycle = 6;
+    const breathProgress = (t % breathCycle) / breathCycle;
+    const breathFactor = 1 + Math.sin(breathProgress * Math.PI * 2) * 0.12;
+    
+    textRefs.current.forEach((ref) => {
+      if (ref) {
+        const mat = ref.material as THREE.Material;
+        if ('opacity' in mat) mat.opacity = 0.7225 * breathFactor;
+      }
+    });
+    sphereRefs.current.forEach((ref) => {
+      if (ref) {
+        const mat = ref.material as THREE.MeshStandardMaterial;
+        mat.opacity = 0.7225 * breathFactor;
+        mat.emissiveIntensity = 4.25 * breathFactor;
+      }
+    });
+  });
 
   return (
-    <group>
+    <group ref={groupRef}>
       {labels.map((l, i) => (
-        <Float key={i} speed={3} rotationIntensity={0.5} floatIntensity={2}>
+        <group key={i}>
           <Text
+            ref={(el) => (textRefs.current[i] = el!)}
             position={l.pos as any}
-            fontSize={0.25}
+            fontSize={0.17}
             color="#00D1FF"
             anchorX="center"
             anchorY="middle"
+            {...({ opacity: 0.7225 } as any)}
           >
             {l.text}
           </Text>
-          <mesh position={[l.pos[0], l.pos[1] - 0.4, l.pos[2]]}>
+          <mesh
+            ref={(el) => (sphereRefs.current[i] = el!)}
+            position={[l.pos[0], l.pos[1] - 0.4, l.pos[2]]}
+          >
             <sphereGeometry args={[0.06, 16, 16]} />
-            <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={5} color="#00D1FF" />
+            <meshStandardMaterial emissive="#00D1FF" emissiveIntensity={4.25} color="#00D1FF" transparent opacity={0.7225} />
           </mesh>
-        </Float>
+        </group>
       ))}
     </group>
   );
-}
+});
 
 function SceneContent() {
   const { viewport } = useThree();
   const groupRef = useRef<THREE.Group>(null);
+  const gridRef = useRef<THREE.GridHelper>(null);
+  const railsRef = useRef<THREE.Group>(null);
+  const trainRef = useRef<THREE.Group>(null);
+  const nodesRef = useRef<THREE.Group>(null);
+  const [entryProgress, setEntryProgress] = React.useState(0);
 
   useFrame((state) => {
     if (!groupRef.current) return;
+    const t = state.clock.getElapsedTime();
+    
     // Subtle mouse parallax for the model only
     const x = state.mouse.x * 0.4;
     const y = state.mouse.y * 0.4;
     groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, x, 0.05);
     groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, -y, 0.05);
+
+    // PHASE 5 — Hero Entry Animation
+    // Staggered fade-in over 1.8s: grid → rails → train → labels → HUD
+    if (entryProgress < 1) {
+      const newProgress = Math.min(1, t / 1.8);
+      setEntryProgress(newProgress);
+    }
+
+    // Animate entry opacity for each element group
+    const gridOpacity = THREE.MathUtils.clamp((entryProgress - 0.0) / 0.25, 0, 1);
+    const railsOpacity = THREE.MathUtils.clamp((entryProgress - 0.15) / 0.3, 0, 1);
+    const trainOpacity = THREE.MathUtils.clamp((entryProgress - 0.35) / 0.35, 0, 1);
+    const nodesOpacity = THREE.MathUtils.clamp((entryProgress - 0.6) / 0.3, 0, 1);
+
+    if (gridRef.current) {
+      const gridMat = gridRef.current.material as THREE.Material;
+      gridMat.opacity = gridOpacity * 0.5;
+    }
+    if (railsRef.current) railsRef.current.children.forEach((child) => {
+      if ('material' in child) {
+        const childMat = (child as THREE.Mesh).material as THREE.Material;
+        if ('opacity' in childMat) childMat.opacity = railsOpacity;
+      }
+      if (child.children) child.children.forEach((c) => {
+        if ('material' in c) {
+          const cMat = (c as THREE.Mesh).material as THREE.Material;
+          if ('opacity' in cMat) cMat.opacity = railsOpacity;
+        }
+      });
+    });
+    if (trainRef.current) trainRef.current.traverse((obj) => {
+      if ('material' in obj) {
+        const objMat = (obj as THREE.Mesh).material as THREE.Material;
+        if ('opacity' in objMat) objMat.opacity = trainOpacity;
+      }
+    });
+    if (nodesRef.current) nodesRef.current.traverse((obj) => {
+      if ('material' in obj) {
+        const objMat = (obj as THREE.Mesh).material as THREE.Material;
+        if ('opacity' in objMat) objMat.opacity = nodesOpacity * 0.7225;
+      }
+    });
   });
 
   return (
@@ -311,12 +564,36 @@ function SceneContent() {
       <pointLight position={[10, 10, 10]} intensity={2} color="#00D1FF" />
       <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={3} color="#3A7AB8" />
 
-      <group ref={groupRef} position={[0, 1.3, 0]}>
-        <HighSpeedTrain />
-        <GlowingRails />
+      {/* Ambient Depth - subtle atmospheric separation layers */}
+      <mesh position={[0, 0, -15]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[60, 60]} />
+        <meshBasicMaterial
+          color="#0A0D10"
+          transparent
+          opacity={0.15}
+          depthWrite={false}
+        />
+      </mesh>
+      <mesh position={[0, -5, -20]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[80, 80]} />
+        <meshBasicMaterial
+          color="#0A0D10"
+          transparent
+          opacity={0.1}
+          depthWrite={false}
+        />
+      </mesh>
+
+      <group ref={groupRef} position={[0, 1.38, 0]}>
+        <gridHelper 
+          ref={gridRef} 
+          args={[100, 50, "#252D38", "#14181D"]} 
+          position={[0, -0.65, 0]} 
+        />
+        <GlowingRails ref={railsRef} />
+        <HighSpeedTrain ref={trainRef} />
         <DataStreams />
-        <OperationalNodes />
-        <gridHelper args={[100, 50, "#252D38", "#14181D"]} position={[0, -0.65, 0]} />
+        <OperationalNodes ref={nodesRef} />
       </group>
     </>
   );
