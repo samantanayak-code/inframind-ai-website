@@ -6,8 +6,8 @@ import { Button } from "@/components/primitives/Button";
 import { Badge } from "@/components/primitives/Badge";
 import { CapabilityMetricCard } from "@/components/composites/CapabilityMetricCard";
 import { DownloadCard } from "@/components/composites/DownloadCard";
-import { LeadCaptureForm } from "@/components/composites/LeadCaptureForm";
-import { QuickEnquiryForm } from "@/components/composites/QuickEnquiryForm";
+import { LazyLeadCaptureForm } from "@/components/composites/LazyLeadCaptureForm";
+import { LazyQuickEnquiryForm } from "@/components/composites/LazyQuickEnquiryForm";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
 import {
@@ -108,7 +108,7 @@ const downloads = [
     lastUpdated: "June 2026",
     fileSize: "2.4 MB",
     description: "Complete portfolio overview — advisory suite, products, automation capabilities, and representative experience.",
-    fileUrl: "/downloads/capability-statement.pdf",
+    fileUrl: "/downloads/InfraMind-EPC-Capability-Statement.pdf",
   },
   {
     title: "Capability Statement — InfraMind EPC",
@@ -378,7 +378,7 @@ export default function CapabilityStatementPage() {
               <p className="text-graphite-400 mb-8">
                 Complete the form to download the Capability Statement and receive follow-up communication.
               </p>
-              <LeadCaptureForm />
+              <LazyLeadCaptureForm />
             </div>
           </div>
         </Container>
@@ -405,7 +405,7 @@ export default function CapabilityStatementPage() {
                 </div>
               ))}
             </div>
-            <QuickEnquiryForm source="capability-statement" />
+            <LazyQuickEnquiryForm source="capability-statement" />
           </div>
         </Container>
       </Section>

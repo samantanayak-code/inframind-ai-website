@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FileText, Presentation, Download, FileDown } from "lucide-react";
 import { DocumentUnavailableModal } from "@/components/feedback/DocumentUnavailableModal";
-import { config } from "@/lib/config";
+import { isDownloadAllowed } from "@/lib/config";
 
 interface DownloadCardProps {
   title: string;
@@ -41,7 +41,7 @@ export function DownloadCard({
   const colorClass = formatColors[format];
 
   const handleClick = () => {
-    if (config.DOCUMENT_DOWNLOADS_ENABLED) {
+    if (isDownloadAllowed(fileUrl)) {
       if (fileUrl) {
         const link = document.createElement("a");
         link.href = fileUrl;

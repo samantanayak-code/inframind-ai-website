@@ -15,7 +15,7 @@ const resources = [
   {
     title: "InfraMind Capability Statement",
     description: "Comprehensive overview of our operational intelligence platform, credentials, and technical architecture.",
-    href: "/downloads/capability-statement.pdf",
+    href: "/downloads/InfraMind-EPC-Capability-Statement.pdf",
     type: "Capability Statement" as const,
     fileSize: "322 KB",
   },
@@ -36,7 +36,7 @@ const resources = [
   {
     title: "Unifier Sync Case Study",
     description: "Empirical results from integrating Oracle Unifier data with InfraMind's analytical layer.",
-    href: "/downloads/unifier-sync-case-study.pdf",
+    href: "/downloads/InfraMind-EPC-High-Speed-Rail-Operational-Intelligence-Case-Study.pdf",
     type: "Case Study" as const,
     fileSize: "358 KB",
   },

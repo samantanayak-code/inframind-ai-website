@@ -58,16 +58,10 @@ export function DocumentUnavailableModal({ open, onClose }: DocumentUnavailableM
 
         <div className="p-6 space-y-4">
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-            Thank you for your interest in InfraMind EPC.
+            We are currently expanding our public knowledge library.
           </p>
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-            We are currently updating and enhancing our documentation to reflect our latest capabilities, products and service offerings.
-          </p>
-          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-            The revised documents will be available within the next few days.
-          </p>
-          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-            We appreciate your patience and look forward to sharing the updated documentation soon.
+            Additional brochures, technical papers and product guides will be published soon.
           </p>
         </div>
 

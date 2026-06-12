@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/primitives/Button";
 import { Download, FileText, FilePieChart, ShieldCheck } from "lucide-react";
 import { DocumentUnavailableModal } from "@/components/feedback/DocumentUnavailableModal";
-import { config } from "@/lib/config";
+import { isDownloadAllowed } from "@/lib/config";
 
 interface ResourceCardProps {
   title: string;
@@ -47,7 +47,7 @@ export function ResourceCard({ title, description, href, type, fileSize }: Resou
               PDF • {fileSize}
             </span>
           )}
-          {config.DOCUMENT_DOWNLOADS_ENABLED ? (
+          {isDownloadAllowed(href) ? (
             <Button href={href} variant="ghost" size="sm" className="h-10 px-4">
               <Download className="w-4 h-4 mr-2" />
               Download

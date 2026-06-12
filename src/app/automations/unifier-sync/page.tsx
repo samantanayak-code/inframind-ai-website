@@ -7,8 +7,8 @@ import { MetricCard } from "@/components/composites/MetricCard";
 import { FeatureItem } from "@/components/composites/FeatureItem";
 import { CapabilityMetricCard } from "@/components/composites/CapabilityMetricCard";
 import { DownloadCard } from "@/components/composites/DownloadCard";
-import { LeadCaptureForm } from "@/components/composites/LeadCaptureForm";
-import { QuickEnquiryForm } from "@/components/composites/QuickEnquiryForm";
+import { LazyLeadCaptureForm } from "@/components/composites/LazyLeadCaptureForm";
+import { LazyQuickEnquiryForm } from "@/components/composites/LazyQuickEnquiryForm";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
 import {
@@ -150,7 +150,7 @@ const downloads = [
     lastUpdated: "June 2026",
     fileSize: "0.5 MB",
     description: "MAHSR T-3 deployment case study — challenge, approach, outcome, and lessons learned.",
-    fileUrl: "/downloads/unifier-sync-case-study.pdf",
+    fileUrl: "/downloads/InfraMind-EPC-High-Speed-Rail-Operational-Intelligence-Case-Study.pdf",
   },
 ];
 
@@ -539,9 +539,9 @@ export default function UnifierSyncPage() {
               <p className="text-graphite-400 mb-8">
                 Complete the form to receive the Unifier Sync one-pager and schedule a consultation.
               </p>
-              <LeadCaptureForm />
+              <LazyLeadCaptureForm />
             </div>
-            <QuickEnquiryForm source="unifier-sync" />
+            <LazyQuickEnquiryForm source="unifier-sync" />
           </div>
         </Container>
       </Section>
