@@ -106,18 +106,18 @@ const downloads = [
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "June 2026",
-    fileSize: "2.4 MB",
+    fileSize: "204 KB",
     description: "Complete portfolio overview — advisory suite, products, automation capabilities, and representative experience.",
-    fileUrl: "/downloads/InfraMind-EPC-Capability-Statement.pdf",
+    fileUrl: "/downloads/01_capability-statement.pdf",
   },
   {
     title: "Capability Statement — InfraMind EPC",
     format: "PPT" as const,
     version: "v1.0",
     lastUpdated: "June 2026",
-    fileSize: "5.1 MB",
+    fileSize: "46 KB",
     description: "Presentation format — suitable for project introduction and stakeholder briefings.",
-    fileUrl: "/downloads/capability-statement.pptx",
+    fileUrl: "/downloads/InfraMind_EPC_Capability_Statement.pptx",
   },
 ];
 

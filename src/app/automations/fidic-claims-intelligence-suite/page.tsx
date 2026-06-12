@@ -6,8 +6,8 @@ import { Badge } from "@/components/primitives/Badge";
 import { MetricCard } from "@/components/composites/MetricCard";
 import { CapabilityMetricCard } from "@/components/composites/CapabilityMetricCard";
 import { DownloadCard } from "@/components/composites/DownloadCard";
-import { LeadCaptureForm } from "@/components/composites/LeadCaptureForm";
-import { QuickEnquiryForm } from "@/components/composites/QuickEnquiryForm";
+import { LazyLeadCaptureForm } from "@/components/composites/LazyLeadCaptureForm";
+import { LazyQuickEnquiryForm } from "@/components/composites/LazyQuickEnquiryForm";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
 import {
@@ -301,45 +301,45 @@ const downloads = [
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "Jun 2026",
-    fileSize: "2.1 MB",
+    fileSize: "172 KB",
     description: "Executive overview of the complete FIDIC Claims Intelligence Suite — four modules, unified workflow.",
-    fileUrl: "/downloads/fidic-claims-intelligence-suite-overview.pdf",
+    fileUrl: "/downloads/06_fidic-claims-intelligence-suite-overview.pdf",
   },
   {
     title: "FIDIC Notice Monitor One-Pager",
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "Jun 2026",
-    fileSize: "1.8 MB",
+    fileSize: "146 KB",
     description: "FIDIC Notice Monitor product summary — features, workflow, pricing, deployment.",
-    fileUrl: "/downloads/fidic-notice-monitor-one-pager.pdf",
+    fileUrl: "/downloads/08_fidic-notice-monitor-one-pager.pdf",
   },
   {
     title: "EOT Event Log Compiler — Concept Specification",
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "Jun 2026",
-    fileSize: "1.5 MB",
+    fileSize: "169 KB",
     description: "Technical specification for the EOT Event Log Compiler — architecture, data model, workflow.",
-    fileUrl: "/downloads/eot-event-log-compiler-spec.pdf",
+    fileUrl: "/downloads/07_eot-event-log-compiler-spec.pdf",
   },
   {
     title: "Claim Narrative Drafter — Concept Specification",
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "Jun 2026",
-    fileSize: "1.6 MB",
+    fileSize: "172 KB",
     description: "Technical specification for the Claim Narrative Drafter — FIDIC 20.1 compliance, narrative structure.",
-    fileUrl: "/downloads/claim-narrative-drafter-spec.pdf",
+    fileUrl: "/downloads/05_claim-narrative-drafter-spec.pdf",
   },
   {
     title: "Letter Drafter EPC — Concept Specification",
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "Jun 2026",
-    fileSize: "1.4 MB",
+    fileSize: "170 KB",
     description: "Technical specification for Letter Drafter EPC — templates, clause mapping, correspondence workflow.",
-    fileUrl: "/downloads/letter-drafter-epc-spec.pdf",
+    fileUrl: "/downloads/04_letter-drafter-epc-spec.pdf",
   },
 ];
 
@@ -667,7 +667,7 @@ export default function FidicClaimsIntelligenceSuitePage() {
                 buttonText="Schedule Demo"
               />
             </div>
-            <QuickEnquiryForm source="fidic-claims-intelligence-suite" />
+            <LazyQuickEnquiryForm source="fidic-claims-intelligence-suite" />
           </div>
         </Container>
       </Section>

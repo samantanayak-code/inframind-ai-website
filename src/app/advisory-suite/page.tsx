@@ -5,7 +5,7 @@ import { Button } from "@/components/primitives/Button";
 import { Badge } from "@/components/primitives/Badge";
 import { CapabilityMetricCard } from "@/components/composites/CapabilityMetricCard";
 import { DownloadCard } from "@/components/composites/DownloadCard";
-import { QuickEnquiryForm } from "@/components/composites/QuickEnquiryForm";
+import { LazyQuickEnquiryForm } from "@/components/composites/LazyQuickEnquiryForm";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
 import {
@@ -176,36 +176,36 @@ const downloads = [
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "June 2026",
-    fileSize: "1.2 MB",
+    fileSize: "168 KB",
     description: "Executive overview of all three advisory offerings, bundle options, and representative experience.",
-    fileUrl: "/downloads/advisory-suite-overview.pdf",
+    fileUrl: "/downloads/13_advisory-suite-overview.pdf",
   },
   {
     title: "Planning & Scheduling Brochure",
     format: "PDF" as const,
     version: "v2.0",
     lastUpdated: "June 2026",
-    fileSize: "1.5 MB",
+    fileSize: "179 KB",
     description: "Complete Planning & Scheduling Advisory overview — services, FIDIC expertise, ROI metrics.",
-    fileUrl: "/downloads/planning-scheduling-brochure.pdf",
+    fileUrl: "/downloads/11_planning-scheduling-brochure.pdf",
   },
   {
     title: "Delay Analysis & EOT Brochure",
     format: "PDF" as const,
     version: "v2.0",
     lastUpdated: "June 2026",
-    fileSize: "1.6 MB",
+    fileSize: "236 KB",
     description: "Complete Delay Analysis & EOT Advisory overview — methodologies, FIDIC expertise, ROI metrics.",
-    fileUrl: "/downloads/delay-analysis-eot-brochure.pdf",
+    fileUrl: "/downloads/02_delay-analysis-eot-brochure.pdf",
   },
   {
     title: "Contracts & Claims Brochure",
     format: "PDF" as const,
     version: "v2.0",
     lastUpdated: "June 2026",
-    fileSize: "1.8 MB",
+    fileSize: "235 KB",
     description: "Complete Contracts & Claims Advisory overview — services, FIDIC expertise, ROI metrics.",
-    fileUrl: "/downloads/contracts-claims-brochure.pdf",
+    fileUrl: "/downloads/03_contracts-claims-brochure.pdf",
   },
 ];
 
@@ -535,7 +535,7 @@ export default function AdvisorySuitePage() {
                 </div>
               ))}
             </div>
-            <QuickEnquiryForm source="advisory-suite" />
+            <LazyQuickEnquiryForm source="advisory-suite" />
           </div>
         </Container>
       </Section>

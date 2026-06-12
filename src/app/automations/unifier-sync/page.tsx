@@ -139,9 +139,9 @@ const downloads = [
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "June 2026",
-    fileSize: "0.3 MB",
+    fileSize: "142 KB",
     description: "Executive summary — problem, solution, outcomes, and contact information.",
-    fileUrl: "/downloads/unifier-sync-one-pager.pdf",
+    fileUrl: "/downloads/10_unifier-sync-one-pager.pdf",
   },
   {
     title: "Unifier Sync Case Study",

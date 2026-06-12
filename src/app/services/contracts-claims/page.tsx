@@ -6,7 +6,7 @@ import { Badge } from "@/components/primitives/Badge";
 import { FeatureItem } from "@/components/composites/FeatureItem";
 import { CapabilityMetricCard } from "@/components/composites/CapabilityMetricCard";
 import { DownloadCard } from "@/components/composites/DownloadCard";
-import { QuickEnquiryForm } from "@/components/composites/QuickEnquiryForm";
+import { LazyQuickEnquiryForm } from "@/components/composites/LazyQuickEnquiryForm";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
 import {
@@ -179,9 +179,9 @@ const downloads = [
     format: "PDF" as const,
     version: "v2.0",
     lastUpdated: "June 2026",
-    fileSize: "1.8 MB",
+    fileSize: "235 KB",
     description: "Complete advisory overview — services, FIDIC expertise, ROI metrics, representative experience.",
-    fileUrl: "/downloads/contracts-claims-brochure.pdf",
+    fileUrl: "/downloads/03_contracts-claims-brochure.pdf",
   },
 ];
 
@@ -410,7 +410,7 @@ export default function ContractsClaimsPage() {
                 </div>
               ))}
             </div>
-            <QuickEnquiryForm source="contracts-claims" />
+            <LazyQuickEnquiryForm source="contracts-claims" />
           </div>
         </Container>
       </Section>

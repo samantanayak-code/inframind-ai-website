@@ -6,8 +6,8 @@ import { Badge } from "@/components/primitives/Badge";
 import { MetricCard } from "@/components/composites/MetricCard";
 import { CapabilityMetricCard } from "@/components/composites/CapabilityMetricCard";
 import { DownloadCard } from "@/components/composites/DownloadCard";
-import { LeadCaptureForm } from "@/components/composites/LeadCaptureForm";
-import { QuickEnquiryForm } from "@/components/composites/QuickEnquiryForm";
+import { LazyLeadCaptureForm } from "@/components/composites/LazyLeadCaptureForm";
+import { LazyQuickEnquiryForm } from "@/components/composites/LazyQuickEnquiryForm";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
 import {
@@ -241,9 +241,9 @@ const downloads = [
     format: "PDF" as const,
     version: "v1.0",
     lastUpdated: "June 2026",
-    fileSize: "0.3 MB",
+    fileSize: "146 KB",
     description: "Executive summary — problem, solution, outcomes, and contact information.",
-    fileUrl: "/downloads/fidic-notice-monitor-one-pager.pdf",
+    fileUrl: "/downloads/08_fidic-notice-monitor-one-pager.pdf",
   },
 ];
 
@@ -569,7 +569,7 @@ export default function FidicNoticeMonitorPage() {
                 buttonText="Schedule Demo"
               />
             </div>
-            <QuickEnquiryForm source="fidic-notice-monitor" />
+            <LazyQuickEnquiryForm source="fidic-notice-monitor" />
           </div>
         </Container>
       </Section>

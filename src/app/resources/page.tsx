@@ -15,23 +15,23 @@ const resources = [
   {
     title: "InfraMind Capability Statement",
     description: "Comprehensive overview of our operational intelligence platform, credentials, and technical architecture.",
-    href: "/downloads/InfraMind-EPC-Capability-Statement.pdf",
+    href: "/downloads/01_capability-statement.pdf",
     type: "Capability Statement" as const,
-    fileSize: "322 KB",
+    fileSize: "204 KB",
   },
   {
     title: "FIDIC Notice Monitor Spec",
     description: "Detailed technical specification for our automated FIDIC Sub-Clause 20.1 notice compliance engine.",
-    href: "/downloads/fidic-notice-monitor-one-pager.pdf",
+    href: "/downloads/08_fidic-notice-monitor-one-pager.pdf",
     type: "Technical Specification" as const,
-    fileSize: "295 KB",
+    fileSize: "146 KB",
   },
   {
     title: "Advisory Suite Overview",
     description: "Strategic guidance for EPC megaproject owners and contractors on AI implementation.",
-    href: "/downloads/advisory-suite-overview.pdf",
+    href: "/downloads/13_advisory-suite-overview.pdf",
     type: "Brochure" as const,
-    fileSize: "386 KB",
+    fileSize: "168 KB",
   },
   {
     title: "Unifier Sync Case Study",
@@ -43,16 +43,16 @@ const resources = [
   {
     title: "Claim Narrative Drafter Spec",
     description: "How our LLM engine generates defensible claim narratives from contemporaneous project records.",
-    href: "/downloads/claim-narrative-drafter-spec.pdf",
+    href: "/downloads/05_claim-narrative-drafter-spec.pdf",
     type: "Technical Specification" as const,
-    fileSize: "271 KB",
+    fileSize: "172 KB",
   },
   {
     title: "Delay Analysis & EOT Brochure",
     description: "A practitioner's guide to forensic delay analysis using operational intelligence.",
-    href: "/downloads/delay-analysis-eot-brochure.pdf",
+    href: "/downloads/02_delay-analysis-eot-brochure.pdf",
     type: "Brochure" as const,
-    fileSize: "457 KB",
+    fileSize: "236 KB",
   },
 ];
 
