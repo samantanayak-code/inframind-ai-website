@@ -15,7 +15,7 @@ const quickEnquirySchema = z.object({
 
 type QuickEnquiryFormData = z.infer<typeof quickEnquirySchema>;
 
-interface QuickEnquiryFormProps {
+export interface QuickEnquiryFormProps {
   source?: string;
   onSubmitSuccess?: () => void;
 }

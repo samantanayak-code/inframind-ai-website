@@ -8,8 +8,8 @@ export function InfrastructureNetwork() {
     { x: 400, y: 50, label: "Digital Twin" },
     { x: 700, y: 100, label: "Contract Engine" },
     { x: 400, y: 250, label: "Insight Hub" },
-    { x: 100, y: 200, label: "Employer" },
-    { x: 700, y: 200, label: "Contractor" },
+    { x: 100, y: 200, label: "Planning Dept" },
+    { x: 700, y: 200, label: "Contract Dept" },
   ];
 
   const connections = [
@@ -96,6 +96,14 @@ export function InfrastructureNetwork() {
       <div className="absolute top-6 left-6 flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-[var(--color-success)] animate-pulse" />
         <span className="text-[10px] uppercase tracking-widest text-white font-bold opacity-60">Live Intelligence Network</span>
+        <span className="text-[10px] uppercase tracking-widest text-[var(--color-primary)] font-bold">– Digital Twin Engine</span>
+      </div>
+
+      {/* Description */}
+      <div className="absolute bottom-5 left-6 right-6">
+        <p className="text-[10px] leading-relaxed text-[var(--color-text-secondary)] opacity-60">
+          Every project event becomes connected intelligence — automatically — giving every department a single source of truth for decisions, risks, progress, and contractual control.
+        </p>
       </div>
     </div>
   );

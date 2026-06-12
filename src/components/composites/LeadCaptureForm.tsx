@@ -26,7 +26,7 @@ const interestAreas = [
   "General Enquiry",
 ];
 
-interface LeadCaptureFormProps {
+export interface LeadCaptureFormProps {
   onSubmitSuccess?: () => void;
 }
 
