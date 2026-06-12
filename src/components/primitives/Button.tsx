@@ -11,7 +11,7 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   type?: "button" | "submit";
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
   disabled?: boolean;
 }
 
@@ -45,7 +45,7 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {icon}
         {children}
       </Link>
