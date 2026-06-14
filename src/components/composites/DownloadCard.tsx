@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FileText, Presentation, Download, FileDown } from "lucide-react";
+import { Button } from "@/components/primitives/Button";
 import { DocumentUnavailableModal } from "@/components/feedback/DocumentUnavailableModal";
 import { isDownloadAllowed } from "@/lib/config";
 
@@ -72,13 +73,14 @@ export function DownloadCard({
               <span>Updated {lastUpdated}</span>
             </div>
           </div>
-          <button
+          <Button
             onClick={handleClick}
-            className="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-infrastructure-600 text-white text-sm font-medium hover:bg-infrastructure-500 transition-colors"
+            size="sm"
+            className="flex-shrink-0 h-11 px-5 group"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-4 h-4 group-hover:translate-y-[-1px] transition-transform duration-200" />
             Download
-          </button>
+          </Button>
         </div>
       </div>
       <DocumentUnavailableModal open={showModal} onClose={() => setShowModal(false)} />

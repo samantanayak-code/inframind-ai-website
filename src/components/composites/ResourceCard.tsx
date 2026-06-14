@@ -48,13 +48,13 @@ export function ResourceCard({ title, description, href, type, fileSize }: Resou
             </span>
           )}
           {isDownloadAllowed(href) ? (
-            <Button href={href} variant="ghost" size="sm" className="h-10 px-4">
-              <Download className="w-4 h-4 mr-2" />
+            <Button href={href} variant="primary" size="sm" className="h-11 px-5 group">
+              <Download className="w-4 h-4 mr-2 group-hover:translate-y-[-1px] transition-transform duration-200" />
               Download
             </Button>
           ) : (
-            <Button variant="ghost" size="sm" className="h-10 px-4" onClick={handleClick}>
-              <Download className="w-4 h-4 mr-2" />
+            <Button variant="primary" size="sm" className="h-11 px-5 group" onClick={handleClick}>
+              <Download className="w-4 h-4 mr-2 group-hover:translate-y-[-1px] transition-transform duration-200" />
               Download
             </Button>
           )}

@@ -19,9 +19,11 @@ const footerLinks = {
     { href: "/services/delay-analysis-eot", label: "Delay Analysis, EOT & Claims Support" },
   ],
   company: [
-    { href: "/about", label: "About" },
     { href: "/case-studies", label: "Case Studies" },
     { href: "/contact", label: "Contact" },
+  ],
+  about: [
+    { href: "/about", label: "About InfraMind EPC" },
   ],
 };
 
@@ -29,7 +31,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/5 bg-[#07090C]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-12">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg mb-6">
               <InfraMindLogo variant="horizontal" />
@@ -93,6 +95,19 @@ export function Footer() {
                   Resources
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6">About</h3>
+            <ul className="space-y-4">
+              {footerLinks.about.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors font-medium">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
