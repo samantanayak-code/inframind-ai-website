@@ -7,6 +7,7 @@ import { Badge } from "@/components/primitives/Badge";
 import { MetricCard } from "@/components/composites/MetricCard";
 import { ProductCard } from "@/components/composites/ProductCard";
 import { CaseStudyCard } from "@/components/composites/CaseStudyCard";
+import { TrustMetricsStrip } from "@/components/composites/TrustMetricsStrip";
 import { AutomationCard } from "@/components/composites/AutomationCard";
 import { CalendlyCTA } from "@/components/composites/CalendlyCTA";
 import { CTASection } from "@/components/composites/CTASection";
@@ -242,6 +243,8 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
+
+      <TrustMetricsStrip />
 
       {/* Experience Highlights — Task 3 */}
       <Section className="bg-[var(--color-surface-subtle)] border-y border-[var(--color-border)]">
